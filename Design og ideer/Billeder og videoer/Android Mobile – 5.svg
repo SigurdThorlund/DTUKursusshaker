@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" height="640" viewBox="0 0 360 640">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="360" height="48" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-7">
+      <path id="Path_990" data-name="Path 990" d="M0,0H304V-21H0Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-9">
+      <path id="Path_993" data-name="Path 993" d="M1,0H304V-20H1Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-16">
+      <rect width="24" height="24" fill="none"/>
+    </clipPath>
+    <filter id="Rectangle_1" x="-6" y="583" width="372" height="60" filterUnits="userSpaceOnUse">
+      <feOffset dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Android_Mobile_5">
+      <rect width="360" height="640"/>
+    </clipPath>
+  </defs>
+  <g id="Android_Mobile_5" data-name="Android Mobile – 5" clip-path="url(#clip-Android_Mobile_5)">
+    <rect width="360" height="640" fill="#fff"/>
+    <text id="Vælg_dine_gennemførte_kurser" data-name="Vælg dine 
+gennemførte kurser" transform="translate(180 71)" fill="#707070" font-size="30" font-family="NeoSansPro-Regular, Neo Sans Pro"><tspan x="-69.45" y="0">Vælg dine </tspan><tspan x="-130.62" y="42">gennemførte kurser</tspan></text>
+    <g id="List_Single_Line_Meta" data-name="List / Single Line / Meta" transform="translate(0 229)" clip-path="url(#clip-path)">
+      <rect id="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider" width="344" height="1" transform="translate(16 47)" fill="#900"/>
+      <text id="Matematik_1" data-name="Matematik 1" transform="translate(16 29)" fill="#900" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Matematik 1</tspan></text>
+      <text id="_01005" data-name="01005" transform="translate(334.833 28)" fill="#900" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01005</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-2" data-name="List / Single Line / Meta" transform="translate(0 277)" clip-path="url(#clip-path)">
+      <rect id="Box-2" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-2" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#900"/>
+      <text id="Diskret_matematik" data-name="Diskret matematik" transform="translate(16 29)" fill="#900" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Diskret matematik</tspan></text>
+      <text id="_01017" data-name="01017" transform="translate(334.833 28)" fill="#900" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01017</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-3" data-name="List / Single Line / Meta" transform="translate(0 325)" clip-path="url(#clip-path)">
+      <rect id="Box-3" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-3" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#e3e3e3"/>
+      <text id="Matematik_2" data-name="Matematik 2" transform="translate(16 29)" fill="rgba(0,0,0,0.87)" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Matematik 2</tspan></text>
+      <text id="_01034" data-name="01034" transform="translate(334.833 28)" fill="rgba(0,0,0,0.6)" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01034</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-4" data-name="List / Single Line / Meta" transform="translate(0 373)" clip-path="url(#clip-path)">
+      <rect id="Box-4" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-4" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#900"/>
+      <text id="Grafteori" transform="translate(16 29)" fill="#900" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Grafteori</tspan></text>
+      <text id="_01227" data-name="01227" transform="translate(334.833 28)" fill="#900" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01227</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-5" data-name="List / Single Line / Meta" transform="translate(0 421)" clip-path="url(#clip-path)">
+      <rect id="Box-5" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-5" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#e3e3e3"/>
+      <text id="Kryptologi_1" data-name="Kryptologi 1" transform="translate(16 29)" fill="rgba(0,0,0,0.87)" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Kryptologi 1</tspan></text>
+      <text id="_01410" data-name="01410" transform="translate(334.833 28)" fill="rgba(0,0,0,0.6)" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01410</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-6" data-name="List / Single Line / Meta" transform="translate(0 469)" clip-path="url(#clip-path)">
+      <rect id="Box-6" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-6" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#e3e3e3"/>
+      <text id="Videregående_grafteori" data-name="Videregående grafteori" transform="translate(16 29)" fill="rgba(0,0,0,0.87)" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Videregående grafteori</tspan></text>
+      <text id="_01527_" data-name="01527
+" transform="translate(334.833 28)" fill="rgba(0,0,0,0.6)" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01527</tspan><tspan x="0" y="14"></tspan></text>
+      <g id="Group_16" data-name="Group 16" transform="translate(28 -138)">
+        <g id="Group_8" data-name="Group 8" clip-path="url(#clip-path-7)">
+          <path id="Path_989" data-name="Path 989" d="M0-21H304v1H0Z" fill="#d3d3d3"/>
+        </g>
+        <g id="Group_9" data-name="Group 9" clip-path="url(#clip-path-7)">
+          <path id="Path_991" data-name="Path 991" d="M0-21H1V0H0Z" fill="#d3d3d3"/>
+        </g>
+        <g id="Group_11" data-name="Group 11" clip-path="url(#clip-path-9)">
+          <g id="Group_10" data-name="Group 10" transform="translate(3 -10)">
+            <g id="Group">
+              <text id="Vide" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">Vide</tspan></text>
+              <text id="r" transform="translate(19)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">r</tspan></text>
+              <text id="e" transform="translate(22)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">e</tspan></text>
+              <text id="g" transform="translate(27)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">g</tspan></text>
+              <text id="å" transform="translate(33)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">å</tspan></text>
+              <text id="e-2" data-name="e" transform="translate(38)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">e</tspan></text>
+              <text id="n" transform="translate(43)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">n</tspan></text>
+              <text id="de" transform="translate(49)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">de</tspan></text>
+              <text id="_" data-name=" " transform="translate(60)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0"> </tspan></text>
+              <text id="g-2" data-name="g" transform="translate(63)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">g</tspan></text>
+              <text id="r-2" data-name="r" transform="translate(69)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">r</tspan></text>
+              <text id="a" transform="translate(72)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">a</tspan></text>
+              <text id="fte" transform="translate(77)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">fte</tspan></text>
+              <text id="o" transform="translate(88)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">o</tspan></text>
+              <text id="r-3" data-name="r" transform="translate(94)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">r</tspan></text>
+              <text id="i" transform="translate(97)" font-size="10" font-family="HelveticaNeue, Helvetica Neue" letter-spacing="-0.011em"><tspan x="0" y="0">i</tspan></text>
+            </g>
+          </g>
+        </g>
+        <g id="Group_12" data-name="Group 12" clip-path="url(#clip-path-7)">
+          <path id="Path_994" data-name="Path 994" d="M0-21H303v1H0Z" fill="#d3d3d3"/>
+        </g>
+        <g id="Group_13" data-name="Group 13" clip-path="url(#clip-path-7)">
+          <path id="Path_996" data-name="Path 996" d="M0-1H303V0H0Z" fill="#d3d3d3"/>
+        </g>
+        <g id="Group_14" data-name="Group 14" clip-path="url(#clip-path-7)">
+          <path id="Path_998" data-name="Path 998" d="M0-21H1V0H0Z" fill="#d3d3d3"/>
+        </g>
+        <g id="Group_15" data-name="Group 15" clip-path="url(#clip-path-7)">
+          <path id="Path_1000" data-name="Path 1000" d="M303-21h1V0h-1Z" fill="#d3d3d3"/>
+        </g>
+      </g>
+    </g>
+    <g id="List_Single_Line_Meta-7" data-name="List / Single Line / Meta" transform="translate(0 517)" clip-path="url(#clip-path)">
+      <rect id="Box-7" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-7" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#900"/>
+      <text id="Funktionalanalyse" transform="translate(16 29)" fill="#900" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Funktionalanalyse</tspan></text>
+      <text id="_01715" data-name="01715" transform="translate(334.833 28)" fill="#900" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">01715</tspan></text>
+    </g>
+    <g id="List_Single_Line_Meta-8" data-name="List / Single Line / Meta" transform="translate(0 565)" clip-path="url(#clip-path)">
+      <rect id="Box-8" data-name="Box" width="360" height="48" fill="none"/>
+      <rect id="Divider-8" data-name="Divider" width="344" height="1" transform="translate(16 47)" fill="#e3e3e3"/>
+      <text id="Softwareprojekt" transform="translate(16 29)" fill="rgba(0,0,0,0.87)" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.01em"><tspan x="0" y="0">Softwareprojekt</tspan></text>
+      <text id="_02128" data-name="02128" transform="translate(334.833 28)" fill="rgba(0,0,0,0.6)" font-size="12" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="-35.373" y="0">02128</tspan></text>
+    </g>
+    <g id="Text_Field_Outlined_Unfilled_Enabled" data-name="Text Field / Outlined / Unfilled / Enabled" transform="translate(16 143)">
+      <g id="Surface" fill="none" stroke="#000" stroke-width="1" opacity="0.5">
+        <rect width="328" height="56" rx="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="327" height="55" rx="3.5" fill="none"/>
+      </g>
+      <text id="Søg_efter_kursus" data-name="Søg efter kursus" transform="translate(16 33)" fill="#707070" font-size="18" font-family="NeoSansPro-Regular, Neo Sans Pro"><tspan x="0" y="0">Søg efter kursus</tspan></text>
+      <text id="Du_kan_søge_efter_kursusnummer_eller_navn" data-name="Du kan søge efter kursusnummer eller navn" transform="translate(16 71)" fill="#707070" font-size="12" font-family="NeoSansPro-Regular, Neo Sans Pro" opacity="0.5"><tspan x="0" y="0">Du kan søge efter kursusnummer eller navn</tspan></text>
+      <g id="Icon_Search_Rounded" data-name="Icon / Search / Rounded" transform="translate(290 16)" opacity="0.5" clip-path="url(#clip-path-16)">
+        <rect id="Box-9" data-name="Box" width="24" height="24" fill="none"/>
+        <path id="Path_2019" data-name="Path 2019" d="M151.4,12a4.5,4.5,0,1,1,4.5-4.5A4.481,4.481,0,0,1,151.4,12Zm6,0h-.8l-.3-.3a6.593,6.593,0,0,0,1.5-5.3,6.471,6.471,0,0,0-5.6-5.3,6.53,6.53,0,0,0-2,12.9,6.593,6.593,0,0,0,5.3-1.5l.3.3v.8l4.2,4.2a1.061,1.061,0,0,0,1.5-1.5Z" transform="translate(-142 2)"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_1)">
+      <g id="Rectangle_1-2" data-name="Rectangle 1" transform="translate(0 592)" fill="#900" stroke="#707070" stroke-width="1">
+        <rect width="360" height="48" stroke="none"/>
+        <rect x="0.5" y="0.5" width="359" height="47" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_3" data-name="Group 3" transform="translate(-5 2)">
+      <text id="TILBAGE" transform="translate(45 621)" fill="#fff" font-size="17" font-family="NeoSansPro-Regular, Neo Sans Pro" letter-spacing="0.07em"><tspan x="0" y="0">TILBAGE</tspan></text>
+      <g id="Icon_Keyboard_Arrow_-_Left_Two-toned" data-name="Icon / Keyboard Arrow - Left / Two-toned" transform="translate(21 603)" clip-path="url(#clip-path-16)">
+        <rect id="Box-10" data-name="Box" width="24" height="24" fill="none"/>
+        <path id="Icon_Keyboard_Arrow_-_Up_Dark" data-name="Icon / Keyboard Arrow - Up / Dark" d="M10.6,7.4,6,2.8,1.4,7.4,0,6,6,0l6,6Z" transform="translate(8.3 17.7) rotate(-90)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_2" data-name="Group 2" transform="translate(-10 -2)">
+      <text id="FÆRDIGØR" transform="translate(330 625)" fill="#fff" font-size="17" font-family="NeoSansPro-Regular, Neo Sans Pro" letter-spacing="0.07em"><tspan x="-89.573" y="0">FÆRDIGØR</tspan></text>
+      <g id="Icon_Keyboard_Arrow_-_Left_Two-toned-2" data-name="Icon / Keyboard Arrow - Left / Two-toned" transform="translate(354 630) rotate(180)" clip-path="url(#clip-path-16)">
+        <rect id="Box-11" data-name="Box" width="24" height="24" fill="none"/>
+        <path id="Icon_Keyboard_Arrow_-_Up_Dark-2" data-name="Icon / Keyboard Arrow - Up / Dark" d="M10.6,7.4,6,2.8,1.4,7.4,0,6,6,0l6,6Z" transform="translate(8.3 17.7) rotate(-90)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(150 612)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.5" fill="none"/>
+    </g>
+    <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(167.055 612)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.5" fill="none"/>
+    </g>
+    <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(184.11 612)" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.5" fill="none"/>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(201.165 612)" fill="#fff" stroke="#fff" stroke-width="1">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.5" fill="none"/>
+    </g>
+  </g>
+</svg>
