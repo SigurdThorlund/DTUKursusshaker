@@ -16,7 +16,7 @@ Kursus 12236.
 
 "Nogle gange string, andre gange int"
 
-
+[01025 01030 01031 01032 01034 01035]
 
 Skemaplacering gives i "Class_Schedule" som forskellige "Schedule"
 
@@ -32,3 +32,5 @@ Organise Kemi 1 og enten 26008, 27023, 26371 eller 26372
 26008/27023/26371/26372
 (26000/26050).(26008/27023)
 Almen Kemi
+
+Hvis vi får tid kan vi sorterer manuelt, altså hvis de har bogstaver - så er de wierd...
