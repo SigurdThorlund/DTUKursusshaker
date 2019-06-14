@@ -192,10 +192,10 @@ public class ImportDataFromXML {
         }
         String allXml = xml.toString();
         try {
-            FileWriter fw=new FileWriter("kurser2019.json"); //TODO ,true
+            FileWriter fw=new FileWriter("kurser2019.xml"); //TODO ,true
             JSONObject xmlJSONObj = XML.toJSONObject(allXml);
             String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-            fw.write(jsonPrettyPrintString);
+            fw.write(allXml);
             fw.close();
         } catch (JSONException je) {
             System.out.println(je.toString());
