@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e13914ca-0410-4ed7-832a-e2414fbe1c9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TrustModifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/getIDS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTU Kurser simpel.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTU Kurser-kopi 2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTU Kurser-kopi.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTU Kurser.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kurser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kurser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ExportData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExportData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ImportDataFromExcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ImportDataFromXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImportDataFromXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ImportDataFromXML.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,13 +29,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ImportDataFromXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="192" column="9" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
+            <state relative-caret-position="418">
+              <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#250#312#0" />
                 <element signature="e#19801#19809#0" expanded="true" />
-                <element signature="e#20167#20175#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -248,7 +237,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17530000" />
+    <option name="totallyTimeSpent" value="18106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1121" extended-state="6" />
@@ -264,7 +253,7 @@
       <window_info anchor="bottom" id="Duplicates" order="0" weight="0.32944608" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.32847425" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32847425" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.3984451" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -296,18 +285,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ImportDataFromXML.java</url>
-          <line>212</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -389,17 +366,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DTU Kurser simpel.csv" />
-    <entry file="file://$PROJECT_DIR$/DTU Kurser.csv">
-      <provider editor-type-id="csv-text-editor" />
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DTU Kurser simpel.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/DTU Kurser.csv" />
+    <entry file="file://$PROJECT_DIR$/DTU Kurser simpel.txt" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="752">
@@ -461,13 +429,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ImportDataFromXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="192" column="9" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
+        <state relative-caret-position="418">
+          <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#250#312#0" />
             <element signature="e#19801#19809#0" expanded="true" />
-            <element signature="e#20167#20175#0" expanded="true" />
           </folding>
         </state>
       </provider>

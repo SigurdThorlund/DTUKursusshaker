@@ -183,7 +183,6 @@ public class ImportDataFromXML {
 
         BufferedReader reader = new BufferedReader(new FileReader("rensetkurser.csv"));
         ArrayList<String> id = new ArrayList<String>();
-        ArrayList<String> courses = new ArrayList<String>();
         while (reader.readLine() != null){
            id.add(reader.readLine().substring(0, 5));
         }
@@ -210,7 +209,6 @@ public class ImportDataFromXML {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         TrustModifier.relaxHostChecking(con);
-        // optional default is GET
         con.setRequestMethod("GET");
 
         //add request header
