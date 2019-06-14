@@ -78,5 +78,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.22.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.22.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.22.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180813" level="project" />
   </component>
 </module>

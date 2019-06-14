@@ -1,0 +1,34 @@
+Skemaerne kan gives således:
+"No_Credit_Points_With": {"CourseCode": "*String med kursus id*"},
+*String med kursus id*:
+1906.01918
+01025 01030/01031/01032/ 01034 01035
+01025/01034/01037
+01025.01035.01037
+01904 01017
+02101. 02115. 02312
+Kan ikke tages samtidig med kursus 02632
+Dette er et avanceret projektkursus for studerende på kandidatniveau
+Mennesket og de fysiske omgivelser
+Man kan tage 11857 efterfulgt af 30752, men ikke omvendt
+Kursus 12236.
+31030.3016 (Her skal der nok et nul på 30160)
+
+"Nogle gange string, andre gange int"
+
+
+
+Skemaplacering gives i "Class_Schedule" som forskellige "Schedule"
+
+
+
+Mandatory_Prerequisites er obligatoriske forudsætninger
+Qualified_Prerequisites er ikke-obligatoriske forudsætninger
+Kan fås sådan:
+23901.01906.23902.23931.23922.23981
+23902/26x7x
+23962. 02323
+Organise Kemi 1 og enten 26008, 27023, 26371 eller 26372
+26008/27023/26371/26372
+(26000/26050).(26008/27023)
+Almen Kemi
