@@ -6,8 +6,17 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+
+import javax.xml.parsers.*;
+import java.io.*;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.util.ArrayList;
 
 import static org.apache.http.protocol.HTTP.USER_AGENT;
@@ -186,24 +195,29 @@ public class ImportDataFromXML {
         while (reader.readLine() != null){
            id.add(reader.readLine().substring(0, 5));
         }
-        StringBuilder xml = new StringBuilder();
+
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        Document courseDocument = documentBuilderFactory.newDocumentBuilder().newDocument();
         for (String s : id) {
-            xml.append(http.get(s));
+            Document course  = http.get(s);
+            courseDocument.appendChild(course.getDocumentElement());
         }
-        String allXml = xml.toString();
-        try {
-            FileWriter fw=new FileWriter("kurser20191.xml"); //TODO ,true
-            JSONObject xmlJSONObj = XML.toJSONObject(allXml);
-            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-            fw.write(allXml);
-            fw.close();
-        } catch (JSONException je) {
-            System.out.println(je.toString());
-        }
+        // create the xml file
+        //transform the DOM Object to an XML File
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource domSource = new DOMSource(courseDocument);
+        StreamResult streamResult = new StreamResult(new File("kurser20191.xml"));
+
+        // If you use
+        // StreamResult result = new StreamResult(System.out);
+        // the output will be pushed to the standard output ...
+        // You can use that for debugging
+
+        transformer.transform(domSource, streamResult);
     }
 
-    private String get(String id) throws Exception {
-
+    private Document get(String id) throws Exception {
         String url = "https://kurser.dtu.dk/coursewebservicev2/course.asmx/GetCourse?courseCode=" + id + "&yearGroup=2019/2020";
 
         URL obj = new URL(url);
@@ -228,7 +242,11 @@ public class ImportDataFromXML {
         }
         in.close();
 
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(new InputSource(new StringReader(response.toString())));
+
         //print result
-        return response.toString();
+        return document;
     }
 }

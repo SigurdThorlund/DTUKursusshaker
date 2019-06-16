@@ -12,7 +12,7 @@ public class ExportData {
 
         try {
 
-            File fXmlFile = new File("testCourse.xml");
+            File fXmlFile = new File("kurser20191.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -37,7 +37,7 @@ public class ExportData {
 
                     Element eElement = (Element) nNode;
 
-                    System.out.println("Staff id : " + eElement.getAttribute("Title"));
+                    System.out.println("Course/@CourseCode : " + eElement.getAttribute("Title"));
 //                    System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
 //                    System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
 //                    System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
