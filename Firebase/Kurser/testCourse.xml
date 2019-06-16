@@ -2,74 +2,53 @@
 <root xmlns="">
     <CoursePublished>
         <CourseXml>
-            <Course xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" CourseCode="01901" University="dtu" LastUpdated="2018-06-21+02:00" Volume="2019/2020">
+            <Course CourseCode="02132" University="dtu" LastUpdated="2019-04-26+02:00" Volume="2019/2020">
                 <Study_Board Study_BoardKey="1" />
-                <CBS_Programme_Level CBS_Programme_LevellKey="DTU_DIPLOM" />
-                <Point PointType="ECTS">5</Point>
-                <Title Lang="da-DK" Title="Basismat 1 - Indledende matematik for diplomingeniører" />
-                <Title Lang="en-GB" Title="Calculus and algebra 1" />
+                <CBS_Programme_Level CBS_Programme_LevellKey="DTU_BSC" />
+                <Point PointType="ECTS">10</Point>
+                <Title Lang="da-DK" Title="Computersystemer" />
+                <Title Lang="en-GB" Title="Computer Systems" />
                 <Description_Language Lang="da-DK" />
                 <Description_Language Lang="en-GB" />
                 <Teaching_Language LangCode="da-DK" />
-                <Open_University TaughtUnderOpenUniversity="true" />
                 <Course_Duration>
                     <Exact>P6M</Exact>
                 </Course_Duration>
-                <Location Key="Campus_Other">
-                    <LocationTxt Lang="da-DK" Txt="Kurset afholdes både på Lyngby og Ballerup campus. Kurset skal kun følges i ét skemamodul. Det relevante skemamodul fremgår af studieplanerne for de enkelte uddannelser." />
-                    <LocationTxt Lang="en-GB" Txt="The course can be followed at both Lyngby and Ballerup Campus. The course should be attended in one moodule only. Information about the relevant module can be found in the study plans for each study line." />
-                </Location>
+                <Location Key="Campus_Lyngby" />
                 <Class_Schedule SortID="1">
-                    <Schedule ScheduleKey="E1A" SortID="0" />
-                </Class_Schedule>
-                <Class_Schedule SortID="2">
-                    <Schedule ScheduleKey="E3A" SortID="0" />
-                </Class_Schedule>
-                <Class_Schedule SortID="3">
-                    <Schedule ScheduleKey="E2B" SortID="0" />
-                </Class_Schedule>
-                <Class_Schedule SortID="4">
-                    <Schedule ScheduleKey="E4B" SortID="0" />
-                </Class_Schedule>
-                <Class_Schedule SortID="5">
-                    <Schedule ScheduleKey="F3A" SortID="0" />
-                </Class_Schedule>
-                <Class_Schedule SortID="6">
-                    <Schedule ScheduleKey="F4B" SortID="0" />
+                    <Schedule ScheduleKey="E5" SortID="0" />
                 </Class_Schedule>
                 <Departments>
-                    <Main_Dep UID="1" University="DTU" Resources="43" KVL_Resources="100" />
-                    <Ass_Dep UID="34" Resources="23" University="DTU" SortID="0" Show="true" KVL_Resources="0" />
-                    <Ass_Dep UID="IHK" Resources="34" University="DTU" SortID="1" Show="true" KVL_Resources="0" />
+                    <Main_Dep UID="1" University="DTU" Resources="100" KVL_Resources="100" />
                 </Departments>
-                <Course_Responsible PersonKey="5474" FUniversity="DTU" SortID="0" DepartmentKey="" Show="true">
+                <Course_Responsible PersonKey="1562" FUniversity="DTU" SortID="0" DepartmentKey="" Show="true">
                     <Description>
-                        <GivenName>Peter</GivenName>
-                        <FamilyName>Hoffmann</FamilyName>
-                        <Email>phof@dtu.dk</Email>
+                        <GivenName>Jan</GivenName>
+                        <FamilyName>Madsen</FamilyName>
+                        <Email>jama@dtu.dk</Email>
                     </Description>
                 </Course_Responsible>
-                <Course_Responsible PersonKey="290" FUniversity="DTU" SortID="1" DepartmentKey="" Show="true">
+                <Course_Responsible PersonKey="34674" FUniversity="DTU" SortID="1" DepartmentKey="" Show="true">
                     <Description>
-                        <GivenName>Morten</GivenName>
-                        <FamilyName>Brøns</FamilyName>
-                        <Email>mobr@dtu.dk</Email>
+                        <GivenName>Paul</GivenName>
+                        <FamilyName>Pop</FamilyName>
+                        <Email>paupo@dtu.dk</Email>
                     </Description>
                 </Course_Responsible>
                 <Examination ExaminationSortID="0" Show="true">
-                    <Evaluation EvaluationKey="GLOB_INTERN" />
+                    <Evaluation EvaluationKey="GLOB_EXTERN" />
                     <Assessment>
-                        <Pre_Def_List AssessmentKey="Written_Exam_And_Exercises" Show="true" />
+                        <Pre_Def_List AssessmentKey="Written_Exam_And_Reports" Show="true" />
+                        <Supp_Txt Lang="da-DK" Txt="Helhedsvurdering af 3 individualiserede grupperapporter og en 2 timers skriftlig prøve." Show="true" />
+                        <Supp_Txt Lang="en-GB" Txt="Overall assessment of 3 individualized reports and a 2 hour written exam." Show="true" />
                     </Assessment>
                     <Marking_Scale Marking_ScaleKey="GLOB_7Skala" />
-                    <Aid AidKey="ALL_AID" AidSortID="1" />
+                    <Aid AidKey="NO_AID" AidSortID="1" />
                     <Date_Of_Exam SortID="1" Show="true">
-                        <Date_of_Exam_Txt Lang="en-GB" Txt="Separate examination day, which appears from the list at DTU Inside" />
-                        <Date_of_Exam_Txt Lang="da-DK" Txt="Særlig eksamensdag, som fremgår af listen på DTU Inside" />
-                        <Schedule ScheduleKey="DTU_DecideWithTeacher" />
+                        <Schedule ScheduleKey="E5A" />
                     </Date_Of_Exam>
-                    <Duration Lang="da-DK" Txt="3 timer" />
-                    <Duration Lang="en-GB" Txt="3 Hours" />
+                    <Duration Lang="da-DK" Txt="2 timer" />
+                    <Duration Lang="en-GB" Txt="2 hours" />
                 </Examination>
                 <Sign_Up>
                     <Place>
@@ -77,75 +56,100 @@
                     </Place>
                 </Sign_Up>
                 <Txt Lang="da-DK">
-                    <Contents>Komplekse tal, polynomier, differentialligninger af første og anden orden, partielle afledede, Taylors formel for funktioner i én variabel.</Contents>
-                    <Teaching_And_Learning_Methods>Forelæsninger og klasseundervisning</Teaching_And_Learning_Methods>
-                    <Course_Objectives>At sætte de studerende i stand til selvstændigt at anvende fundamentale matematiske værktøjer ved løsning af ingeniørmæssige problemer, samt at introducere de studerende til de forskellige arbejdsformer, der kendetegner et videregående studium.</Course_Objectives>
+                    <Contents>I dette kursus vil vi studere, hvordan computere udfører programmer og manipulere data, og udforske de involverede værktøjer og metoder. Vi vil studere, hvad værktøjerne, som en compiler, gør, og vi vil træne i at bruge debuggere til at finde og fjerne fejl fra vores programmer. Vi vil introducere programmeringssproget C, som stadig er det dominerende sprog til programmering af moderne indlejrede og cyber-fysiske systemer.
+
+                        Computere består af flere dele, hvor processoren uden tvivl er den vigtigste. For at opnå en solid forståelse af, hvordan computere opfører sig, vil vi i kurset studere, hvordan en generaliseret processor udfører programmer. Vi vil også studere, hvordan programmer, herunder variabelt indhold, er kodet for at kunne eksekveres. Endelig, vil vi udvikle og simulere en simpel mikroprocessor og studerer dens ydeevne.
+
+                        De fleste moderne computere er forbundet i store netværk. I mange tilfælde er det utænkeligt at have computere uden adgang til netværk, såsom internettet. Vi vil i kurset studere, hvordan computernetværk grundlæggende fungere, og hvordan du skriver programmer, der gør det muligt for computere at kommunikere via internettet, men også Internet-of-Things.</Contents>
+                    <Teaching_And_Learning_Methods>Forelæsninger, øvelser og projektarbejde</Teaching_And_Learning_Methods>
+                    <Course_Literature>"Embedded Systems Design: A Unified Hardware/Software Introduction" af Frank Vahid og Tony Givargis, Wiley</Course_Literature>
+                    <Course_Objectives>Computersystemer er blevet en integreret del af vores samfund. De er grundlaget for en bred vifte af teknologier fra Internet-of-Things og Smartphones til Skyen. I dette kursus vil vi studere, hvordan moderne computere virker. Vi vil undersøge computerens begrænsninger, samt hvilke muligheder den giver.</Course_Objectives>
+                    <DTU_Remark>Kurset gives delvist på engelsk.</DTU_Remark>
+                    <Remark>Kurset gives delvist på engelsk.</Remark>
                 </Txt>
                 <Txt Lang="en-GB">
-                    <Contents>Complex numbers, polynomials, differential equations of order one and two, partial derivatives, Taylor's formula for functions of one variable.</Contents>
-                    <Teaching_And_Learning_Methods>Lectures and classroom work</Teaching_And_Learning_Methods>
-                    <Course_Objectives>To provide the student with thorough knowledge and practical skills in the parts of mathematics necessary in modern engineering and introduce the students to various work methods used in further studies.</Course_Objectives>
+                    <Contents>In this course, we will study how computers execute programs and manipulate data, and explore the tools and methods involved. We will study what the tools, such as the compiler, do and we will train on using debuggers to eliminate defects and errors from our programs. We will introduce the programming language C, which is still the dominating language for programming modern embedded and cyber-physical systems.
+
+                        Computers consists of multiple parts with the processor being arguably the most important. In the course, we will study how a generalized processor executes programs so as to reach a solid understanding of how computers behave. We will also study how programs, including variable contents, are encoded to be executable. We will develop and simulate a simple microprocessor and study its performance.
+
+                        Most modern computers are connected in large networks. In many cases it is unthinkable to have computers without access to networks, such as the Internet. We will in the course study how computer networks fundamentally work and how you write programs allowing computers to communicate over the Internet, but also Internet-of-things.</Contents>
+                    <Teaching_And_Learning_Methods>Lectures, exercises and projects work.</Teaching_And_Learning_Methods>
+                    <Course_Literature>"Embedded Systems Design: A Unified Hardware/Software Introduction" by Frank Vahid and Tony Givargis, Wiley</Course_Literature>
+                    <Course_Objectives>Computer systems have become an integral part of our society. They are the foundation for a wide range of technologies from Internet-of-Things and Smartphones to the Cloud. In this course, we will study how modern computers work. We will understand what the limitations of computers are as well as what opportunities are possible.</Course_Objectives>
+                    <DTU_Remark>The course is partially taught in english.</DTU_Remark>
+                    <Remark>The course is partially taught in english</Remark>
                 </Txt>
+                <Qualified_Prerequisites>
+                    <Qualified_Prerequisites_Txt Lang="da-DK" Txt="Der forudsættes beherskelse af begreber og terminologi om udvikling, test og dokumentation af programmer. Der gives en introduktion til sproget C." />
+                    <Qualified_Prerequisites_Txt Lang="en-GB" Txt="Prerequisites are: the command of concepts and terminology about development, test and documentation of programs.  An introduction to the language C will be given." />
+                    <DTU_CoursesTxt Lang="da-DK" Txt="02100 / 02101 / 02102  /  02199  /  02115" />
+                </Qualified_Prerequisites>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte den algebraiske og den geometriske repræsentation af de komplekse tal." />
-                    <Txt Lang="en-GB" Txt="Apply the algebraic and geometric representation of the complex numbers and the complex exponential function" />
+                    <Txt Lang="da-DK" Txt="Forklare i generelle termer computersystemarkitekturen for generelle processorer, applikationsspecifikke instruktionssætprocessorer og dedikerede hardwareaccelerator processorer og give eksempler på, hvor de anvendes." />
+                    <Txt Lang="en-GB" Txt="Explain in general terms the computer systems architecture of general purpose processors, application specific instruction set processors, and dedicated hardware accelerator processors, and give examples of where they are used." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte den komplekse eksponentialfunktion." />
-                    <Txt Lang="en-GB" Txt="Apply the complex exponential function." />
+                    <Txt Lang="da-DK" Txt="Forklare hukommelseshierarkiet for en moderne computer med processoren, cacheniveauer, hukommelse og opbevaring." />
+                    <Txt Lang="en-GB" Txt="Explain the memory hierarchy of a modern computer with the processor, cache levels, memory and storage." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Udføre beregninger med komplekse tal, både i hånden og vha en computer. " />
-                    <Txt Lang="en-GB" Txt="Do calculations with complex numbers both by hand and using a computer." />
+                    <Txt Lang="da-DK" Txt="Udvikle, kompilere, debugge, udføre og analysere programmer ved hjælp af programmeringssproget C." />
+                    <Txt Lang="en-GB" Txt="Develop, compile, debug, execute and analyse programs using the programming language C." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte polynomier med komplekse koefficienter" />
-                    <Txt Lang="en-GB" Txt="Use polynomials with complex coefficients" />
+                    <Txt Lang="da-DK" Txt="Forklare hvordan compileren, assembleren og linkeren bruges til at oprette eksekverbare filer." />
+                    <Txt Lang="en-GB" Txt="Explain how the compiler, assembler and linker are used to create executables." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Udføre beregninger med polynomier både i hånden og vha en computer" />
-                    <Txt Lang="en-GB" Txt="Do calculations with polynomials, both by hand and using a computer." />
+                    <Txt Lang="da-DK" Txt="Beskrive hvordan data er repræsenteret i computersystemer." />
+                    <Txt Lang="en-GB" Txt="Describe how data is represented in computer systems." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Løse simple første og anden ordens differentialligninger." />
-                    <Txt Lang="en-GB" Txt="Solve simple differential equation of first and second order" />
+                    <Txt Lang="da-DK" Txt="Analysere ydeevne og energiforbrug af et softwareprogram og give eksempler på kildekodstransformationer, som compileren kan udføre for at opnå højere ydeevne." />
+                    <Txt Lang="en-GB" Txt="Analyse performance and energy consumption of a software program and give examples of source code transformations the compiler can perform to achieve higher performance." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte Taylorpolynomier til approksimationer af funktioner af én variabel" />
-                    <Txt Lang="en-GB" Txt="Use Taylor polynomials for the approximation of functions in one variable" />
+                    <Txt Lang="da-DK" Txt="Forklare computermodellen Finite State Machine med Datapath (FSMD) og hvordan den kan bruges til at modellere udførelsen af ​​både software og hardware." />
+                    <Txt Lang="en-GB" Txt="Explain the Finite State Machine with Datapath (FSMD) computational model and how it can be used to model execution of both software and hardware." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte partielle afledede til at karakterisere funktioner af to variable" />
-                    <Txt Lang="en-GB" Txt="Use partial derivatives to characterize functions of two variables" />
+                    <Txt Lang="da-DK" Txt="Udvikle og simulere en processorarkitektur baseret på et enkelt instruktionssæt ved hjælp af FSMD-modellen." />
+                    <Txt Lang="en-GB" Txt="Develop and simulate a processor architecture based on a simple instruction set using the FSMD model." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte matematik til at løse simple ingeniørmæssige problemstillinger" />
-                    <Txt Lang="en-GB" Txt="Apply  mathematics to solve simple engineering problems" />
+                    <Txt Lang="da-DK" Txt="Forklare de grundlæggende principper for synkronisering og kommunikation indenfor såvel som mellem computersystemer." />
+                    <Txt Lang="en-GB" Txt="Explain the basic principles of synchronisation and communication inside as well as between computer systems." />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Benytte symbolske software-værktøjer, for tiden Maple, til løsning og grafisk illustration af matematiske problemer og løsninger." />
-                    <Txt Lang="en-GB" Txt="Apply symbolic software tools, currently Maple to solve and graphically display mathematical problems and solutions" />
+                    <Txt Lang="da-DK" Txt="Forklare OSI-modelens begreber og hvordan det bruges til at kommunikere mellem computersystemer." />
+                    <Txt Lang="en-GB" Txt="Explain the concepts of the OSI model and how it is used to communicate between computer systems." />
                 </DTU_ObjectiveKeyword>
+                <DTU_ObjectiveKeyword SortID="1">
+                    <Txt Lang="da-DK" Txt="Udvikle et sensorsystem, hvor sensordata præsenteres på et fjernsystem via en webserver ved hjælp af sockets." />
+                    <Txt Lang="en-GB" Txt="Develop a sensor system where sensor data is presented on a remote system via a web server using sockets." />
+                </DTU_ObjectiveKeyword>
+                <DTU_ObjectiveKeyword SortID="1">
+                    <Txt Lang="da-DK" Txt="Skrive en teknisk rapport som dokumenterer resultater og analyser på en klar og præcis form" />
+                    <Txt Lang="en-GB" Txt="Write a technical report which documents results and analysis in a precise and clear form." />
+                </DTU_ObjectiveKeyword>
+                <Course_Home_Page Lang="da-DK" URL="http://www.imm.dtu.dk/courses/02131" />
                 <DTU>
-                    <GroenDyst ParticipationKey="dtu_groendyst_no" />
-                    <OpenUniversity>
-                        <SubTitle>Introduktion til matematik for diplomingeniører</SubTitle>
-                        <AreaOfExpertise AreaOfExpertiseKey="14" />
-                    </OpenUniversity>
+                    <GroenDyst ParticipationKey="dtu_groendyst_contact" />
                 </DTU>
-                <No_Credit_Points_With CourseCode="01906.01918" />
+                <No_Credit_Points_With CourseCode="02131" />
+                <PreviousCourse CourseCode="02131" />
                 <HoursDistribuition>
-                    <HourDistribuition HourDistribuitionKey="LessThan40" Hours="26" />
-                    <HourDistribuition HourDistribuitionKey="GreaterThanOrEqual40" Hours="26" />
-                    <HourDistribuition HourDistribuitionKey="Teaching" Hours="52" />
+                    <HourDistribuition HourDistribuitionKey="LessThan40" Hours="52" />
+                    <HourDistribuition HourDistribuitionKey="GreaterThanOrEqual40" Hours="52" />
+                    <HourDistribuition HourDistribuitionKey="Teaching" Hours="104" />
                     <HourDistribuition HourDistribuitionKey="SupervisionHours" Hours="0" />
                 </HoursDistribuition>
                 <TeacherTypesDistribuition>
-                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="PermanentEmployedTeacher" Percentage="50" />
-                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="TeacherAssistant" Percentage="50" />
+                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="PermanentEmployedTeacher" Percentage="62" />
+                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="TeacherAssistant" Percentage="38" />
                 </TeacherTypesDistribuition>
                 <Record_Info>
-                    <Action Action="Accepted" PersonKey="119589" PersonUniversity="dtu" Date="2019-04-25" Time="09:47:58.05" />
+                    <Action Action="Accepted" PersonKey="119589" PersonUniversity="dtu" Date="2019-04-26" Time="13:51:18.273" />
                 </Record_Info>
             </Course>
         </CourseXml>
