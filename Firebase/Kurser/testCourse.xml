@@ -2,12 +2,12 @@
 <root xmlns="">
     <CoursePublished>
         <CourseXml>
-            <Course CourseCode="02132" University="dtu" LastUpdated="2019-04-26+02:00" Volume="2019/2020">
-                <Study_Board Study_BoardKey="1" />
+            <Course CourseCode="10331" Volume="2019/2020" University="dtu" LastUpdated="2018-11-09+01:00">
                 <CBS_Programme_Level CBS_Programme_LevellKey="DTU_BSC" />
-                <Point PointType="ECTS">10</Point>
-                <Title Lang="da-DK" Title="Computersystemer" />
-                <Title Lang="en-GB" Title="Computer Systems" />
+                <Study_Board Study_BoardKey="10" />
+                <Point PointType="ECTS">5</Point>
+                <Title Lang="da-DK" Title="Eksperimentel introduktion til fysikken bag bæredygtig energi" />
+                <Title Lang="en-GB" Title="Experimental introduction to physics of sustainable energy" />
                 <Description_Language Lang="da-DK" />
                 <Description_Language Lang="en-GB" />
                 <Teaching_Language LangCode="da-DK" />
@@ -16,39 +16,44 @@
                 </Course_Duration>
                 <Location Key="Campus_Lyngby" />
                 <Class_Schedule SortID="1">
-                    <Schedule ScheduleKey="E5" SortID="0" />
+                    <Schedule ScheduleKey="F2A" SortID="0" />
                 </Class_Schedule>
                 <Departments>
-                    <Main_Dep UID="1" University="DTU" Resources="100" KVL_Resources="100" />
+                    <Main_Dep UID="10" University="DTU" Resources="100" KVL_Resources="100" />
                 </Departments>
-                <Course_Responsible PersonKey="1562" FUniversity="DTU" SortID="0" DepartmentKey="" Show="true">
+                <Course_Responsible PersonKey="119826" FUniversity="DTU" SortID="0" DepartmentKey="" Show="true">
                     <Description>
-                        <GivenName>Jan</GivenName>
-                        <FamilyName>Madsen</FamilyName>
-                        <Email>jama@dtu.dk</Email>
+                        <GivenName>Jakob</GivenName>
+                        <FamilyName>Kibsgaard</FamilyName>
+                        <Email>jkib@fysik.dtu.dk</Email>
                     </Description>
                 </Course_Responsible>
-                <Course_Responsible PersonKey="34674" FUniversity="DTU" SortID="1" DepartmentKey="" Show="true">
+                <Course_Responsible PersonKey="9800" FUniversity="DTU" SortID="1" DepartmentKey="" Show="true">
                     <Description>
-                        <GivenName>Paul</GivenName>
-                        <FamilyName>Pop</FamilyName>
-                        <Email>paupo@dtu.dk</Email>
+                        <GivenName>Christian Danvad</GivenName>
+                        <FamilyName>Damsgaard</FamilyName>
+                        <Email>christian.damsgaard@cen.dtu.dk</Email>
+                    </Description>
+                </Course_Responsible>
+                <Course_Responsible PersonKey="40006" FUniversity="DTU" SortID="2" DepartmentKey="" Show="true">
+                    <Description>
+                        <GivenName>Ole Lynnerup</GivenName>
+                        <FamilyName>Trinhammer</FamilyName>
+                        <Email>ole.trinhammer@fysik.dtu.dk</Email>
                     </Description>
                 </Course_Responsible>
                 <Examination ExaminationSortID="0" Show="true">
-                    <Evaluation EvaluationKey="GLOB_EXTERN" />
+                    <Evaluation EvaluationKey="GLOB_INTERN" />
                     <Assessment>
-                        <Pre_Def_List AssessmentKey="Written_Exam_And_Reports" Show="true" />
-                        <Supp_Txt Lang="da-DK" Txt="Helhedsvurdering af 3 individualiserede grupperapporter og en 2 timers skriftlig prøve." Show="true" />
-                        <Supp_Txt Lang="en-GB" Txt="Overall assessment of 3 individualized reports and a 2 hour written exam." Show="true" />
+                        <Pre_Def_List AssessmentKey="Oral_Exam" Show="true" />
+                        <Supp_Txt Lang="da-DK" Txt="Præsentation over laboratorieøvelser + spørgsmål i pensum. &#xD;&#xA;Deltagelse i eksperimentelle øvelser er et krav." Show="true" />
+                        <Supp_Txt Lang="en-GB" Txt="Presentation over laboratory exercises + questions in curriculum. &#xD;&#xA;Participation in experimental exercises is a requirement." Show="true" />
                     </Assessment>
                     <Marking_Scale Marking_ScaleKey="GLOB_7Skala" />
-                    <Aid AidKey="NO_AID" AidSortID="1" />
+                    <Aid AidKey="ALL_AID" AidSortID="1" />
                     <Date_Of_Exam SortID="1" Show="true">
-                        <Schedule ScheduleKey="E5A" />
+                        <Schedule ScheduleKey="F2A" />
                     </Date_Of_Exam>
-                    <Duration Lang="da-DK" Txt="2 timer" />
-                    <Duration Lang="en-GB" Txt="2 hours" />
                 </Examination>
                 <Sign_Up>
                     <Place>
@@ -56,100 +61,66 @@
                     </Place>
                 </Sign_Up>
                 <Txt Lang="da-DK">
-                    <Contents>I dette kursus vil vi studere, hvordan computere udfører programmer og manipulere data, og udforske de involverede værktøjer og metoder. Vi vil studere, hvad værktøjerne, som en compiler, gør, og vi vil træne i at bruge debuggere til at finde og fjerne fejl fra vores programmer. Vi vil introducere programmeringssproget C, som stadig er det dominerende sprog til programmering af moderne indlejrede og cyber-fysiske systemer.
-
-                        Computere består af flere dele, hvor processoren uden tvivl er den vigtigste. For at opnå en solid forståelse af, hvordan computere opfører sig, vil vi i kurset studere, hvordan en generaliseret processor udfører programmer. Vi vil også studere, hvordan programmer, herunder variabelt indhold, er kodet for at kunne eksekveres. Endelig, vil vi udvikle og simulere en simpel mikroprocessor og studerer dens ydeevne.
-
-                        De fleste moderne computere er forbundet i store netværk. I mange tilfælde er det utænkeligt at have computere uden adgang til netværk, såsom internettet. Vi vil i kurset studere, hvordan computernetværk grundlæggende fungere, og hvordan du skriver programmer, der gør det muligt for computere at kommunikere via internettet, men også Internet-of-Things.</Contents>
-                    <Teaching_And_Learning_Methods>Forelæsninger, øvelser og projektarbejde</Teaching_And_Learning_Methods>
-                    <Course_Literature>"Embedded Systems Design: A Unified Hardware/Software Introduction" af Frank Vahid og Tony Givargis, Wiley</Course_Literature>
-                    <Course_Objectives>Computersystemer er blevet en integreret del af vores samfund. De er grundlaget for en bred vifte af teknologier fra Internet-of-Things og Smartphones til Skyen. I dette kursus vil vi studere, hvordan moderne computere virker. Vi vil undersøge computerens begrænsninger, samt hvilke muligheder den giver.</Course_Objectives>
-                    <DTU_Remark>Kurset gives delvist på engelsk.</DTU_Remark>
-                    <Remark>Kurset gives delvist på engelsk.</Remark>
+                    <Contents>Gennem eksperimenter vil kurset give en introduktion til bæredygtig energi og katalyse. Kurset vil gå i detaljer med bæredygtige energikilder som sol og vind og katalysators rolle i energikonvertering.</Contents>
+                    <Teaching_And_Learning_Methods>Laboratorieøvelser, forelæsninger, regneøvelser</Teaching_And_Learning_Methods>
+                    <Course_Objectives>At give de studerende et overblik og gennem eksperimenter give praktisk erfaring inden for bæredygtig energi.</Course_Objectives>
                 </Txt>
                 <Txt Lang="en-GB">
-                    <Contents>In this course, we will study how computers execute programs and manipulate data, and explore the tools and methods involved. We will study what the tools, such as the compiler, do and we will train on using debuggers to eliminate defects and errors from our programs. We will introduce the programming language C, which is still the dominating language for programming modern embedded and cyber-physical systems.
-
-                        Computers consists of multiple parts with the processor being arguably the most important. In the course, we will study how a generalized processor executes programs so as to reach a solid understanding of how computers behave. We will also study how programs, including variable contents, are encoded to be executable. We will develop and simulate a simple microprocessor and study its performance.
-
-                        Most modern computers are connected in large networks. In many cases it is unthinkable to have computers without access to networks, such as the Internet. We will in the course study how computer networks fundamentally work and how you write programs allowing computers to communicate over the Internet, but also Internet-of-things.</Contents>
-                    <Teaching_And_Learning_Methods>Lectures, exercises and projects work.</Teaching_And_Learning_Methods>
-                    <Course_Literature>"Embedded Systems Design: A Unified Hardware/Software Introduction" by Frank Vahid and Tony Givargis, Wiley</Course_Literature>
-                    <Course_Objectives>Computer systems have become an integral part of our society. They are the foundation for a wide range of technologies from Internet-of-Things and Smartphones to the Cloud. In this course, we will study how modern computers work. We will understand what the limitations of computers are as well as what opportunities are possible.</Course_Objectives>
-                    <DTU_Remark>The course is partially taught in english.</DTU_Remark>
-                    <Remark>The course is partially taught in english</Remark>
+                    <Contents>Through hands-on experiments, the course will provide an introduction to sustainable energy and catalysis. The course will go into detail with sustainable energy sources such as solar and wind and the role of catalysis in energy conversion.</Contents>
+                    <Teaching_And_Learning_Methods>Laboratory exercises, lectures, calculation exercises</Teaching_And_Learning_Methods>
+                    <Course_Objectives>To give the students an overview and through experiments give hands-on practical experience in sustainable energy.</Course_Objectives>
                 </Txt>
                 <Qualified_Prerequisites>
-                    <Qualified_Prerequisites_Txt Lang="da-DK" Txt="Der forudsættes beherskelse af begreber og terminologi om udvikling, test og dokumentation af programmer. Der gives en introduktion til sproget C." />
-                    <Qualified_Prerequisites_Txt Lang="en-GB" Txt="Prerequisites are: the command of concepts and terminology about development, test and documentation of programs.  An introduction to the language C will be given." />
-                    <DTU_CoursesTxt Lang="da-DK" Txt="02100 / 02101 / 02102  /  02199  /  02115" />
+                    <Qualified_Prerequisites_Txt Lang="da-DK" Txt="Elektromagnetisme 10036, Termodynamik 10034 , Almen kemi 26000 / Grundlæggende kemi 26027" />
+                    <Qualified_Prerequisites_Txt Lang="en-GB" Txt="Electromagnetism 10036, Thermodynamics 10034 , General Chemistry 26000 / Fundamental Chemistry 26027" />
                 </Qualified_Prerequisites>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare i generelle termer computersystemarkitekturen for generelle processorer, applikationsspecifikke instruktionssætprocessorer og dedikerede hardwareaccelerator processorer og give eksempler på, hvor de anvendes." />
-                    <Txt Lang="en-GB" Txt="Explain in general terms the computer systems architecture of general purpose processors, application specific instruction set processors, and dedicated hardware accelerator processors, and give examples of where they are used." />
+                    <Txt Lang="da-DK" Txt="Udføre eksperimenter og fortolke data relateret til bæredygtig energi og katalyse, f.eks.: Solceller, vindmøller, elektrolyse, brændselsceller og heterogen katalyse" />
+                    <Txt Lang="en-GB" Txt="Perform experiments and interpret data related to sustainable energy and catalysis, e.g.: Solar cells, wind turbines, electrolysis, fuel cells and heterogeneous catalysis" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare hukommelseshierarkiet for en moderne computer med processoren, cacheniveauer, hukommelse og opbevaring." />
-                    <Txt Lang="en-GB" Txt="Explain the memory hierarchy of a modern computer with the processor, cache levels, memory and storage." />
+                    <Txt Lang="da-DK" Txt="Vurdere sikkerhedsaspekter og find relevant information til at udføre forsøg på en sikker måde" />
+                    <Txt Lang="en-GB" Txt="Assess safety aspects and find relevant information to conduct experiments safely" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Udvikle, kompilere, debugge, udføre og analysere programmer ved hjælp af programmeringssproget C." />
-                    <Txt Lang="en-GB" Txt="Develop, compile, debug, execute and analyse programs using the programming language C." />
+                    <Txt Lang="da-DK" Txt="Angive de miljømæssige trusler som følge af brugen af fossile brændstoffer" />
+                    <Txt Lang="en-GB" Txt="List the environmental threats due to the use of fossil fuels" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare hvordan compileren, assembleren og linkeren bruges til at oprette eksekverbare filer." />
-                    <Txt Lang="en-GB" Txt="Explain how the compiler, assembler and linker are used to create executables." />
+                    <Txt Lang="da-DK" Txt="Beskrive de mulige kilder til bæredygtig energi og analyser mængden af energi, der er tilgængelig i dem" />
+                    <Txt Lang="en-GB" Txt="Describe the possible sources of sustainable energy and analyze the amount of energy available in them" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Beskrive hvordan data er repræsenteret i computersystemer." />
-                    <Txt Lang="en-GB" Txt="Describe how data is represented in computer systems." />
+                    <Txt Lang="da-DK" Txt="Forklare de fysiske principper bag udnyttelse af sol- og vindenergi" />
+                    <Txt Lang="en-GB" Txt="Explain the physical principles behind solar and wind energy harvesting" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Analysere ydeevne og energiforbrug af et softwareprogram og give eksempler på kildekodstransformationer, som compileren kan udføre for at opnå højere ydeevne." />
-                    <Txt Lang="en-GB" Txt="Analyse performance and energy consumption of a software program and give examples of source code transformations the compiler can perform to achieve higher performance." />
+                    <Txt Lang="da-DK" Txt="Beskrive forskellige metoder til energilagring og konvertering og forklare principperne bag dem" />
+                    <Txt Lang="en-GB" Txt="Describe different methods for energy storage and conversion and explain the principles behind them" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare computermodellen Finite State Machine med Datapath (FSMD) og hvordan den kan bruges til at modellere udførelsen af ​​både software og hardware." />
-                    <Txt Lang="en-GB" Txt="Explain the Finite State Machine with Datapath (FSMD) computational model and how it can be used to model execution of both software and hardware." />
+                    <Txt Lang="da-DK" Txt="Beskrive hvordan katalyse kan give løsninger på uregelmæssigheden af bæredygtige energikilder" />
+                    <Txt Lang="en-GB" Txt="Describe how catalysis can provide solutions to the intermittency of sustainable energy sources" />
                 </DTU_ObjectiveKeyword>
                 <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Udvikle og simulere en processorarkitektur baseret på et enkelt instruktionssæt ved hjælp af FSMD-modellen." />
-                    <Txt Lang="en-GB" Txt="Develop and simulate a processor architecture based on a simple instruction set using the FSMD model." />
+                    <Txt Lang="da-DK" Txt="Differentiere mellem reaktionskinetik og termodynamik, udlede hastighedsudtryk, hastighedskonstanter og aktiveringsenergi med henblik på at vurdere kinetikken af en katalytisk reaktion" />
+                    <Txt Lang="en-GB" Txt="Differentiate between reaction kinetics and thermodynamics and derive rate laws, rate constants and activation energies in order to assess the kinetics of a catalytic reaction" />
                 </DTU_ObjectiveKeyword>
-                <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare de grundlæggende principper for synkronisering og kommunikation indenfor såvel som mellem computersystemer." />
-                    <Txt Lang="en-GB" Txt="Explain the basic principles of synchronisation and communication inside as well as between computer systems." />
-                </DTU_ObjectiveKeyword>
-                <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Forklare OSI-modelens begreber og hvordan det bruges til at kommunikere mellem computersystemer." />
-                    <Txt Lang="en-GB" Txt="Explain the concepts of the OSI model and how it is used to communicate between computer systems." />
-                </DTU_ObjectiveKeyword>
-                <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Udvikle et sensorsystem, hvor sensordata præsenteres på et fjernsystem via en webserver ved hjælp af sockets." />
-                    <Txt Lang="en-GB" Txt="Develop a sensor system where sensor data is presented on a remote system via a web server using sockets." />
-                </DTU_ObjectiveKeyword>
-                <DTU_ObjectiveKeyword SortID="1">
-                    <Txt Lang="da-DK" Txt="Skrive en teknisk rapport som dokumenterer resultater og analyser på en klar og præcis form" />
-                    <Txt Lang="en-GB" Txt="Write a technical report which documents results and analysis in a precise and clear form." />
-                </DTU_ObjectiveKeyword>
-                <Course_Home_Page Lang="da-DK" URL="http://www.imm.dtu.dk/courses/02131" />
                 <DTU>
-                    <GroenDyst ParticipationKey="dtu_groendyst_contact" />
+                    <GroenDyst ParticipationKey="dtu_groendyst_yes" />
                 </DTU>
-                <No_Credit_Points_With CourseCode="02131" />
-                <PreviousCourse CourseCode="02131" />
                 <HoursDistribuition>
                     <HourDistribuition HourDistribuitionKey="LessThan40" Hours="52" />
-                    <HourDistribuition HourDistribuitionKey="GreaterThanOrEqual40" Hours="52" />
-                    <HourDistribuition HourDistribuitionKey="Teaching" Hours="104" />
-                    <HourDistribuition HourDistribuitionKey="SupervisionHours" Hours="0" />
+                    <HourDistribuition HourDistribuitionKey="GreaterThanOrEqual40" Hours="0" />
+                    <HourDistribuition HourDistribuitionKey="Teaching" Hours="52" />
+                    <HourDistribuition HourDistribuitionKey="SupervisionHours" Hours="6" />
                 </HoursDistribuition>
                 <TeacherTypesDistribuition>
-                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="PermanentEmployedTeacher" Percentage="62" />
-                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="TeacherAssistant" Percentage="38" />
+                    <TeacherTypeDistribuition TeacherTypeDistribuitionKey="PermanentEmployedTeacher" Percentage="100" />
                 </TeacherTypesDistribuition>
+                <Restrictions Max="18" Min="10" />
                 <Record_Info>
-                    <Action Action="Accepted" PersonKey="119589" PersonUniversity="dtu" Date="2019-04-26" Time="13:51:18.273" />
+                    <Action Action="Accepted" PersonKey="119589" PersonUniversity="dtu" Date="2019-04-26" Time="13:52:41.743" />
                 </Record_Info>
             </Course>
         </CourseXml>

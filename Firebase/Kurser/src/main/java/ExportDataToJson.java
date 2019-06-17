@@ -12,6 +12,8 @@ import org.xml.sax.SAXException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ExportDataToJson {
 
@@ -25,7 +27,7 @@ public class ExportDataToJson {
         doc.getDocumentElement().normalize();
 
         NodeList nList = doc.getElementsByTagName("Course");
-        createJSONObject(nList);
+        System.out.println(createJSONObject(nList));
     }
 
     static JSONObject createJSONObject(NodeList nList) {
@@ -63,10 +65,10 @@ public class ExportDataToJson {
                 System.out.println("noCreditPointsWith : " + course.get("noCreditPointsWith").toString());
 
 
-                course.put("qualifiedPrerequisites", getQualifiedPrerequisites(eElement));
+                course.put("qualifiedPrerequisites", getPrerequisites(eElement,"Qualified_Prerequisites"));
                 System.out.println("qualifiedPrerequisites: " + course.get("qualifiedPrerequisites").toString());
 
-                course.put("mandatoryPrerequisites", getMandatoryPrerequisites(eElement));
+                course.put("mandatoryPrerequisites", getPrerequisites(eElement,"Mandatory_Prerequisites"));
                 System.out.println("mandatoryPrerequisites: " + course.get("mandatoryPrerequisites").toString());
 
                 // TODO: previous courses
@@ -116,48 +118,21 @@ public class ExportDataToJson {
     static JSONArray getNoPointsWith(Element element) {
         JSONArray noCreditPointsWith = new JSONArray();
 
+
         try {
             String noPoints = element.getElementsByTagName("No_Credit_Points_With")
                     .item(0).getAttributes().getNamedItem("CourseCode").getTextContent();
-            String[] noCreditPointsWithString = noPoints.split("-|\\.");
-            for (int i = 0; i < noCreditPointsWithString.length; i++) {
-                noCreditPointsWith.put(noCreditPointsWithString[i]);
+            Pattern pattern = Pattern.compile("\\d{5}");
+            Matcher matcher = pattern.matcher(noPoints);
+            while (matcher.find()) {
+                noCreditPointsWith.put(matcher.group());
             }
         } catch (Exception e) {
         }
         return noCreditPointsWith;
     }
-
-    static JSONArray getMandatoryPrerequisites(Element element) {
-        // Mandatory prerequisites
-        JSONArray mandatoryPrerequisites = new JSONArray();
-
-        try {
-
-            NodeList mandatoryPrerequisitesList = element.getElementsByTagName("Mandatory_Prerequisites");
-            Element mandatoryElement = (Element) mandatoryPrerequisitesList.item(0);
-            NodeList comeon = mandatoryElement.getElementsByTagName("DTU_CoursesTxt");
-
-            String prerequisitesString = comeon
-                    .item(0).getAttributes()
-                    .getNamedItem("Txt").getTextContent();
-
-            String[] prerequisitesStringSplit = prerequisitesString
-                    .replace("(", "")
-                    .replace(")", "")
-                    .split("[.]");
-
-            for (int i = 0; i < prerequisitesStringSplit.length; i++) {
-                if (!prerequisitesStringSplit[i].matches(".*[a-zA-Z]+.*")) {
-                    // TODO: Trim så mellemrum ikke kommer med, på en smart måde
-                    mandatoryPrerequisites.put(prerequisitesStringSplit[i].trim().split("[/]"));
-                }
-            }
-        } catch (Exception e) { }
-        return mandatoryPrerequisites;
-    }
-
-    static JSONArray getQualifiedPrerequisites(Element element) {
+    
+    static JSONArray getPrerequisites(Element element, String type) {
         // Qualified prerequisites:
         // [["02101","02102","02312"],[["02105"]],["01017","01019"]]
 
@@ -165,7 +140,7 @@ public class ExportDataToJson {
 
         try {
 
-            NodeList qualifiedPrerequisitesList = element.getElementsByTagName("Qualified_Prerequisites");
+            NodeList qualifiedPrerequisitesList = element.getElementsByTagName(type);
             Element qualifiedElement = (Element) qualifiedPrerequisitesList.item(0);
             NodeList comeon = qualifiedElement.getElementsByTagName("DTU_CoursesTxt");
 
@@ -176,7 +151,7 @@ public class ExportDataToJson {
             String[] prerequisitesStringSplit = prerequisitesString
                     .replace("(", "")
                     .replace(")", "")
-                    .split("[.]");
+                    .split("[\\s.,]+");
 
             for (int i = 0; i < prerequisitesStringSplit.length; i++) {
                 if (!prerequisitesStringSplit[i].matches(".*[a-zA-Z]+.*")) {
