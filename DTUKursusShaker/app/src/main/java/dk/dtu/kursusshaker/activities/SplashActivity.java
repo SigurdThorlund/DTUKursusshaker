@@ -9,21 +9,22 @@ import android.os.Handler;
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
 
+/**
+ * Activity for splashscreen. Will appear shortly and start the mainactivity
+ * The layout is set in the android manifest as, splash_screen.xml.
+ *
+ * Sigurd Thorlund s184189
+ *
+ */
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(mainIntent);
-            }
-        },1000);
-
-        setTheme(R.style.AppTheme);
+        Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
     }
 }
