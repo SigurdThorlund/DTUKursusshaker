@@ -61,6 +61,8 @@ obj/
 # IntelliJ IDEA
 *.iml
 *.iws
+.DS_Store
+.idea
 /out/
 
 # User-specific configurations
