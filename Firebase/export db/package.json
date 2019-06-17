@@ -1,0 +1,14 @@
+{
+  "name": "export-db",
+  "version": "1.0.0",
+  "description": "Export data to Firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mikkel Anderson",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^8.1.0"
+  }
+}
