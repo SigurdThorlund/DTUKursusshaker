@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "195445456324",
+    "firebase_url": "https://dtu-kurser.firebaseio.com",
+    "project_id": "dtu-kurser",
+    "storage_bucket": "dtu-kurser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195445456324:android:287fa6406ead4e36",
+        "android_client_info": {
+          "package_name": "dk.dtu.kursusshaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195445456324-n6einptd4975v2gtjmus2bsgb9ed70qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dk.dtu.kursusshaker",
+            "certificate_hash": "295cff2f741e94869d5331b6a7ee74fa4e7d8c5a"
+          }
+        },
+        {
+          "client_id": "195445456324-5f115vr80u79s4fndkj823or1cchoqbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxUvSHcTwc6Wli-BXaqlbexgTGBtoqsSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195445456324-5f115vr80u79s4fndkj823or1cchoqbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
