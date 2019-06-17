@@ -1,33 +1,51 @@
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
-import java.io.File;
-import java.io.IOException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExportDataToJson {
+    public static int PRETTY_PRINT_INDENT_FACTOR = 4;
+    public static String TEST_XML_STRING = "place";
+    private static String USER_AGENT = "Mozilla/5.0";
 
-    public static void main(String argv[]) throws ParserConfigurationException, IOException, SAXException {
+    public static void main(String argv[]) throws Exception {
 
-        File fXmlFile = new File("testCourse.xml");
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(fXmlFile);
+        BufferedReader reader = new BufferedReader(new FileReader("rensetkurser.csv"));
+        ArrayList<String> id = new ArrayList<>();
+        while (reader.readLine() != null) {
+            id.add(reader.readLine().substring(0, 5));
+        }
 
-        doc.getDocumentElement().normalize();
+        Document doc;
+        for (String s : id) {
+            doc = loadXMLFromString(getCourse(s));
+            doc.getDocumentElement().normalize();
 
-        NodeList nList = doc.getElementsByTagName("Course");
-        System.out.println(createJSONObject(nList));
+            NodeList nList = doc.getElementsByTagName("Course");
+            System.out.println(createJSONObject(nList));
+        }
+    }
+
+    public static Document loadXMLFromString(String xml) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        InputSource is = new InputSource(new StringReader(xml));
+        return builder.parse(is);
     }
 
     static JSONObject createJSONObject(NodeList nList) {
@@ -40,53 +58,53 @@ public class ExportDataToJson {
                 Element eElement = (Element) nNode;
 
                 course.put("courseCode", eElement.getAttribute("CourseCode"));
-                System.out.println("courseCode : " + course.get("courseCode"));
+//                System.out.println("courseCode : " + course.get("courseCode"));
 
                 course.put("danishTitle", eElement.getElementsByTagName("Title")
                         .item(0).getAttributes().getNamedItem("Title").getTextContent());
-                System.out.println("danishTitle : " + course.get("danishTitle"));
+//                System.out.println("danishTitle : " + course.get("danishTitle"));
 
                 course.put("englishTitle", eElement.getElementsByTagName("Title")
                         .item(1).getAttributes().getNamedItem("Title").getTextContent());
-                System.out.println("englishTitle : " + course.get("englishTitle"));
+//                System.out.println("englishTitle : " + course.get("englishTitle"));
 
                 course.put("ects", eElement.getElementsByTagName("Point").item(0).getTextContent());
-                System.out.println("ects : " + course.get("ects"));
+//                System.out.println("ects : " + course.get("ects"));
 
                 course.put("courseType", eElement.getElementsByTagName("CBS_Programme_Level")
                         .item(0).getAttributes().getNamedItem("CBS_Programme_LevellKey").getTextContent());
-                System.out.println("courseType : " + course.get("courseType"));
+//                System.out.println("courseType : " + course.get("courseType"));
 
                 course.put("teachingLanguage", eElement.getElementsByTagName("Teaching_Language")
                         .item(0).getAttributes().getNamedItem("LangCode").getTextContent());
-                System.out.println("teachingLanguage: " + course.get("teachingLanguage"));
+//                System.out.println("teachingLanguage: " + course.get("teachingLanguage"));
 
                 course.put("mainDepartment", eElement.getElementsByTagName("Main_Dep")
                         .item(0).getAttributes().getNamedItem("UID").getTextContent());
-                System.out.println("mainDepartment: " + course.get("mainDepartment"));
+//                System.out.println("mainDepartment: " + course.get("mainDepartment"));
 
                 course.put("schedule", getSchedule(eElement));
-                System.out.println("schedulePlacement : " + course.get("schedule").toString());
+//                System.out.println("schedulePlacement : " + course.get("schedule").toString());
 
                 course.put("noCreditPointsWith", getNoPointsWith(eElement));
-                System.out.println("noCreditPointsWith : " + course.get("noCreditPointsWith").toString());
+//                System.out.println("noCreditPointsWith : " + course.get("noCreditPointsWith").toString());
 
 
-                course.put("qualifiedPrerequisites", getPrerequisites(eElement,"Qualified_Prerequisites"));
-                System.out.println("qualifiedPrerequisites: " + course.get("qualifiedPrerequisites").toString());
+                course.put("qualifiedPrerequisites", getPrerequisites(eElement, "Qualified_Prerequisites"));
+//                System.out.println("qualifiedPrerequisites: " + course.get("qualifiedPrerequisites").toString());
 
-                course.put("mandatoryPrerequisites", getPrerequisites(eElement,"Mandatory_Prerequisites"));
-                System.out.println("mandatoryPrerequisites: " + course.get("mandatoryPrerequisites").toString());
+                course.put("mandatoryPrerequisites", getPrerequisites(eElement, "Mandatory_Prerequisites"));
+//                System.out.println("mandatoryPrerequisites: " + course.get("mandatoryPrerequisites").toString());
 
                 course.put("previousCourses", getPreviousCourses(eElement));
-                System.out.println("previousCourses: " + course.get("previousCourses").toString());
+//                System.out.println("previousCourses: " + course.get("previousCourses").toString());
 
                 course.put("danishContents", getContents(eElement, "da-DK"));
-                System.out.println("danishContents: " + course.get("danishContents"));
+//                System.out.println("danishContents: " + course.get("danishContents"));
 
                 course.put("englishContents", getContents(eElement, "en-GB"));
-                System.out.println("englishContents: " + course.get("englishContents"));
-
+//                System.out.println("englishContents: " + course.get("englishContents"));
+                System.out.println(course.get("courseCode") + " Er nu hentet");
             }
         }
         return course;
@@ -101,7 +119,8 @@ public class ExportDataToJson {
                 String lang = contentList.item(i).getParentNode().getAttributes().getNamedItem("Lang").getTextContent();
                 if (lang.equals(language)) content = contentList.item(i).getTextContent();
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         return content;
     }
 
@@ -113,7 +132,8 @@ public class ExportDataToJson {
             for (int i = 0; i < courseList.getLength(); i++) {
                 jsonArray.put(courseList.item(i).getAttributes().getNamedItem("CourseCode").getTextContent());
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         return jsonArray;
     }
 
@@ -136,7 +156,8 @@ public class ExportDataToJson {
                 }
                 schedule.put(scheduleArray);
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         return schedule;
     }
 
@@ -156,7 +177,7 @@ public class ExportDataToJson {
         }
         return noCreditPointsWith;
     }
-    
+
     static JSONArray getPrerequisites(Element element, String type) {
         // Qualified prerequisites:
         // [["02101","02102","02312"],[["02105"]],["01017","01019"]]
@@ -184,8 +205,39 @@ public class ExportDataToJson {
                     qualifiedPrerequisites.put(prerequisitesStringSplit[i].trim().split("[/]"));
                 }
             }
-        } catch (Exception e) { }
+        } catch (Exception e) {
+        }
         return qualifiedPrerequisites;
+    }
+
+    static String getCourse(String id) throws Exception {
+
+        String url = "https://kurser.dtu.dk/coursewebservicev2/course.asmx/GetCourse?courseCode=" + id + "&yearGroup=2019/2020";
+
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        TrustModifier.relaxHostChecking(con);
+        con.setRequestMethod("GET");
+
+        //add request header
+        con.setRequestProperty("User-Agent", USER_AGENT);
+
+        int responseCode = con.getResponseCode();
+        System.out.println("\nSending 'GET' request to URL : " + url);
+        System.out.println("Response Code : " + responseCode);
+
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        //print result
+        return response.toString();
     }
 
 }

@@ -72,14 +72,5 @@ public class Course {
     }
 
 
-    public static void main(String[] args) throws IOException {
-        File xml = new File("testCourse.xml");
-        XmlMapper xmlMapper = new XmlMapper();
-        Course course = xmlMapper.readValue(xml, Course.class);
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(course);
-        System.out.println(json);
-    }
-
 
 }

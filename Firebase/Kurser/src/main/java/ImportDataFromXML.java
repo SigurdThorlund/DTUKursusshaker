@@ -188,47 +188,48 @@ public class ImportDataFromXML {
         }
         StringBuilder xml = new StringBuilder();
         for (String s : id) {
-            xml.append(http.get(s));
+
+//            xml.append(http.get(s));
         }
-        String allXml = xml.toString();
+//        String allXml = xml.toString();
         try {
             FileWriter fw=new FileWriter("kurser20191.xml"); //TODO ,true
-            JSONObject xmlJSONObj = XML.toJSONObject(allXml);
-            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-            fw.write(allXml);
+//            JSONObject xmlJSONObj = XML.toJSONObject(allXml);
+//            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
+//            fw.write(allXml);
             fw.close();
         } catch (JSONException je) {
             System.out.println(je.toString());
         }
     }
 
-    private String get(String id) throws Exception {
-
-        String url = "https://kurser.dtu.dk/coursewebservicev2/course.asmx/GetCourse?courseCode=" + id + "&yearGroup=2019/2020";
-
-        URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        TrustModifier.relaxHostChecking(con);
-        con.setRequestMethod("GET");
-
-        //add request header
-        con.setRequestProperty("User-Agent", USER_AGENT);
-
-        int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-
-        //print result
-        return response.toString();
-    }
+//    private String get(String id) throws Exception {
+//
+//        String url = "https://kurser.dtu.dk/coursewebservicev2/course.asmx/GetCourse?courseCode=" + id + "&yearGroup=2019/2020";
+//
+//        URL obj = new URL(url);
+//        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+//        TrustModifier.relaxHostChecking(con);
+//        con.setRequestMethod("GET");
+//
+//        //add request header
+//        con.setRequestProperty("User-Agent", USER_AGENT);
+//
+//        int responseCode = con.getResponseCode();
+//        System.out.println("\nSending 'GET' request to URL : " + url);
+//        System.out.println("Response Code : " + responseCode);
+//
+//        BufferedReader in = new BufferedReader(
+//                new InputStreamReader(con.getInputStream()));
+//        String inputLine;
+//        StringBuffer response = new StringBuffer();
+//
+//        while ((inputLine = in.readLine()) != null) {
+//            response.append(inputLine);
+//        }
+//        in.close();
+//
+//        //print result
+//        return response.toString();
+//    }
 }
