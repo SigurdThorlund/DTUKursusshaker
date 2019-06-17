@@ -55,6 +55,13 @@ public class ExportDataToJson {
                         .item(0).getAttributes().getNamedItem("CBS_Programme_LevellKey").getTextContent());
                 System.out.println("courseType : " + course.get("courseType"));
 
+                course.put("teachingLanguage", eElement.getElementsByTagName("Teaching_Language")
+                        .item(0).getAttributes().getNamedItem("LangCode").getTextContent());
+                System.out.println("teachingLanguage: " + course.get("teachingLanguage"));
+
+                course.put("mainDepartment", eElement.getElementsByTagName("Main_Dep")
+                        .item(0).getAttributes().getNamedItem("UID").getTextContent());
+                System.out.println("mainDepartment: " + course.get("mainDepartment"));
 
                 course.put("schedule", getSchedule(eElement));
                 System.out.println("schedulePlacement : " + course.get("schedule").toString());
@@ -69,27 +76,43 @@ public class ExportDataToJson {
                 course.put("mandatoryPrerequisites", getMandatoryPrerequisites(eElement));
                 System.out.println("mandatoryPrerequisites: " + course.get("mandatoryPrerequisites").toString());
 
-                // TODO: previous courses
-                // TODO: institut
-                // TODO: contents:
-                               /*course.put("danishContents",eElement.getElementsByTagName("Contents")
-                    .item(0).getAttributes().getNamedItem("Contents").getTextContent());
-                    System.out.println("danishContents " + course.get("danishContents"));
+                course.put("previousCourses", getPreviousCourses(eElement));
+                System.out.println("previousCourses: " + course.get("previousCourses").toString());
 
-                    course.put("englishContents",eElement.getElementsByTagName("Contents")
-                            .item(1).getAttributes().getNamedItem("Contents").getTextContent());*/
+                course.put("danishContents", getContents(eElement, "da-DK"));
+                System.out.println("danishContents: " + course.get("danishContents"));
 
-
-/*                    for (int i = 0; i < eElement.getElementsByTagName("DTU_ObjectiveKeyword").getLength(); i++){
-//                        objectiveDanish.add(eElement.getElementsByTagName("Schedule").item(i).getAttributes().getNamedItem("ScheduleKey").getTextContent());
-                        System.out.println(eElement.getElementsByTagName("DTU_ObjectiveKeyword").item(i).toString());
-                        objectiveDanish.add(eElement.getElementsByTagName("DTU_ObjectiveKeyword").item(i).getAttributes().item(0).getAttributes().getNamedItem("Txt").getTextContent());
-                    }
-                    System.out.println("objectiveDanish : " + objectiveDanish.toString());*/
+                course.put("englishContents", getContents(eElement, "en-GB"));
+                System.out.println("englishContents: " + course.get("englishContents"));
 
             }
         }
         return course;
+    }
+
+    static String getContents(Element element, String language) {
+        String content = null;
+
+        try {
+            NodeList contentList = element.getElementsByTagName("Contents");
+            for (int i = 0; i < contentList.getLength(); i++) {
+                String lang = contentList.item(i).getParentNode().getAttributes().getNamedItem("Lang").getTextContent();
+                if (lang.equals(language)) content = contentList.item(i).getTextContent();
+            }
+        } catch (Exception e) {}
+        return content;
+    }
+
+    static JSONArray getPreviousCourses(Element element) {
+        JSONArray jsonArray = new JSONArray();
+
+        try {
+            NodeList courseList = element.getElementsByTagName("PreviousCourse");
+            for (int i = 0; i < courseList.getLength(); i++) {
+                jsonArray.put(courseList.item(i).getAttributes().getNamedItem("CourseCode").getTextContent());
+            }
+        } catch (Exception e) {}
+        return jsonArray;
     }
 
     static JSONArray getSchedule(Element element) {
@@ -99,17 +122,19 @@ public class ExportDataToJson {
 
         JSONArray schedule = new JSONArray();
 
-        NodeList scheduleList = element.getElementsByTagName("Class_Schedule");
-        for (int i = 0; i < scheduleList.getLength(); i++) {
-            JSONArray scheduleArray = new JSONArray();
-            Element scheduleElement = (Element) scheduleList.item(i);
-            NodeList scheduleKey = scheduleElement.getElementsByTagName("Schedule");
-            for (int j = 0; j < scheduleKey.getLength(); j++) {
-                String scheduleString = scheduleKey.item(j).getAttributes().getNamedItem("ScheduleKey").getTextContent();
-                scheduleArray.put(scheduleString);
+        try {
+            NodeList scheduleList = element.getElementsByTagName("Class_Schedule");
+            for (int i = 0; i < scheduleList.getLength(); i++) {
+                JSONArray scheduleArray = new JSONArray();
+                Element scheduleElement = (Element) scheduleList.item(i);
+                NodeList scheduleKey = scheduleElement.getElementsByTagName("Schedule");
+                for (int j = 0; j < scheduleKey.getLength(); j++) {
+                    String scheduleString = scheduleKey.item(j).getAttributes().getNamedItem("ScheduleKey").getTextContent();
+                    scheduleArray.put(scheduleString);
+                }
+                schedule.put(scheduleArray);
             }
-            schedule.put(scheduleArray);
-        }
+        } catch (Exception e) {}
         return schedule;
     }
 
