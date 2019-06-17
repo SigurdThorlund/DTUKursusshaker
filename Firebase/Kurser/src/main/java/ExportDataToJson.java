@@ -126,25 +126,27 @@ public class ExportDataToJson {
                 String lang = contentList.item(i).getParentNode().getAttributes().getNamedItem("Lang").getTextContent();
                 if (lang.equals(language)) content = contentList.item(i).getTextContent();
             }
-        } catch (Exception e) {
+            return content;
+        } catch (NullPointerException e) {
+            return content;
         }
-        return content;
     }
 
     static JSONArray getPreviousCourses(Element element) {
         /* Gets a list of previous courses, if any, corresponding to the course,
          * since courses have gone by different names/course codes in the past. */
 
-        JSONArray jsonArray = new JSONArray();
+        JSONArray previousCourses = new JSONArray();
 
         try {
             NodeList courseList = element.getElementsByTagName("PreviousCourse");
             for (int i = 0; i < courseList.getLength(); i++) {
-                jsonArray.add(courseList.item(i).getAttributes().getNamedItem("CourseCode").getTextContent());
+                previousCourses.add(courseList.item(i).getAttributes().getNamedItem("CourseCode").getTextContent());
             }
-        } catch (Exception e) {}
-
-        return jsonArray;
+            return previousCourses;
+        } catch (NullPointerException e) {
+            return previousCourses;
+        }
     }
 
     static JSONArray getSchedule(Element element) {
@@ -170,9 +172,10 @@ public class ExportDataToJson {
 
                 schedule.add(scheduleArray);
             }
-        } catch (Exception e) {}
-
-        return schedule;
+            return schedule;
+        } catch (NullPointerException e) {
+            return schedule;
+        }
     }
 
     static JSONArray getNoPointsWith(Element element) {
@@ -187,9 +190,10 @@ public class ExportDataToJson {
             while (matcher.find()) {
                 noCreditPointsWith.add(matcher.group());
             }
-        } catch (Exception e) {}
-
-        return noCreditPointsWith;
+            return noCreditPointsWith;
+        } catch (NullPointerException e) {
+            return noCreditPointsWith;
+        }
     }
 
     static JSONArray getPrerequisites(Element element, String type) {
@@ -234,12 +238,15 @@ public class ExportDataToJson {
                         prerequisite.add(array[j]);
                     }
 
+                    System.out.println(prerequisite);
                     prerequisites.add(prerequisite);
                 }
             }
-        } catch (Exception e) {}
+            return prerequisites;
+        } catch (NullPointerException e) {
+            return prerequisites;
+        }
 
-        return prerequisites;
     }
 
     static String getCourse(String id) throws Exception {
