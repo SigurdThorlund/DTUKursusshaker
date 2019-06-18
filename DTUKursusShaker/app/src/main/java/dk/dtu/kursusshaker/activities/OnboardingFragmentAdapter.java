@@ -6,11 +6,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
-    private final int NUM_ONBOARDING_PAGES = 4;
+    private final int NUM_ONBOARDING_PAGES = 2;
+
+    private List<Fragment> fragmentsList = new ArrayList<>();
 
     public OnboardingFragmentAdapter(@NonNull FragmentManager fm) {
         super(fm);
@@ -19,11 +23,7 @@ public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = new OnboardingFragment();
-        Bundle args = new Bundle();
-        args.putInt(OnboardingFragment.ARG_OBJECT,position+1);
-        fragment.setArguments(args);
-        return fragment;
+        return fragmentsList.get(position);
     }
 
     @Override
@@ -31,8 +31,7 @@ public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
         return NUM_ONBOARDING_PAGES;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return "OBJECT" + (position + 1);
+    public void addItem(Fragment newFragment, String title) {
+        fragmentsList.add(newFragment);
     }
 }

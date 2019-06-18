@@ -23,7 +23,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
     OnboardingFragmentAdapter fragmentAdapter;
     ViewPager viewPager;
-
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,18 @@ public class OnboardingActivity extends AppCompatActivity {
         fragmentAdapter = new OnboardingFragmentAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.fragment_viewpage);
         viewPager.setAdapter(fragmentAdapter);
+
+        tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+
+        setupOnboarding();
+    }
+
+    public void setupOnboarding() {
+        KursusFragment kf = new KursusFragment();
+        OnboardingFragment sf = new OnboardingFragment();
+        fragmentAdapter.addItem(kf, "Kursus");
+        fragmentAdapter.addItem(sf, "Studieretning");
     }
 
 

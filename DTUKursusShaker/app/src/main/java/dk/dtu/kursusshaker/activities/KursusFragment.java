@@ -11,16 +11,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import dk.dtu.kursusshaker.R;
 
-public class OnboardingFragment extends Fragment {
-
+public class KursusFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.onboarding_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_kursus, container, false);
     }
 
     @Override
