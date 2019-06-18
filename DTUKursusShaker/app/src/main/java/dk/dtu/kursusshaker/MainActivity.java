@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import dk.dtu.kursusshaker.activities.IntroActivity;
+import dk.dtu.kursusshaker.activities.OnboardingActivity;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, IntroActivity.class);
+                Intent i = new Intent(MainActivity.this, OnboardingActivity.class);
                 startActivity(i);
             }
         });
