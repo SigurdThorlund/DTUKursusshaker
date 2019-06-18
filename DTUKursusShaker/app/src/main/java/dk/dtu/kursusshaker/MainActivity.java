@@ -15,9 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
-        // Creating intent and allowing data to be passed prior to the application starts
+        // Creating intent and allowing data to be handled prior to the application starts
         Intent startPrimaryActivityIntent = new Intent(getApplicationContext(), PrimaryActivity.class);
         startActivity(startPrimaryActivityIntent);
 
