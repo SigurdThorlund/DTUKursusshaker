@@ -1,7 +1,5 @@
 package dk.dtu.kursusshaker.activities;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,6 +7,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Custom FragmentAdapter for logic in the ViewPager.
+ *
+ * Sigurd Thorlund s184189
+ *
+ */
 
 public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
@@ -31,7 +36,7 @@ public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
         return NUM_ONBOARDING_PAGES;
     }
 
-    public void addItem(Fragment newFragment, String title) {
+    public void addItem(Fragment newFragment) {
         fragmentsList.add(newFragment);
     }
 

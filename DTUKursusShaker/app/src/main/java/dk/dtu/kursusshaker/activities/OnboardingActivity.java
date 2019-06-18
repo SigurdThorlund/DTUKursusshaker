@@ -5,13 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
+import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
+
+/**
+ * Activity that hosts the onboarding fragments
+ *
+ * Sigurd Thorlund s184189
+ */
 
 public class OnboardingActivity extends AppCompatActivity {
 
@@ -21,6 +29,9 @@ public class OnboardingActivity extends AppCompatActivity {
 
     Button buttonBack;
     Button buttonNext;
+
+    private View.OnClickListener nextDefaultListener;
+    private View.OnClickListener nextLastViewListener;
 
 
     @Override
@@ -41,7 +52,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         //Back and Next buttons functionality
         buttonNext = findViewById(R.id.button_next);
-        buttonNext.setOnClickListener(new View.OnClickListener() {
+        nextDefaultListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = viewPager.getCurrentItem();
@@ -50,7 +61,19 @@ public class OnboardingActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(position);
                 }
             }
-        });
+        };
+
+        //Listener for when the fragment is on the last view.
+        nextLastViewListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+
+        buttonNext.setOnClickListener(nextDefaultListener);
 
         buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -86,15 +109,26 @@ public class OnboardingActivity extends AppCompatActivity {
      *
      * @param position
      */
+
     public void updateButtonView(int position) {
-        if (position == fragmentAdapter.getFragmentsList().size()-1) {
-            buttonNext.setText("asd");
+        if (isLastView(position)) {
+            buttonNext.setText(R.string.button_done);
+            buttonNext.setOnClickListener(nextLastViewListener);
         } else if (position == 0) {
             buttonBack.setVisibility(View.INVISIBLE);
         } else {
-            buttonNext.setText("Frem");
+            buttonNext.setText(R.string.button_next);
+            buttonNext.setOnClickListener(nextDefaultListener);
             buttonBack.setVisibility(View.VISIBLE);
         }
+    }
+
+    /**
+     * @param position
+     * @return true if the fragment is the last view in the viewpager
+     */
+    public boolean isLastView(int position) {
+        return position == fragmentAdapter.getFragmentsList().size()-1;
     }
 
     /**
@@ -105,10 +139,10 @@ public class OnboardingActivity extends AppCompatActivity {
         KursusFragment kf1 = new KursusFragment();
         OnboardingFragment sf = new OnboardingFragment();
         Fragment sf1 = new Fragment();
-        fragmentAdapter.addItem(kf, "Kursus");
-        fragmentAdapter.addItem(sf1, "Kursus");
-        fragmentAdapter.addItem(sf, "Studieretning");
-        fragmentAdapter.addItem(kf1, "Kursus");
+        fragmentAdapter.addItem(kf);
+        fragmentAdapter.addItem(sf1);
+        fragmentAdapter.addItem(sf);
+        fragmentAdapter.addItem(kf1);
     }
 
 
