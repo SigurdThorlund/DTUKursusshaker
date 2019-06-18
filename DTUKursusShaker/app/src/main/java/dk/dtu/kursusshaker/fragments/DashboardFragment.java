@@ -16,11 +16,14 @@ import android.widget.SimpleAdapter;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.CoursesAsObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,9 +79,18 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    private void insertCoursesInListView() { //TODO skal laves til MVC
-        String[] courseNames = {"Matematik 1", "Matematik 2", "Statistik", "Software", "Android"};
-        String[] courseIds = {"01005", "01839", "32892", "09732", "56782"};
+    private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
+        CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
+        Course[] course = coursesAsObject.getCourseArray();
+
+        String[] courseNames = new String[course.length];
+        String[] courseIds = new String[course.length];
+        // String[] courseNames = {"Matematik 1", "Matematik 2", "Statistik", "Software", "Android"};
+        // String[] courseIds = {"01005", "01839", "32892", "09732", "56782"};
+        for (int i = 0; i < course.length; i++) {
+            courseNames[i] = course[i].getDanishTitle();
+            courseIds[i] = course[i].getCourseCode();
+        }
 
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
 
@@ -131,7 +143,11 @@ public class DashboardFragment extends Fragment {
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        this.insertCoursesInListView();
+        try {
+            this.insertCoursesInListView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return view;
     }
 

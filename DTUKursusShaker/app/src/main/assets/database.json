@@ -1,5 +1,4 @@
-{
-  "courses": [
+[
     {
       "courseType": "DTU_BSC",
       "englishContents": "Linear equations and linear maps. Matrix algebra. Vektor spaces. Eigenvalue problems. Symmetric and orthogonal matrices. Complex numbers. Linear differential equations. Standard functions.Functions of one and several real variables: linear approximations and partial derivatives, Taylor expansions and quadratic forms, extrema and level curves, line, surface and volume integrals. Vector fields, Gauss' and Stokes' theorem.Applications of MAPLE in the above areas. Examples of applications in the engineering sciences.",
@@ -42389,4 +42388,3 @@
       "englishTitle": "Management of digital transformation"
     }
   ]
-}
