@@ -3,30 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/mainActivity">
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="dk.dtu.kursusshaker.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
-    <activity
-        android:id="@+id/settingsActivity"
-        android:name="dk.dtu.kursusshaker.activities.SettingsActivity"
-        android:label="settings_activity"
-        tools:layout="@layout/settings_activity" />
-    <activity
-        android:id="@+id/basketActivity"
-        android:name="dk.dtu.kursusshaker.activities.BasketActivity"
-        android:label="activity_basket"
-        tools:layout="@layout/activity_basket" />
-    <activity
-        android:id="@+id/searchActivity"
-        android:name="dk.dtu.kursusshaker.activities.SearchActivity"
-        android:label="activity_search"
-        tools:layout="@layout/activity_search" />
-    <activity
-        android:id="@+id/dashboardActivity"
-        android:name="dk.dtu.kursusshaker.activities.DashboardActivity"
-        android:label="activity_dashboard"
-        tools:layout="@layout/activity_dashboard" />
+    app:startDestination="@id/dashboardFragment">
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="dk.dtu.kursusshaker.fragments.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="dk.dtu.kursusshaker.fragments.SettingsFragment"
+        android:label="fragment_settings" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="dk.dtu.kursusshaker.fragments.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="dk.dtu.kursusshaker.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
