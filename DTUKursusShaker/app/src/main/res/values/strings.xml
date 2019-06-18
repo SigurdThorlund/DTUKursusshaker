@@ -26,5 +26,6 @@
     <string name="temp_blank_search_fragment">Search Fragment</string>
     <string name="temp_blank_basket_fragment">Basket Fragment</string>
     <string name="temp_blank_settings_fragment">Settings Fragment</string>
+    <string name="notif_destination_changed">Destination Changed!</string>
 
 </resources>

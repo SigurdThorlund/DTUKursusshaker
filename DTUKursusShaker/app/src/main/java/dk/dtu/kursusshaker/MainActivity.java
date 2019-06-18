@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // Creating intent and allowing data to be handled prior to the application starts
         Intent startPrimaryActivityIntent = new Intent(getApplicationContext(), PrimaryActivity.class);
         startActivity(startPrimaryActivityIntent);
-
+        finish();
     }
 
 }
