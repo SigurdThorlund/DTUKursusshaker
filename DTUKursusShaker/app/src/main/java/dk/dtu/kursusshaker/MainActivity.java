@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DTU_K_shaker")
                 .setSmallIcon(R.drawable.ic_home_black_24dp) //Need new icon, current one is a placeholder
-                .setContentTitle("App launch")
+                .setContentTitle("DTU Kursusshaker")
                 .setContentText("App has launched")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
