@@ -8,19 +8,40 @@
         android:id="@+id/dashboardFragment"
         android:name="dk.dtu.kursusshaker.fragments.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="dk.dtu.kursusshaker.fragments.SettingsFragment"
-        android:label="fragment_settings" />
-    <fragment
-        android:id="@+id/basketFragment"
-        android:name="dk.dtu.kursusshaker.fragments.BasketFragment"
-        android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/confirmationAction"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="dk.dtu.kursusshaker.fragments.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/confirmationAction"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="dk.dtu.kursusshaker.fragments.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket">
+        <action
+            android:id="@+id/confirmationAction"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="dk.dtu.kursusshaker.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/confirmationAction"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
 </navigation>

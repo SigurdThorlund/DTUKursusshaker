@@ -7,14 +7,22 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.Navigator;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.internal.NavigationMenu;
 
 import java.util.List;
 
@@ -26,7 +34,11 @@ import dk.dtu.kursusshaker.fragments.SettingsFragment;
 
 public class PrimaryActivity extends AppCompatActivity {
 
-    private NavController navigationController = null;
+    private int backButtonCounter;
+    private static MenuItem item;
+    private static NavController navController;
+    NavController navigationController = null;
+    //BottomNavigationView bottomNavigationView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +58,57 @@ public class PrimaryActivity extends AppCompatActivity {
     }
 
     private void setupButtomNavigationBar() {
-        BottomNavigationView navigationView = findViewById(R.id.nav_view);
         navigationController = Navigation.findNavController(this, R.id.primary_host_fragment);
-        NavigationUI.setupWithNavController(navigationView, navigationController);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
 
-        //navigationController.addOnDestinationChangedListener(onDestinationChangedListener);
+        // This links bottomNavigationView together with navigationController...
+        // But documentation is not clear on how to use it. Examples only exists for Kotlin..
+        NavigationUI.setupWithNavController(bottomNavigationView, navigationController);
 
-        //Deprecated most likely...
-        navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        //Assign listeners
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        navigationController.addOnDestinationChangedListener(onDestinationChangedListener);
+
     }
 
     NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
         @Override
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
 
+            // Usefull method.. Following can be removed before final release!
+            if (destination.getId() == R.id.dashboardFragment) {
+                Toast.makeText(getApplicationContext(), "Changed to Dashboard Fragment", Toast.LENGTH_SHORT).show();
+            } else if (destination.getId() == R.id.searchFragment) {
+                Toast.makeText(getApplicationContext(), "Changed to Search Fragment", Toast.LENGTH_SHORT).show();
+            } else if (destination.getId() == R.id.basketFragment) {
+                Toast.makeText(getApplicationContext(), "Changed to Basket Fragment", Toast.LENGTH_SHORT).show();
+            } else if (destination.getId() == R.id.settingsFragment) {
+                Toast.makeText(getApplicationContext(), "Changed to Settings Fragment", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    // When user press back during mainMenuTabs he will be asked if he wish to hide the app
+    @Override
+    public void onBackPressed() {
+        Toast myToast = Toast.makeText(this, "Press back again to exit!", Toast.LENGTH_SHORT);
+        if (backButtonCounter >= 1) {
+            myToast.cancel();
+            backButtonCounter = 0;
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else {
+            myToast.show();
+            backButtonCounter++;
+        }
+    }
+
+    AppBarConfiguration.OnNavigateUpListener onNavigateUpListener = new AppBarConfiguration.OnNavigateUpListener() {
+        @Override
+        public boolean onNavigateUp() {
+            return false;
         }
     };
 
@@ -84,5 +133,4 @@ public class PrimaryActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 }
