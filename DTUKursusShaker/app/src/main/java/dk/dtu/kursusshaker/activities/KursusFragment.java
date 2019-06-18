@@ -20,9 +20,4 @@ public class KursusFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_kursus, container, false);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        System.out.println("Tester");
-    }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
-    private final int NUM_ONBOARDING_PAGES = 2;
+    private final int NUM_ONBOARDING_PAGES = 4;
 
     private List<Fragment> fragmentsList = new ArrayList<>();
 
@@ -33,5 +33,9 @@ public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
     public void addItem(Fragment newFragment, String title) {
         fragmentsList.add(newFragment);
+    }
+
+    public List<Fragment> getFragmentsList() {
+        return fragmentsList;
     }
 }

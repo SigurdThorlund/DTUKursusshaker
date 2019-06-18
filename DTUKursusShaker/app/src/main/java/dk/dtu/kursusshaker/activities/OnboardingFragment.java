@@ -22,9 +22,4 @@ public class OnboardingFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.onboarding_fragment, container, false);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        System.out.println("Tester");
-    }
 }
