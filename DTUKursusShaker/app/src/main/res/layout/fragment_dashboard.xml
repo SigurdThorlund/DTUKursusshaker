@@ -3,43 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.DashboardFragment">
+    tools:context=".fragments.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/search_all_courses"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_search_white_24dp"
-            app:helperTextEnabled="true"
-            app:helperText="@string/hint_text_search_course_hint"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/hint_text_search_course">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/search_all_courses_filter"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:id="@+id/list_item_all_courses"
-            style="@style/Theme.MaterialComponents"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
+        android:orientation="vertical"></LinearLayout>
 </FrameLayout>
