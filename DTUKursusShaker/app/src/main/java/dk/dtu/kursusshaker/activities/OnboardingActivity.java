@@ -44,7 +44,6 @@ public class OnboardingActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-
         //Connect adapter, tablayout and viewpager.
         fragmentAdapter = new OnboardingFragmentAdapter(getSupportFragmentManager());
         viewPager = findViewById(R.id.fragment_viewpage);
@@ -73,9 +72,7 @@ public class OnboardingActivity extends AppCompatActivity {
         nextLastViewListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                launchMainActivity();
             }
         };
 
@@ -154,8 +151,13 @@ public class OnboardingActivity extends AppCompatActivity {
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
     private boolean restorePreferences() {
-
         return true;
+    }
+
+    private void launchMainActivity() {
+        Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 
