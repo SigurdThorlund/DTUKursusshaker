@@ -26,12 +26,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        createNotificationChannel();
 
         // Creating intent and allowing data to be handled prior to the application starts
         Intent startPrimaryActivityIntent = new Intent(getApplicationContext(), PrimaryActivity.class);
         startActivity(startPrimaryActivityIntent);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DTU_K_shaker")
+                .setSmallIcon(R.drawable.ic_home_black_24dp) //Need new icon, current one is a placeholder
+                .setContentTitle("DTU Kursusshaker")
+                .setContentText("App has launched")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+// notificationId is a unique int for each notification that you must define
+        notificationManager.notify(0, builder.build());
         finish();
     }
 
