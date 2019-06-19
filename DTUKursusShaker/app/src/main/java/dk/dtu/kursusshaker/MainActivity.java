@@ -1,6 +1,9 @@
 package dk.dtu.kursusshaker;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,8 @@ import dk.dtu.kursusshaker.activities.PrimaryActivity;
 
 // Main entry-point for the app. Mby this is a good place for Firebase initialization????
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "nej"; //todo change
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
