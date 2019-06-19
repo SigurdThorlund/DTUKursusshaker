@@ -15,4 +15,8 @@
     <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
     </style>
 
+    <style name="buttonStyle" parent ="AppTheme">
+        <item name="colorPrimary">@android:color/white</item>
+    </style>
+
 </resources>

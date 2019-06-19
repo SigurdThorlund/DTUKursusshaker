@@ -31,4 +31,8 @@
     <string name="temp_blank_settings_fragment">Settings Fragment</string>
     <string name="notif_destination_changed">Destination Changed!</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_next">Frem</string>
+    <string name="button_done">Kom i gang</string>
+    <string name="button_back">Tilbage</string>
 </resources>
