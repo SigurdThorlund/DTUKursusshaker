@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ public class OnboardingActivity extends AppCompatActivity {
     OnboardingFragmentAdapter fragmentAdapter;
     ViewPager viewPager;
     TabLayout tabLayout;
+    Context context;
 
     Button buttonBack;
     Button buttonNext;
@@ -38,6 +41,9 @@ public class OnboardingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
+        context = getApplicationContext();
+
 
         //Connect adapter, tablayout and viewpager.
         fragmentAdapter = new OnboardingFragmentAdapter(getSupportFragmentManager());
@@ -86,6 +92,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 }
             }
         });
+        buttonBack.setVisibility(View.INVISIBLE);
 
         //Viewpager updates view while user is onboarding
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -110,7 +117,7 @@ public class OnboardingActivity extends AppCompatActivity {
      * @param position
      */
 
-    public void updateButtonView(int position) {
+    private void updateButtonView(int position) {
         if (isLastView(position)) {
             buttonNext.setText(R.string.button_done);
             buttonNext.setOnClickListener(nextLastViewListener);
@@ -127,14 +134,14 @@ public class OnboardingActivity extends AppCompatActivity {
      * @param position
      * @return true if the fragment is the last view in the viewpager
      */
-    public boolean isLastView(int position) {
+    private boolean isLastView(int position) {
         return position == fragmentAdapter.getFragmentsList().size()-1;
     }
 
     /**
      * Adds fragments to the onboarding activity
      */
-    public void setupOnboarding() {
+    private void setupOnboarding() {
         KursusFragment kf = new KursusFragment();
         KursusFragment kf1 = new KursusFragment();
         OnboardingFragment sf = new OnboardingFragment();
@@ -143,6 +150,12 @@ public class OnboardingActivity extends AppCompatActivity {
         fragmentAdapter.addItem(sf1);
         fragmentAdapter.addItem(sf);
         fragmentAdapter.addItem(kf1);
+    }
+
+    //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
+    private boolean restorePreferences() {
+
+        return true;
     }
 
 
