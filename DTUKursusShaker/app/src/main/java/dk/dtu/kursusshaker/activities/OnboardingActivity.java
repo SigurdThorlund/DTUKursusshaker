@@ -7,7 +7,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +15,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.fragments.KursusTypeFragment;
+import dk.dtu.kursusshaker.fragments.SkemaPlaceringFragment;
 
 /**
  * Activity that hosts the onboarding fragments
@@ -139,14 +140,10 @@ public class OnboardingActivity extends AppCompatActivity {
      * Adds fragments to the onboarding activity
      */
     private void setupOnboarding() {
-        KursusFragment kf = new KursusFragment();
-        KursusFragment kf1 = new KursusFragment();
-        OnboardingFragment sf = new OnboardingFragment();
-        Fragment sf1 = new Fragment();
-        fragmentAdapter.addItem(kf);
-        fragmentAdapter.addItem(sf1);
-        fragmentAdapter.addItem(sf);
-        fragmentAdapter.addItem(kf1);
+        KursusTypeFragment kursusTypeFragment = new KursusTypeFragment();
+        SkemaPlaceringFragment skemaPlaceringFragment = new SkemaPlaceringFragment();
+        fragmentAdapter.addItem(kursusTypeFragment);
+        fragmentAdapter.addItem(skemaPlaceringFragment);
     }
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.

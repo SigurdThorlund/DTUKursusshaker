@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
  * create an instance of this fragment.
  */
 public class DashboardFragment extends Fragment {
+
+    View view;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -93,7 +96,7 @@ public class DashboardFragment extends Fragment {
         // Inflate the layout for this fragment
         final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        Button shakeItButton = (Button) constraintLayout.getViewById(R.id.shakeButton);
+        ImageButton shakeItButton = (ImageButton) constraintLayout.getViewById(R.id.shakeViewButton);
         shakeItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
