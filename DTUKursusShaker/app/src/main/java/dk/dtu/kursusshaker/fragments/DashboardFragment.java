@@ -1,5 +1,6 @@
 package dk.dtu.kursusshaker.fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.activities.ViewCourseActivity;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 
@@ -82,13 +84,11 @@ public class DashboardFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
-        Course[] course = coursesAsObject.getCourseArray();
+        final CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
+        final Course[] course = coursesAsObject.getCourseArray();
 
         String[] courseNames = new String[course.length];
         String[] courseIds = new String[course.length];
-        // String[] courseNames = {"Matematik 1", "Matematik 2", "Statistik", "Software", "Android"};
-        // String[] courseIds = {"01005", "01839", "32892", "09732", "56782"};
         for (int i = 0; i < course.length; i++) {
             courseNames[i] = course[i].getDanishTitle();
             courseIds[i] = course[i].getCourseCode();
@@ -113,8 +113,13 @@ public class DashboardFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                Object clickItemObj = adapterView.getAdapter().getItem(index);
-                //     Toast.makeText(this, "You clicked " + clickItemObj.toString(), Toast.LENGTH_SHORT).show();
+                HashMap clickItemObj = (HashMap) adapterView.getAdapter().getItem(index);
+                String selectedCourseCode = (String) clickItemObj.get("description");
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), ViewCourseActivity.class);
+                Course intentCourse = coursesAsObject.getCourseFromId(selectedCourseCode);
+                intent.putExtra("selectedCourse",intentCourse);
+                startActivity(intent);
             }
         });
 
