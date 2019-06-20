@@ -106,7 +106,7 @@ public class SearchFragment extends Fragment {
         simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
                 new String[]{"title", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
 
-        ListView listView = (ListView) view.findViewById(R.id.list_item_all_courses);
+        ListView listView = view.findViewById(R.id.list_item_all_courses);
         listView.setAdapter(simpleAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

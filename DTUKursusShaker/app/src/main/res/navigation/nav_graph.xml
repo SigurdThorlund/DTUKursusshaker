@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/navigation_dashboard">
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/navigation_dashboard"
         android:name="dk.dtu.kursusshaker.fragments.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard">
     </fragment>
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/navigation_search"
         android:name="dk.dtu.kursusshaker.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
 
     </fragment>
     <fragment
-        android:id="@+id/basketFragment"
+        android:id="@+id/navigation_basket"
         android:name="dk.dtu.kursusshaker.fragments.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket">
 
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/navigation_settings"
         android:name="dk.dtu.kursusshaker.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings">

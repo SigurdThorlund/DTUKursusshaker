@@ -27,6 +27,7 @@
         android:layout_marginTop="8dp"
         android:text="Search"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.80"
@@ -53,9 +54,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_all_courses"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/hint_text_search_course"
         app:endIconDrawable="@drawable/ic_search_white_24dp"
@@ -64,7 +65,7 @@
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_all_courses_filter"
@@ -76,13 +77,17 @@
     <ListView
         android:id="@+id/list_item_all_courses"
         style="@style/Theme.MaterialComponents"
+        android:layout_width="0dp"
+        android:layout_height="600dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fastScrollAlwaysVisible="false"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_all_courses" />
+        app:layout_constraintTop_toBottomOf="@+id/search_all_courses"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
