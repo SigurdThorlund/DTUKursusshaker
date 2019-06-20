@@ -1,10 +1,15 @@
 package dk.dtu.kursusshaker.fragments;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -21,8 +28,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.Inflater;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.activities.PrimaryActivity;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 
@@ -77,14 +86,23 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+        final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        Button shakeItButton = (Button) constraintLayout.getViewById(R.id.shakeButton);
+        shakeItButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(constraintLayout).navigate(R.id.recommendationsFragment);
+            }
+        });
+
+
+        return constraintLayout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -94,16 +112,20 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    /*@Override
-    public void onAttach(Context context) {
+    @Override
+    public void onAttach(final Context context) {
         super.onAttach(context);
+
+        // Not sure how to use this piece of code.. But it is the prefered way to glue the connection together
+        /*
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }*/
+        */
+    }
 
     @Override
     public void onDetach() {
