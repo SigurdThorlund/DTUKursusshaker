@@ -82,8 +82,17 @@ public class DashboardFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
+        ArrayList<String> excludedCourses = new ArrayList<String>();
+
+        // Exclude these three courses just for fun
+        // TODO: This is where we want to implement actual filtering stuff
+        excludedCourses.add("01005");
+        excludedCourses.add("01003");
+        excludedCourses.add("01006");
+
         CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
-        Course[] course = coursesAsObject.getCourseArray();
+
+        Course[] course = coursesAsObject.getCourseArray(excludedCourses);
 
         String[] courseNames = new String[course.length];
         String[] courseIds = new String[course.length];
