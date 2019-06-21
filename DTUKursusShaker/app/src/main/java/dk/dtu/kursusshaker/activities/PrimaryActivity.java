@@ -3,34 +3,21 @@ package dk.dtu.kursusshaker.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
-import androidx.navigation.Navigator;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.internal.NavigationMenu;
-
-import java.util.List;
 
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.fragments.BasketFragment;
-import dk.dtu.kursusshaker.fragments.DashboardFragment;
-import dk.dtu.kursusshaker.fragments.SearchFragment;
-import dk.dtu.kursusshaker.fragments.SettingsFragment;
 
 public class PrimaryActivity extends AppCompatActivity {
 
@@ -59,14 +46,18 @@ public class PrimaryActivity extends AppCompatActivity {
 
     private void setupButtomNavigationBar() {
         navigationController = Navigation.findNavController(this, R.id.primary_host_fragment);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        navigationController.setGraph(R.navigation.nav_graph);
 
-        // This links bottomNavigationView together with navigationController...
-        // But documentation is not clear on how to use it. Examples only exists for Kotlin..
-        NavigationUI.setupWithNavController(bottomNavigationView, navigationController);
+        // Connect view and controller and setup listeners
+        Navigation.setViewNavController(bottomNavigationView, navigationController); // Link bottomNavigationView together with controller
+        NavigationUI.setupWithNavController(bottomNavigationView, navigationController); // Link bottomNavigationUI "visual elements" together with controller
+        findViewById(R.id.navigation_dashboard).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_dashboard));
+        findViewById(R.id.navigation_search).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_search));
+        findViewById(R.id.navigation_basket).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_basket));
+        findViewById(R.id.navigation_settings).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_settings));
 
         //Assign listeners
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         navigationController.addOnDestinationChangedListener(onDestinationChangedListener);
 
     }
@@ -76,13 +67,13 @@ public class PrimaryActivity extends AppCompatActivity {
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
 
             // Usefull method.. Following can be removed before final release!
-            if (destination.getId() == R.id.dashboardFragment) {
+            if (destination.getId() == R.id.navigation_dashboard) {
                 Toast.makeText(getApplicationContext(), "Changed to Dashboard Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.searchFragment) {
+            } else if (destination.getId() == R.id.navigation_search) {
                 Toast.makeText(getApplicationContext(), "Changed to Search Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.basketFragment) {
+            } else if (destination.getId() == R.id.navigation_basket) {
                 Toast.makeText(getApplicationContext(), "Changed to Basket Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.settingsFragment) {
+            } else if (destination.getId() == R.id.navigation_settings) {
                 Toast.makeText(getApplicationContext(), "Changed to Settings Fragment", Toast.LENGTH_SHORT).show();
             }
         }
@@ -105,32 +96,4 @@ public class PrimaryActivity extends AppCompatActivity {
         }
     }
 
-    AppBarConfiguration.OnNavigateUpListener onNavigateUpListener = new AppBarConfiguration.OnNavigateUpListener() {
-        @Override
-        public boolean onNavigateUp() {
-            return false;
-        }
-    };
-
-    BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    switch (menuItem.getItemId()) {
-                        case R.id.navigation_dashboard:
-                            navigationController.navigate(R.id.dashboardFragment);
-                            return true;
-                        case R.id.navigation_search:
-                            navigationController.navigate(R.id.searchFragment);
-                            return true;
-                        case R.id.navigation_basket:
-                            navigationController.navigate(R.id.basketFragment);
-                            return true;
-                        case R.id.navigation_settings:
-                            navigationController.navigate(R.id.settingsFragment);
-                            return true;
-                    }
-                    return true;
-                }
-            };
 }
