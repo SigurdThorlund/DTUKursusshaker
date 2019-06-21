@@ -5,33 +5,46 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import static android.content.Context.SENSOR_SERVICE;
-import static androidx.core.content.ContextCompat.getSystemService;
+import dk.dtu.kursusshaker.OnShakeListener;
+import dk.dtu.kursusshaker.ShakeListener;
 
-public class ShakeActivity extends AppCompatActivity implements SensorEventListener{
-    private final SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-    private final Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+import static android.widget.Toast.makeText;
 
-    public void SensorActivity() {
+public class ShakeActivity extends AppCompatActivity {
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private ShakeListener sensorListener;
+    private static final String TAG = "tag";
+
+    TextView textview;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorListener = new ShakeListener(new OnShakeListener() {
+            @Override
+            public void onShake() {
+                Toast.makeText(getApplicationContext(),"Shake detected!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener( this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(sensorListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
-    protected void onPause() {
-        super.onPause();
-        sensorManager.unregisterListener(this);
-    }
-
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    }
-
-    public void onSensorChanged(SensorEvent event) {
+    @Override
+    protected void onStop() {
+        sensorManager.unregisterListener(sensorListener);
+        super.onStop();
     }
 }

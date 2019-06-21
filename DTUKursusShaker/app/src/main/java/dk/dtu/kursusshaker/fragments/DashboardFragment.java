@@ -1,11 +1,9 @@
 package dk.dtu.kursusshaker.fragments;
 
+import android.content.Intent;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.activities.ShakeActivity;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 
@@ -43,6 +44,7 @@ public class DashboardFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SensorManager mSensorManager;
 
     View view;
     SimpleAdapter simpleAdapter;
@@ -75,6 +77,9 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent;
+        intent = new Intent(getActivity(), ShakeActivity.class);
+        startActivity(intent);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
