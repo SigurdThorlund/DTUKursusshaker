@@ -1,8 +1,9 @@
 package dk.dtu.kursusshaker.data;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Course {
+public class Course implements Serializable {
     private String courseType;
     private String englishContents;
     private String courseCode;
@@ -159,4 +160,5 @@ public class Course {
                 ", noCreditPointsWith=" + Arrays.toString(noCreditPointsWith) +
                 '}';
     }
+
 }
