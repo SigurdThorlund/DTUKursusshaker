@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.controller.MyRecommendationsRecyclerViewAdapter;
 import dk.dtu.kursusshaker.fragments.dummy.DummyContent;
 import dk.dtu.kursusshaker.fragments.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.

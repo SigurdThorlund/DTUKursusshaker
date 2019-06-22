@@ -1,4 +1,4 @@
-package dk.dtu.kursusshaker.fragments;
+package dk.dtu.kursusshaker.controller;
 
 import androidx.recyclerview.widget.RecyclerView;
 
