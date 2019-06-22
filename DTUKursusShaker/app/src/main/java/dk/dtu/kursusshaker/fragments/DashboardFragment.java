@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.activities.ShakeActivity;
+import dk.dtu.kursusshaker.activities.ShakeFragment;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 
@@ -78,8 +78,11 @@ public class DashboardFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent;
-        intent = new Intent(getActivity(), ShakeActivity.class);
-        startActivity(intent);
+        ShakeFragment shakeFrag = new ShakeFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.list_item_all_courses, shakeFrag, "Shake")
+                .addToBackStack(null)
+                .commit();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
