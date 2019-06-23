@@ -92,7 +92,7 @@ public class DashboardFragment extends Fragment {
         Intent intent;
         ShakeFragment shakeFrag = new ShakeFragment();
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.list_item_all_courses, shakeFrag, "Shake")
+                .replace(R.id.navigation_dashboard, shakeFrag, "Shake")
                 .addToBackStack(null)
                 .commit();
         if (getArguments() != null) {
