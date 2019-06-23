@@ -107,26 +107,27 @@ public class SearchFragment extends Fragment {
     }
 
     private ArrayList getFilteredCourses() {
-        Course[] allCourses = coursesAsObject.getCourseArray(new ArrayList<String>());
+        Course[] allCourses = coursesAsObject.getCourseArray();
 
         ArrayList<Course> filteredCourses = new ArrayList<>(Arrays.asList(allCourses));
 
-        // getSharedPreferences("schedule")?
-        ArrayList<String> filterSchedule = new ArrayList<>();
-        filterSchedule.add("E5A");
-        filterSchedule.add("F5A");
 
-        String[] completed = {"26000"};
+        String[] scheduleFilter = {};
+        String[] completed = {"02312"};
 
 
         for (Course course : allCourses) {
             String[][] courseSchedule = course.getSchedule();
 
             System.out.println("" + course.getCourseCode() + ": ");
-            if (!scheduleMeetsPreferences(filterSchedule, courseSchedule)) {
-                if (!allPrerequisitesAreMet(completed, course.getQualifiedPrerequisites())) {
-                    filteredCourses.remove(course);
-                }
+            if(Arrays.asList(completed).contains(course.getCourseCode())){
+                filteredCourses.remove(course);
+            } else if (!scheduleMeetsPreferences(scheduleFilter, courseSchedule)) {
+                filteredCourses.remove(course);
+            } else if (!allPrerequisitesAreMet(completed, course.getQualifiedPrerequisites())) {
+                filteredCourses.remove(course);
+            } else if (prerequisiteIsMet(completed,course.getNoCreditPointsWith())) {
+                filteredCourses.remove(course);
             }
 
         }
@@ -149,20 +150,19 @@ public class SearchFragment extends Fragment {
 
         for (String course : completedCourses) {
             if (Arrays.asList(prerequisites).contains(course)) {
-                System.out.println("true");
                 return true;
             }
         }
-        System.out.println("false");
         return false;
     }
 
 
-    private boolean scheduleMeetsPreferences(ArrayList filterSchedule, String[][] courseSchedule) {
+    private boolean scheduleMeetsPreferences(String[] scheduleFilter, String[][] courseSchedule) {
         if (courseSchedule.length == 0) return true;
+        if (scheduleFilter.length == 0) return true;
 
         for (String[] schedules : courseSchedule) {
-            if (filterSchedule.containsAll(Arrays.asList(schedules))) return true;
+            if (Arrays.asList(scheduleFilter).containsAll(Arrays.asList(schedules))) return true;
 
         }
         return false;

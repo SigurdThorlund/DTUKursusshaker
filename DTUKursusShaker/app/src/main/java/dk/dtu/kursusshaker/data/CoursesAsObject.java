@@ -37,8 +37,9 @@ public class CoursesAsObject {
 
     }
 
-    public Course[] getCourseArray(ArrayList<String> excludedCourses) {
-        //TODO: gør til simpel getter
+    public Course[] getCourseArray() {
+        return courseArray;
+       /* //TODO: gør til simpel getter
 
         // Returns the full list of courses if there are no filters (filters = excluded courses)
         if (excludedCourses.size() == 0) return courseArray;
@@ -70,7 +71,7 @@ public class CoursesAsObject {
         }
 
         // Returns the filtered course list
-        return filteredArray;
+        return filteredArray;*/
     }
 
     public  Course getCourseFromId(String id){

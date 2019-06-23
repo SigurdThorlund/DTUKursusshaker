@@ -424,7 +424,15 @@
         "01999"
       ],
       "mainDepartment": "1",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "01005",
+          "01902",
+          "01903",
+          "01920",
+          "modulmat"
+        ]
+      ],
       "teachingLanguage": "da-DK",
       "noCreditPointsWith": [],
       "englishTitle": "Differential geometry and parametric design"
@@ -1223,22 +1231,10 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02100"
-        ],
-        [],
-        [
-          "02101"
-        ],
-        [],
-        [
-          "02102"
-        ],
-        [],
-        [
-          "02199"
-        ],
-        [],
-        [
+          "02100",
+          "02101",
+          "02102",
+          "02199",
           "02115"
         ]
       ],
@@ -1461,14 +1457,8 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02101"
-        ],
-        [],
-        [
-          "02102"
-        ],
-        [],
-        [
+          "02101",
+          "02102",
           "02631"
         ],
         [
@@ -1759,10 +1749,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02239"
-        ],
-        [],
-        [
+          "02239",
           "02233"
         ]
       ],
@@ -1788,10 +1775,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02239"
-        ],
-        [],
-        [
+          "02239",
           "02233"
         ]
       ],
@@ -1817,10 +1801,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02239"
-        ],
-        [],
-        [
+          "02239",
           "02233"
         ]
       ],
@@ -1880,10 +1861,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02203"
-        ],
-        [],
-        [
+          "02203",
           "02139"
         ]
       ],
@@ -1937,18 +1915,9 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02203"
-        ],
-        [],
-        [
-          "02155"
-        ],
-        [],
-        [
-          "02139"
-        ],
-        [],
-        [
+          "02203",
+          "02155",
+          "02139",
           "02205"
         ]
       ],
@@ -2161,10 +2130,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02239"
-        ],
-        [],
-        [
+          "02239",
           "01410"
         ]
       ],
@@ -2849,12 +2815,20 @@
         ]
       ],
       "ects": "10",
-      "mandatoryPrerequisites": [],
+      "mandatoryPrerequisites": [
+        [
+          "ingen"
+        ]
+      ],
       "danishContents": "\u2022 Planlægningsmetoder for programmer: Pseudokode, data-flow diagrammer.\u2022 Programstrukturer: Moduler, funktioner og parameteroverførsel.\u2022 Variable og datatyper (heltal, boolske værdier, flydende tal, tekststrenge) \u2022 Kontrolsætninger (for-, if- og while sætninger, løkker i flere niveauer) \u2022 Datastrukturer (array)\u2022 Metoder (overførsel af parametre, funktioner med returværdi, simple værdier, tabeller, objekter\/referencer)\u2022 Klasser og objekter (attributter og metoder) \u2022 Nedarvning (extends)\u2022 Indlæsning og udskrivning: Skærm, tastatur, filer.\u2022 Anvendelse af IDE herunder, administration af projekter.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
       "mainDepartment": "1",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "ingen"
+        ]
+      ],
       "teachingLanguage": "da-DK",
       "noCreditPointsWith": [
         "02101",
@@ -2908,7 +2882,11 @@
         ]
       ],
       "ects": "5",
-      "mandatoryPrerequisites": [],
+      "mandatoryPrerequisites": [
+        [
+          "ingen"
+        ]
+      ],
       "danishContents": "\u2022 Planlægningsmetoder for programmer: Pseudokode, data-flow diagrammer.\u2022 Programstrukturer: Moduler, funktioner og parameteroverførsel.\u2022 Variable og datatyper (heltal, boolske værdier, flydende tal, tekststrenge) \u2022 Kontrolsætninger (for-, if- og while sætninger, løkker i flere niveauer) \u2022 Datastrukturer (array)\u2022 Metoder (overførsel af parametre, funktioner med returværdi, simple værdier, tabeller, objekter\/referencer)\u2022 Klasser og objekter (attributter og metoder) \u2022 Nedarvning (extends)\u2022 Indlæsning og udskrivning: Skærm, tastatur, filer.\u2022 Anvendelse af IDE herunder, administration af projekter",
       "location": "Campus_Lyngby",
       "previousCourses": [],
@@ -3259,10 +3237,7 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02313"
-        ],
-        [],
-        [
+          "02313",
           "02314"
         ]
       ],
@@ -3661,10 +3636,7 @@
           "02402"
         ],
         [
-          "31300"
-        ],
-        [],
-        [
+          "31300",
           "28150"
         ]
       ],
@@ -3864,14 +3836,8 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02402"
-        ],
-        [],
-        [
-          "02403"
-        ],
-        [],
-        [
+          "02402",
+          "02403",
           "02323"
         ]
       ],
@@ -3924,22 +3890,10 @@
       "mainDepartment": "1",
       "qualifiedPrerequisites": [
         [
-          "02402"
-        ],
-        [],
-        [
-          "02403"
-        ],
-        [],
-        [
-          "02323"
-        ],
-        [],
-        [
-          "02450"
-        ],
-        [],
-        [
+          "02402",
+          "02403",
+          "02323",
+          "02450",
           "02809"
         ]
       ],
@@ -4137,7 +4091,8 @@
           "02402"
         ],
         [
-          "02454"
+          "02454",
+          "02464"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -4302,7 +4257,7 @@
     },
     {
       "courseType": "DTU_MSC",
-      "englishContents": "Topics covered are: * Digital learning technology * Learning theory and learning design* Interaction design, design thinking and prototyping* Inspirational talks from experts and learning technology (EdTech) startups* User experience and user involvement* Analytical methods and research design* Learning analytics * Educational data mining * Entrepreneurship* Make your own digital learning technology - Project work including: Feedback from experts, Talks by former students, Need for specific digital technology aspects, student pitches",
+      "englishContents": "Topics covered are: * Digital learning technology * Learning theory and learning design* Interaction design, design thinking and prototyping* Inspirational talks from experts and learning technology (EdTech) startups* User experience and user involvement* Analytical methods and research design* Learning analytics * Educational data mining * Entrepreneurship* Make your own digital learning technology - Project work including: Feedback from experts, Talks by former students, Need for specific digital technology aspects, student pitches",
       "courseCode": "02492",
       "danishTitle": "Digital Learning Technology and Entrepreneurship",
       "schedule": [
@@ -5396,7 +5351,7 @@
       ],
       "ects": "10",
       "mandatoryPrerequisites": [],
-      "danishContents": "Kurset giver mulighed for at analysere data baseret på online sociale netværk som fx Twitter, Wikipedia, og Facebook, samt arbejde med kvantitativ tekstanalyse. Kurset er struktureret omkring korte forelæsninger kombineret med praktiske øvelser, samt en høj grad af selvstændigt projektarbejde.",
+      "danishContents": "Kurset giver mulighed for at analysere data baseret på online sociale netværk som fx Twitter, Wikipedia, og Facebook, samt arbejde med kvantitativ tekstanalyse. Kurset er struktureret omkring korte forelæsninger kombineret med praktiske øvelser, samt en høj grad af selvstændigt projektarbejde.",
       "location": "Campus_Lyngby",
       "previousCourses": [
         "02821"
@@ -5425,7 +5380,7 @@
       ],
       "ects": "5",
       "mandatoryPrerequisites": [],
-      "danishContents": "Kurset er baseret på at beherske værktøjer til at analysere datasæt dannet på baggrund af online sociale interaktioner. Kurset er struktureret omkring korte forelæsninger kombineret med praktiske øvelser, samt en høj grad af selvstændigt projektarbejde.",
+      "danishContents": "Kurset er baseret på at beherske værktøjer til at analysere datasæt dannet på baggrund af online sociale interaktioner. Kurset er struktureret omkring korte forelæsninger kombineret med praktiske øvelser, samt en høj grad af selvstændigt projektarbejde.",
       "location": "Campus_Lyngby",
       "previousCourses": [
         "02822"
@@ -5665,6 +5620,162 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Computer Game Programming in a Production (DADIU)"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course introduces new trends and advanced topics in machine learning. The course covers key topics in machine learning such as Bayesian parametric and non-parametric inference, optimization, latent variable models, kernel methods, and deep learning. The course consists of lectures and exercises, and is followed up by a mini-project presented in a written report. We encourage that students apply the methods taught to data relevant for their PhD project. Typical applications include: Bio-medical, audio, multimedia, and topic modeling as well as collaborative filtering and monitoring systems.",
+      "courseCode": "02901",
+      "danishTitle": "Avancerede emner indenfor machine learning",
+      "schedule": [
+        []
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset introducerer nye trends og avancerede emner i machine learning. Kurset dækker centrale emner inden machine learning såsom Bayesians parametrisk og ikke-parametrisk inferens, optimering, latent variabel modellering, kernel metoder og deep learning. Kurset består af forelæsninger og øvelser og er efterfulgt af et mini-projekt, der præsenteres i en teknisk rapport. Vi opfordrer studerende til at anvende de metoder, der undervises i på data, der er relevante for deres ph.d.-projekt. Typiske applikationer omfatter: Bio-medicinsk, audio, multimedia, og topic modellering samt collaborative filtering og monitoreringssystemer.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Advanced Topics in Machine Learning"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Methods: Cross-validation, elastic net, sparse principal components,  sparse discriminant analysis and Gaussian mixture analysis, logistic regression, support vector machine, classification and regression trees, random forests, clustering, nonnegative matrix factorization, independent component analysis, sparse coding, archetypical analysis.",
+      "courseCode": "02910",
+      "danishTitle": "Computerintensiv dataanalyse",
+      "schedule": [
+        [
+          "August"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Methods: Cross-validation, elastic net, sparse principal components,  sparse discriminant analysis and Gaussian mixture analysis, logistic regression, support vector machine, classification and regression trees, random forests, clustering, nonnegative matrix factorization, independent component analysis, sparse coding, archetypical analysis.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [
+        "02582",
+        "02582"
+      ],
+      "englishTitle": "Computational data analysis"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "This course presents an introduction to both computational inverse problems and uncertainty quantification (UQ) for inverse problems.  The mix of subject matter allows for a presentation that is accessible to a wide range of PhD students and researchers. We start with an introduction to computational inverse problems, their characteristics, and standard methods for obtaining regularized solutions. We then turn to Bayesian methods and UQ for inverse problems, including prior modeling with Markov random fields and recently developed MCMC methods for UQ in inverse problems. The random fields provide an intuitive way to motivate and derive standard prior probability density (regularization) functions from basic statistical assumptions about the unknown. We describe MCMC methods for linear as well as nonlinear inverse problems.",
+      "courseCode": "02923",
+      "danishTitle": "Uncertainty quantification-beregninger for inverse problemer",
+      "schedule": [
+        [
+          "OutsideSchedule"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset giver en introduktion til både inverse problemer og uncertainty quantification (UQ).  Denne kombination af emner gør kursetattraktivt for mange ph.d.-studerende og forskere.  Vi starter med en introduktion til beregningsmetoder for inverse prolblemer, deres karakteristika, og regulariseringsmetoder.  Dernæst ser vi på Bayesianske metoder og UQ for inverse problemer, herunder modellering med Markov random fields og nye metoder basret på MCMC.  Random fields giver en tilgang til regularisering baseret på statistiske antagelser.  Vi beskriver MCMC-metoder til både lineære og ulineære inverse problemer.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Computational Uncertainty Quantification for Inverse Problems"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Curriculum: Chapters 1-8, 10, 11 plus selected advanced topics in Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin, Bayesian Data Analysis, 3rd edition, CRC Press, 2013.",
+      "courseCode": "02936",
+      "danishTitle": "Bayesiansk dataanalyse",
+      "schedule": [
+        [
+          "F"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "se engelsk",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Bayesian Data Analysis"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Three days of course work in current topics of applied mathematics and industrial modelling, followed by 1 week of active participation in the ESGI workshop.",
+      "courseCode": "02940",
+      "danishTitle": "Moderne Metoder i Industrimatematik",
+      "schedule": [
+        [
+          "OutsideSchedule"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Tre dages kursusarbejde med skiftende emner indenfor anvendt matematik og industrimodellering, efterfulgt af 1 uges aktiv deltagelse i arbejdsmødet ESGI.",
+      "location": "Campus_Other",
+      "previousCourses": [
+        "01820"
+      ],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Modern Methods in industrial Mathematics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Introduction to CT and some of its applications. The CT-scanner. The Radon transform and its inverse, Filtered Back Projection. Discretization of the CT problem. The Singular Value Decomposition (SVD) and its use for studying the CT problem. Stability and the need for filtering; truncated SVD.Algebraic iterative reconstruction algorithms - foundations and convergence properties. Their behavior for noisy data; semi-convergence and stopping rules. Block algebraic methods for large-scale CT problems; the use of GPU computing. The software package ASTRA and its algebraic reconstruction algorithms.Noise models, priors and regularization. Variational formulations and Bayesian modeling. Cases: Total Variation and Tikhonov regularization. Introduction to convex optimization and numerical optimization algorithms. Artifacts in reconstructions and model calibration.",
+      "courseCode": "02946",
+      "danishTitle": "Scientific computing for Røntgen-tomografi",
+      "schedule": [
+        [
+          "January"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Introduktion til CT med anvendelser.  CT-scanneren.  Radon-transformationen og dens inverse, Filtered Back Projetion.  Diskretisering af CT-problemet.  Singular værdi dekomposition (SVD) og dens brug til analyse af CT-problemer.  Stabilitet og behovet for filtrereing; trunkeret SVD.Algebraiske iterative rekonstruktions-algoritmer - grundlæggende teori og konvergensegenskaber. Metodernes opførsel med støjfyldte data; semi-konvergens og stopkriterier. Blok.algebraiske metoder til storskala-CT-problemer; brug af GPU'er.  Softwarepakke ASTRA og dens algebraiske rekonstruktionsmetoder.Støj-modeller, a priori-viden og regularisering. Variationelle formuleringer og bayesiansk modellering.  Eksempler: Total Variation og Tikhonov regulariering. Introduktion til konveks optimering og numeriske optimerings-metoder. Artifakt-reduktion og modelkalibrering.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Scientific Computing for X-Ray Computed Tomography"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Convex analysis (convex sets and functions, convex conjugate, duality, dual norms, composition rules, subgradient calculus), conic optimization (linear optimization, second-order cone optimization, semidefinite optimization), first-order methods for smooth and nonsmooth optimization (proximal gradient methods, acceleration), splitting methods (Douglas\u2013Rachford splitting, ADMM, Chambolle\u2013Pock algorithm), stochastic methods, incremental methods and coordinate descent methods.",
+      "courseCode": "02953",
+      "danishTitle": "Konveks optimering",
+      "schedule": [
+        [
+          "June"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Konveks analyse (konvekse sæt og funktioner, konveks-konjugeret, dualitet, duale normer, kompositionsregler, regning med subgradienter), konisk optimering (lineær optimering, second-order cone optimering, semidefinit optimering), førsteordensmetoder til glat og ikke-glat optimering (proximal gradientmetoder, acceleration), splitting-metoder (Douglas\u2013Rachford splitting, ADMM, Chambolle\u2013Pock), stokastiske metoder, incremental-metoder and coordinate descent-metoder.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "1",
+      "qualifiedPrerequisites": [
+        [
+          "01005",
+          "02601",
+          "02610"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Convex optimization"
     },
     {
       "courseType": "DTU_PHD",
@@ -6857,21 +6968,25 @@
     },
     {
       "courseType": "DTU_MSC",
-      "englishContents": "The course introduces the student to experimental techniques for generating quantum states based on particle properties of light (single photons) using a parametric-down conversion source. We will detect the generated quantum states with single photon detection, thereby learning the fundamental detection principle and their associated noise sources.We will experimentally characterize the quantum states by performing quantum state tomography. Properties of photon pairs will be studied by the famous Hong-Ou-Mandel and Hanbury-Brown-Twiss experiments.Implementing applications of quantum technology is possible. Special emphasis will be put on technical details an experimentalist has to deal with when demonstrating theoretical quantum optical predictions and when making use of those in practical measurement devices. The student is, thus, introduced to cutting-edge technological challenges faced by quantum engineers.",
+      "englishContents": "The course offers to implement and investigate applications of quantum technology. Working in groups the students will pick a particular quantum technology, study the theory behind it and plan its implementation considering various imperfections. After a detailed characterization of the components that shall be used the group will finally implement it.Depending on the chosen technology the following topics may be studied:- Single photons from parametric down-conversion sources- Single photon detectors- Hong-Ou-Mandel experiment- Hanbury-Brown-Twiss experiment- Violation of Bell inequality with entanglement- Quantum interferometry- Optically detected magnetic resonance (ODMR)Special emphasis will be put on technical details an experimentalist has to deal with when demonstrating theoretical quantum optical predictions and when making use of those in practical measurement devices. The student is, thus, introduced to cutting-edge technological challenges faced by quantum engineers.",
       "courseCode": "10386",
       "danishTitle": "Eksperimentelle Teknikker i Kvanteteknologi",
       "schedule": [
         [
-          "January"
+          "June"
         ]
       ],
       "ects": "5",
       "mandatoryPrerequisites": [],
-      "danishContents": "Kurset introducerer den studerende til  eksperimentelle teknikker i forbindelse med frembringelse af fotoniske kvantetilstande (lysets partikel egenskab) ved hjælp af en parametrisk nedkonverteringskilde. De genererede kvantetilstande vil blive detekteret med enkelt-foton detektorer, og derved læres de grundlæggende principper bag detektionsprocessen og tilhørende støjkilder.Kvantetilstande karakteriseres eksperimentelt gennem udførelse af kvantetilstandstomografi, og egenskaber ved fotonpar vil blive studeret gennem de berømte Hong-Ou-Mandel og Hanbury-Brown-Twiss eksperimenter.Der vil være mulighed for at implementere anvendelser af kvanteteknologi, og der vil være særligt fokus på de tekniske detaljer en eksperimentalist skal tage hensyn til i forbindelse med demonstration af teoretiske kvanteoptiske forudsigelser og implementering af disse i konkret praksis. Den studerende får således en indføring til de tekniske udfordringer en ingeniør møder i det praktiske arbejde med moderne kvanteteknologi.",
+      "danishContents": "Kurset giver mulighed for at implementere og undersøge anvendelser af kvanteteknologi. De studerende vil i grupper udvælge en bestemt kvanteteknologi, undersøge teorien bag og planlægge implementeringen af denne under hensyntagen til relevante eksperimentelle imperfektioner. Efter en detaljeret karakterisering af de enkelte  komponenter gruppen vælger at inddrage, går de videre med implementeringen.Afhænging af hvilken teknologi gruppen vælger, vil de komme til at arbejde med:- enkelte fotoner genereret ved parametrisk nedkonvertering- enkeltfotondetektorer- Hong-Ou-Mandel effekt- Hanbury-Brown-Twiss opstilling- brud af Bells ulighed med entanglement- kvanteinterferometri- optisk detekteret magnetisk resonans (ODMR)Der vil være særligt fokus på de tekniske detaljer en eksperimentalist skal tage hensyn til i forbindelse med demonstration af teoretiske kvanteoptiske forudsigelser og implementering af disse i konkret praksis. Den studerende får således en indføring til de tekniske udfordringer en ingeniør møder i det praktiske arbejde med moderne kvanteteknologi.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
       "mainDepartment": "10",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "10102"
+        ]
+      ],
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Experimental Techniques in Quantum Technology"
@@ -6992,42 +7107,15 @@
       "mainDepartment": "10",
       "qualifiedPrerequisites": [
         [
-          "10020"
-        ],
-        [],
-        [
-          "10022"
-        ],
-        [],
-        [
-          "10024"
-        ],
-        [],
-        [
-          "10033"
-        ],
-        [
-          "",
-          "10050"
-        ],
-        [],
-        [
-          "10916"
-        ],
-        [],
-        [
-          "10917"
-        ],
-        [],
-        [
-          "10931"
-        ],
-        [],
-        [
-          "10933"
-        ],
-        [],
-        [
+          "10020",
+          "10022",
+          "10024",
+          "10033",
+          "10050",
+          "10916",
+          "10917",
+          "10931",
+          "10933",
           "10935"
         ]
       ],
@@ -7062,6 +7150,123 @@
       "teachingLanguage": "da-DK",
       "noCreditPointsWith": [],
       "englishTitle": "Experimental Methods and Instrumentation in Physics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course covers a wide range of subjects in the field of solid-state physics, optics, non-linear dynamics, and biophysics, plasma physics and physical fluid dynamics. The purpose of the course is to ensure that the Ph.D.-students in physics are well-informed in all areas of physics, also the areas they do not specialize in. The specific content of the course changes from semester to semester depending on the teachers and guests participating in the course and also depending on the interests of the participating students. Additionally, the course will contain presentations on innovation and patent issues, scientific communication, and proper scientific and ethical conduct.  During the course the student should present a short summary of their Ph.D. project. They should write a summary report (about 5 pages) on a selected topic different from the topic of their Ph.D project, in addition they should prepare and give a presentation based on this report. These reports and presentations should be evaluated by a group of other students (4-5), which will be selected a priory. It is expected that the students prepare themselves for each of the presentations by reading background material.",
+      "courseCode": "10501",
+      "danishTitle": "Moderne fysik",
+      "schedule": [
+        [
+          "F5A"
+        ]
+      ],
+      "ects": "7.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset dækker en bred vifte af emner inden for faststoffysik, optik, ikke-lineær dynamik og biofysik, plasmafysik og fluid dynamik. Formålet med kurset er at sikre, at de ph.d.-studerende i fysik er velorienterede indenfor alle områder af fysik, også de områder, de ikke selv er specialiserede i. Det konkrete indhold af kurset veksler fra semester til semester afhængigt af lærerne og gæster, der deltager i kurset, og også afhængig af de deltagende studerendes interesser.Derudover vil kurset indeholde oplæg om innovation og patentering, videnskabelig kommunikation og korrekt videnskabelig og etisk adfærd.I løbet af kurset skal den studerende præsentere et kort resumé af deres Ph.D. projekt. De skal skrive en sammenfattende rapport (ca. 5 sider) over et udvalgt emne forskelligt fra emnet for deres ph.d.-projekt, og de skal forberede og give en præsentation baseret på denne rapport. Disse rapporter og præsentationer skal vurderes af en gruppe andre studerende (4-5), som vil blive udvalgt på forhånd.Det forventes, at de studerende forbereder sig på de enkelte præsentationer ved at læse baggrundsmateriale.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "10",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Modern Physics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course consists of presentations of scienctific papers from high-profile journals by the PhD-students. The subjects for the chosen papers should deal with \u201CNanostructures and their reactivity\u201D, see the keywords for examples. The purpose of the paper, results, and conclusions must be presented, and a critical discussion of the methods and the results should also be included. The student should also emphasize what the new issues in the paper are, and how these can contribute to his\/hers PhD project. Each presentation must result in a short summary with the most important results and conclusions. These summaries are collected for the course, such that a relevant database is constructed during the course.",
+      "courseCode": "10506",
+      "danishTitle": "Journal club om nanostrukturer og reaktivitet",
+      "schedule": [
+        [
+          "E4B",
+          "F4B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset vil bestå af præsentationer af ph.d.-studerende af videnskabelige artikler fra anerkendte tidsskrifter. Emnet for de valgte artikler skal ligge inden for området \"Nanostrukturer og deres reaktivitet\", se \"Nøgleord\" for eksempler på emner. Artiklens formål, resultater og konklusioner skal præsenteres, og en kritisk stillingtagen til metode og resultat skal foretages. Den enkelte studerende skal redegøre for hvad det nye i artiklen er og for hvorledes dette kan bidrage til vedkommendes forskningsprojekt. Hver præsentation skal resultere i et kort resume med de vigtigste resultater og konklusioner. Disse sider samles for kurset, således at en database af interessante artikler løbende opbygges.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "10",
+      "qualifiedPrerequisites": [
+        [
+          "10304"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Journal club on nanostructures and reactivity"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course consists of presentations of new scientific papers from high-profile journals by the PhD-students. The subjects for the chosen papers should deal with \u201CQuantum Optics\u201D or \u201CQuantum Information\u201D. The purpose of the paper, results, and conclusions must be presented, and a critical discussion of the methods and the results should also be included. The student should also emphasize what the new issues in the paper are, and how these can contribute to his\/hers PhD project.",
+      "courseCode": "10512",
+      "danishTitle": "Journal club om Kvanteoptik",
+      "schedule": [
+        [
+          "E1B",
+          "F1B"
+        ]
+      ],
+      "ects": "7.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset vil bestå af præsentationer af Ph.D.-studerende af nye videnskabelige artikler fra anerkendte tidsskrifter. Emnet for de valgte artikler skal ligge inden for området \"Kvanteoptik\u201D eller \u201DKvanteinformatik\". Artiklens formål, resultater og konklusioner skal præsenteres, og en kritisk stillingtagen til metode og resultat skal foretages. Den enkelte studerende skal redegøre for hvad det nye i artiklen er og for hvorledes dette kan bidrage til vedkommendes forskningsprojekt.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "10",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Journal club in Quantum Optics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course consists of presentations of scientific papers from high-profile journals by the PhD-students. The subjects for the chosen papers should deal with plasma physics or fusion energy. The purpose of the paper, results, and conclusions must be presented, and a critical discussion of the methods and the results should also be included. The student should also emphasize what the new issues in the paper are, and how these can contribute to his\/hers PhD project",
+      "courseCode": "10520",
+      "danishTitle": "Journal club om plasmafysik og fusionsenergi",
+      "schedule": [
+        [
+          "E4B",
+          "F4B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset består af præsentationer af videnskabelige artikler fra højt profilerede tidsskrifter, der gives af de PhD-studerende. Emnerne skal dreje sig om plasmafysik og fusionsenergi. Artiklens formål, resultater og konklusioner skal præsenteres, og en kritisk diskussion af metoder og resultater skal også gives. Studenten skal fremhæve artiklens nye emner, og hvordan de kan bidrage til hans\/hendes eget PhD-projekt",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "10",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Journal club on plasma physics and fusion energy"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course is a 1 week PhD summer school",
+      "courseCode": "10530",
+      "danishTitle": "SURFCAT Summer School: The Science of Sustainable Fuels and Chemicals",
+      "schedule": [
+        [
+          "August"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset afholdes som en PhD-sommerskole af en uges varighed",
+      "location": "Campus_Other",
+      "previousCourses": [],
+      "mainDepartment": "10",
+      "qualifiedPrerequisites": [
+        [
+          "10304",
+          "10333"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "SURFCAT Summer School: The Science of Sustainable Fuels and Chemicals"
     },
     {
       "courseType": "DTU_MSC",
@@ -7533,6 +7738,27 @@
         "11200"
       ],
       "englishTitle": "Engineering work"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Decision theory, Value of Information of information theory, basics of utility theory, probabilistic information modelling and prediction, structural reliability, decision analysis methods and tools, decision trees, Bayesian networks, applications of decision theoryThis year\u2019s focus: Condition Assessment of the Built Environment.",
+      "courseCode": "11004",
+      "danishTitle": "Decision Theory",
+      "schedule": [
+        [
+          "August"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Decision theory, Value of Information of information theory, basics of utility theory, probabilistic information modelling and prediction, structural reliability, decision analysis methods and tools, decision trees, Bayesian networks, applications of decision theoryThis year\u2019s focus: Condition Assessment of the Built Environment.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "11",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Decision Theory"
     },
     {
       "courseType": "DTU_BSC",
@@ -8151,10 +8377,7 @@
       "mainDepartment": "11",
       "qualifiedPrerequisites": [
         [
-          "11127"
-        ],
-        [
-          "",
+          "11127",
           "11115"
         ]
       ],
@@ -8381,6 +8604,9 @@
         ],
         [
           "02631"
+        ],
+        [
+          "matlab"
         ]
       ],
       "teachingLanguage": "da-DK",
@@ -8769,6 +8995,9 @@
           "11931"
         ],
         [
+          "eller"
+        ],
+        [
           "11318",
           "11748",
           "11938"
@@ -8779,6 +9008,27 @@
         "11532"
       ],
       "englishTitle": "Advanced Steel Structures"
+    },
+    {
+      "courseType": "DTU_MSC",
+      "englishContents": "The course will include an introduction to specific material properties of wood such as its orthotropic structure, its behaviour under moisture, fire and to properties depending on load duration. Throughout the course, the student has to design a structure, applying the most typical design methods for wood constructions. Lectures are given parallel to the design project and smaller tasks and aspects will be discussed and introduced as support for the project work.Some of the major topics are beams, columns, instability problems, supports, displacement, torque, axial forces, transverse tensile, transverse pressure, curved geometries, moisture-related pressures\/forces, collections (nailed, bolted, glued, glued-in bolts) and composite structures. Furthermore, materials such as normal wood, glulam, CLT (cross laminated timber) and wood based plate materials will be introduced.The course will be a combination of short lectures, independent study, design and experimental work in the laboratory.During the 3 weeks course one day per week is envisaged for experimental work in groups on topics related to specific aspects of using wood as structural material. Each experimentation day includes preparation, testing and reporting and is part of the overall assessment of the course. The hand-in of the different reports will follow a time schedule announced at the beginning of the course.The design project includes the determination of loads according to Eurocodes, preparing static documentation following SBI guidance note 223, calculation of structures based on Eurocodes, as well as the production of adequate drawings. On the last day, all teams submit their project reports, calculations and drawings.",
+      "courseCode": "11353",
+      "danishTitle": "Trækonstruktioner",
+      "schedule": [
+        [
+          "F1B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset vil indeholde introduktion til træets såvel orthotrope, dets fugttekniske, brandtekniske, som de lastvarighedsafhængige egenskaber. Igennem kurset vil der skulle projekteres en konstruktion, hvor de fleste beregningsmetoder indenfor træ anvendes. Forelæsninger gives parallelt med projekteringen. Efter behov kan der indgå introducerende små opgaver, der skal understøtte og hjælpe i forbindelse med hovedprojektet.Nogle af de væsentlige emner vil være bjælker, søjler, instabilitet, vederlag, forskydning, moment, normalkræfter, tværtræk, tværtryk, buede geometrier, fugtrelaterede belastninger, samlinger (sømmede, boltede, limede, indlimede bolte) og kompositkonstruktioner. Der ses på materialer som kontruktionstræ, limtræ, CLT (cross laminated timber) og pladematerialer.  Kurset vil være en kombination af kortere forelæsninger, selvstændigt studie, projektering og praktiske forsøg i laboratoriet. I løbet af de 3 uger forventes en ugentlig dag, hvor man i mindre grupper laver forsøg, som typisk relaterer til problemstillinger specifikt for træ. Hver forsøgsdag vil indeholde forberedelse, forsøg og afrapportering, som indgår i den samlede bedømmelse af kurset. Afrapporteringerne vil skulle afleveres løbende efter en nærmere bestemt tidsplan.  Projekteringen vil bestå i opstilling af belastninger iht. Eurocodes, udarbejdelse af statisk dokumentation iht. SBI-anvisning 223, beregning af konstruktioner iht. Eurocodes, samt produktion af fyldestgørende tegningsmateriale.  Den sidste dag skal alle hold fremlægge deres projektrapporter, beregninger og tegningsmateriale.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "11",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Wood Structures"
     },
     {
       "courseType": "DTU_MSC",
@@ -9047,6 +9297,9 @@
       "qualifiedPrerequisites": [
         [
           "11462"
+        ],
+        [
+          "eller"
         ],
         [
           "11440"
@@ -9571,6 +9824,63 @@
       "englishTitle": "Durability and repair of concrete structures"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "Day 1: Chalk composition, texture and diagenesis (ILF)Evening 1: Presentations by participantsDay 2: Rock mechanics of chalk (HFC)Evening 2: ExcursionDay 3: Petrophysics of chalk (ILF)Evening 3: Presentations by participantsDay 4: Scaling of petrophysical properties (PF)Evening 4: ExcursionDay 5: Rock physics of chalk (ILF)Evening 5: Course evaluation",
+      "courseCode": "11619",
+      "danishTitle": "Kalkfysik",
+      "schedule": [
+        [
+          "June"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Dag 1: Kalks sammensætning, tekstur og diagenese (ILF).Aften 1: Deltagerne præsenterer rapporter.Dag 2: Kalks mekaniske egenskaber (HF).Aften 2: Ekskursion.Dag 3: Kalks petrofysik (ILF).Aften 3: Deltagerne præsenterer rapporter.Dag 4: Skalering af petrofysiske egenskaber (PF).Aften 4: Ekskursion.Dag 5: Kalks bjergartsfysik (ILF)Aften 5: kursusevaluering.",
+      "location": "Campus_Other",
+      "previousCourses": [],
+      "mainDepartment": "11",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Chalk Physics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course treats numerical methods for calculation of the following subjects:- multidimensional and transient heat conduction in structures such as building components and fenestration systems with interfacial heat transmission in the form of solar radiation, thermal radiation, and convection.- thermal processes in solar heating and other technical systems with liquid or gas flows in tubes, ducts and tanks, and with radiation heat transfer.- mass flows such as moisture transport or air flow in building components under transient hygrothermal conditions.An important element of the course is the students' own construction of computational models based on numerical methods.",
+      "courseCode": "11627",
+      "danishTitle": "Numeriske beregningsmetoder i bygningsenergiteknik",
+      "schedule": [
+        [
+          "E3B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "I kurset behandles numeriske beregningsmetoder til beregning af følgende emner:- flerdimensional og instationær varmeledning i konstruktioner med varmeoverførsel i grænsefladerne i form af solstråling, varmestråling og konvektion.- varmetransport og varmelagring samt temperaturforhold i solvarmeanlæg eller andre tekniske installationer, hvor væske eller luft strømmer i rør, kanaler eller beholdere, og hvor der forekommer varmetransmission ved stråling.- massestrømme såsom fugttransport eller luftstrømninger i bygningsdele mm. under instationære temperatur- og fugtforhold.Et væsentligt element i kurset er de studerendes egen afprøvning ved opbygning af programmer baseret på numeriske metoder.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [
+        "11615"
+      ],
+      "mainDepartment": "11",
+      "qualifiedPrerequisites": [
+        [
+          "11121",
+          "02601"
+        ],
+        [
+          "02101",
+          "02102"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [
+        "11118",
+        "11130",
+        "11615"
+      ],
+      "englishTitle": "Numerical Methods for Building Energy Technology"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "At the start of the course the project and its progress will be introduced.The 13-week period will include a certain part of teaching in fields supplementary to the previous curriculum and in interplay with this, the basis for and the start of the following project work is established.In the 3-week period the final projects are elaborated to a level, where all essential matters to to a production are explained.",
       "courseCode": "11691",
@@ -9837,6 +10147,9 @@
       "qualifiedPrerequisites": [
         [
           "11832"
+        ],
+        [
+          "og"
         ],
         [
           "11836"
@@ -10697,7 +11010,11 @@
         ]
       ],
       "ects": "5",
-      "mandatoryPrerequisites": [],
+      "mandatoryPrerequisites": [
+        [
+          "11B04"
+        ]
+      ],
       "danishContents": "Industrielle brande er et vigtig område indenfor vurdering af brandsikkerhed i bygninger og anlæg. Pga. stor skala processer og medfølgende lagring af større mængder materialer og kemikalier ville et brandforløb have en anderledes karakter. Herunder ville f.eks. større varmestrålingseffekter kunne medføre kaskadeeffekter og store skader i store afstande, som har potentiale også at omfatte naboer til industrielle anlæg og kunne medføre miljøskader. Derudover vil sådanne scenarier vanskeliggøre redningsindsatsen. Med udgangspunkt i den relevante nationale regulering og lovgivning baseret på Seveso og Atex direktiverne gennemgås typiske problemstillinger og afværgeforanstaltninger til at forhindre eller mindske konsekvenserne til naboer og miljøet. Kurset introducerer distributionsberegninger af kemikalie- og brandemissioner. Kursisterne ville kunne forstår og anvende centrale metoder, som udslips beregninger for væsker og gasser, beregne jet fires, gaseksplosioner, mv. og anvende Probit funktioner, til at kunne bedømme personskader. Særligt vil kursisterne blive indført i miljøkemiske aspekter omfattende kemiske stoffers udslip, transport, distribution og nedbrydning i miljøet. Kursisterne vil kunne vurdere akut toksiske påvirkninger, kroniske påvirkninger og økotoksike påvirkninger. Datasøgning er herunder et anden vigtig del af kurset og kursisterne vil lære at anvende forskellige databaser og værktøjer, som bl.a. DTU's bibliotek stiller til rådighed.Kurset afsluttes med en skriftlig rapport, hvor kursisten behandler selvstændig en realistisk situation.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
@@ -10739,7 +11056,17 @@
         ]
       ],
       "ects": "5",
-      "mandatoryPrerequisites": [],
+      "mandatoryPrerequisites": [
+        [
+          "11B04"
+        ],
+        [
+          "11B24"
+        ],
+        [
+          "11B25"
+        ]
+      ],
       "danishContents": "På grundlag af relevante historiske brande forklares udviklingen af brandrisikovurderingen. Der introduceres både detrministiske såvel som probabilistiske brandrisikometoder. Den studerende få kendskab til scenarioanalyser , som f.eks. flamme og røgspredning. Disse scenarier bliver kombineret med evakueringsscenarier og  kriterier til acceptance for personsikkerhed.  Deltagerne vil forstår basale probabilistisk teori og udføre grundlaggende probabilistiske beregninger. Herunder hører en indføring i Bayesian Networks og Monte Carlo metoder . Forskellene mellem kvalitative og kvantitative risikovurderinger bliver forklaret og deltagerne vil kunne anvende dem på forskellige cases.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
@@ -11548,12 +11875,8 @@
       "mainDepartment": "12",
       "qualifiedPrerequisites": [
         [
-          "12102"
-        ],
-        [
-          "12111"
-        ],
-        [
+          "12102",
+          "12111",
           "12320"
         ]
       ],
@@ -11781,10 +12104,7 @@
       "mainDepartment": "12",
       "qualifiedPrerequisites": [
         [
-          "12104"
-        ],
-        [
-          "",
+          "12104",
           "12320"
         ]
       ],
@@ -12571,6 +12891,12 @@
         ],
         [
           "25106"
+        ],
+        [
+          "eller"
+        ],
+        [
+          "lignende"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -13173,6 +13499,9 @@
           "23711"
         ],
         [
+          "or"
+        ],
+        [
           "23511"
         ]
       ],
@@ -13455,6 +13784,9 @@
           "27002"
         ],
         [
+          "eller"
+        ],
+        [
           "27008"
         ]
       ],
@@ -13503,6 +13835,9 @@
         [
           "27002",
           "27008"
+        ],
+        [
+          "og"
         ],
         [
           "27051"
@@ -13631,9 +13966,7 @@
       "mainDepartment": "23",
       "qualifiedPrerequisites": [
         [
-          "23932"
-        ],
-        [
+          "23932",
           "27002"
         ]
       ],
@@ -13956,7 +14289,7 @@
       "danishTitle": "Udvidet kursus i anvendelse af kostundersøgelsesmetoder i ernæringsforskning",
       "schedule": [
         [
-          "OutsideSchedule"
+          "August"
         ]
       ],
       "ects": "7.5",
@@ -14109,6 +14442,12 @@
       "mainDepartment": "23",
       "qualifiedPrerequisites": [
         [
+          "Biologisk"
+        ],
+        [
+          "kemi"
+        ],
+        [
           "23932"
         ]
       ],
@@ -14176,7 +14515,12 @@
         ]
       ],
       "ects": "15",
-      "mandatoryPrerequisites": [],
+      "mandatoryPrerequisites": [
+        [
+          "23902",
+          "26x7x"
+        ]
+      ],
       "danishContents": "Kurset introducerer fødevarernes hovedbestanddele dvs. tørstof\/vand, kulhydrater, proteiner, fedt, vitaminer og mineraler samt udvalgte fødevarekomponenter af betydning for fødevaresikkerheden. Mange vigtige beslutninger i fødevareindustrien, træffes på baggrund af analytiske data, både når det gælder kvalitet, sikkerhed og sundhed. Analytiske data kan indeholde information om forureninger i fødevarer, procesovervågning eller næringsstof deklarationer. Dette kursus vil igennem forelæsninger og gruppearbejde med cases introducere fødevarekemiske og analytiske emner, der gør den studerende i stand til at forstå analysemetoder og anvende data der produceres. De studerende skal i arbejdet med forskellige opgaver og i rapportter kort kunne præcisere og konkludere på et analytiske problem.  Forelæsningerne suppleres med opgaveregninger der lægger vægt på databehandling via eksempler og understøttende diskussioner. Generelle principper til vurdering af kvaliteten af fødevarer vil blive diskuteret. I 3-ugers perioden laves en praktisk laboratorie opgave i grupper, hvor der udarbejdes en rapport baseret på udførte laboratorieanalyser og databehandling, suppleret med et mindre litteraturstudie. Mundtlig præsentation af rapporten udføres den sidste kursus dag i 3-ugers perioden.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
@@ -14981,12 +15325,8 @@
       "mainDepartment": "25",
       "qualifiedPrerequisites": [
         [
-          "25106"
-        ],
-        [
-          "25313"
-        ],
-        [
+          "25106",
+          "25313",
           "25315"
         ]
       ],
@@ -17580,6 +17920,18 @@
           "27009",
           "27010",
           "27015"
+        ],
+        [
+          "eller"
+        ],
+        [
+          "tilsvarende"
+        ],
+        [
+          "or"
+        ],
+        [
+          "similar"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -18102,6 +18454,70 @@
       "englishTitle": "Module 2: Pilot project in Pharmaceutical Design and Engineering"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The following topics will be addressed:- poster presentation- project management- publishing strategy and ethics- data management- responsible conduct of research- Biosecurity- PhD-supervisor relationship- commuication via storytelling",
+      "courseCode": "27800",
+      "danishTitle": "PhD introduktionskursus",
+      "schedule": [
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Følgende emner vil blive berørt:- posterpræsentation- projektledelse- etik og publiseringsstrategi- data management- videnskabelig redelighed- Biosecurity- PhD-supervisor relationen- Kommunikation via storytelling",
+      "location": "Campus_Other",
+      "previousCourses": [],
+      "mainDepartment": "27",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "PhD introductory course"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "With onset in microbial metabolites especially fungal, the course will focus on the following topics: a) the biochemistry of the chemodiversity in microorganisms including the biosynthesis of important classes of compounds such as polyketides, terpenoids and alkaloids; b) concept and strategies of metabolite profiling and metabolomics, c) the core analytical methodologies used for detection and analysis of natural products including LC and GC and detectors e.g. UV (diode array detection), fluorescence, evaporative light scattering and especially mass spectrometry (MS), d) data analysis of unit resolution MS and high resolution (TOF) MS atmospheric pressure ionization spectra; e) data interpretation for database searching; f) tentative identification of compounds based on LC-MS data, LogD consideration and ion-exchange sample preparation strategy, and g) Target analysis of known compounds and their metabolites based on LC-MS\/MS (triple quadrupole data) including the scan functions of this instrument; h) Solid Phase Extraction (SPE) purification strategies.If possible we encourage and facilitate that the students work on their own data during the course (microbial genome sequence and natural product containing extracts). Please contact us beforehand to arrange this.",
+      "courseCode": "27815",
+      "danishTitle": "Analytisk mikrobiel naturstofkemi og biosyntese",
+      "schedule": [
+        [
+          "January"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Antallet af mikroorganismer, der bliver fuldgenom sekventeret stiger i øjeblikket eksponentielt. Dette giver mulighed for at studere og forstå biosyntese af naturstoffer på en meget mere uddybende måde end tidligere, idet det gener, og dermed biosyntetiske enzymer, der er relateret til en given biosyntetisk pathway kan forudsiges ved hjælp af bioinformatiske analyser. Dette kursus vil gennemgå hvorledes naturen kombinerer små \"byggeklodser\" til opbygning af komplekse naturstoffer, hvorledes man ved hjælp af bioinformatiske analyser kan forudsige en given mikroorganismes potentielle evne til at danne sådanne stoffer, og endeligt hvorledes man ved hjælp af avancerede analyse instrumenter, som HPLC koblet til især massespektrometri, kan undersøge hvilke stoffer den givne mikroorganisme producerer under de givne betingelser.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "27",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Analytical microbial natural product chemistry and biosynthesis"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Fungal physiology and life cycles. Experience with fungal micro- and macro-morphology. Identification of fungi by multidisciplinary methods (morphology, physiology, chemical profiling and DNA sequencing). Secondary metabolism, pathological and toxicological aspects. Student presentations of mycological subjects",
+      "courseCode": "27823",
+      "danishTitle": "Industriel Mykologi",
+      "schedule": [
+        [
+          "OutsideSchedule"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Fungal physiology and life cycles. Experience with fungal micro- and macro-morphology. Identification of fungi by multidisciplinary methods (morphology, physiology, chemical profiling and DNA sequencing). Secondary metabolism, pathological and toxicological aspects. Student presentations of mycological subjects",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "27",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Industrial Mycology"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "Introduction to chemical and biochemical industry and the related disciplines. A number of products and processes from Danish companies will be discussed. Solution of exercises related to these products and processes involving simple process models and reaction engineering.Inorganic and bio-inorganic compounds, their synthesis and applications. Excursions.",
       "courseCode": "28001",
@@ -18562,10 +18978,7 @@
       "mainDepartment": "28",
       "qualifiedPrerequisites": [
         [
-          "28212"
-        ],
-        [],
-        [
+          "28212",
           "28213"
         ]
       ],
@@ -18927,14 +19340,8 @@
       "mainDepartment": "28",
       "qualifiedPrerequisites": [
         [
-          "27002"
-        ],
-        [],
-        [
-          "27022"
-        ],
-        [],
-        [
+          "27002",
+          "27022",
           "27932"
         ]
       ],
@@ -18965,7 +19372,13 @@
           "28344"
         ],
         [
+          "or"
+        ],
+        [
           "27034"
+        ],
+        [
+          "and"
         ],
         [
           "28345"
@@ -19456,14 +19869,8 @@
       "mainDepartment": "28",
       "qualifiedPrerequisites": [
         [
-          "28120"
-        ],
-        [],
-        [
-          "28020"
-        ],
-        [],
-        [
+          "28120",
+          "28020",
           "28121"
         ]
       ],
@@ -19561,14 +19968,8 @@
       "mainDepartment": "28",
       "qualifiedPrerequisites": [
         [
-          "27034"
-        ],
-        [],
-        [
-          "28025"
-        ],
-        [],
-        [
+          "27034",
+          "28025",
           "28872"
         ]
       ],
@@ -19796,6 +20197,49 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Advanced Topics in Process Technology"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The aim of the course is to give an introduction to concepts important for understanding and working with electrolyte solution thermodynamics. Topics being discussed include experimental methods for measuring properties of salt solutions, molal, molar and mole fraction activity coefficients, the Nernst equation, Debye-Hückel theory, the Mean Spherical Approximation (MSA) theory, molecular interactions in electrolyte solutions, dielectric properties of solvents and its effect on salt solubility, Born equation, Gibbs energy of transfer, Meisner model, Bromley model, Pitzer model, e-NRTL model, Extended UNIQUAC model, MSE model, equations of state for electrolytes, apparent properties, thermal properties, volumetric properties of electrolytes, phase rule and invariant points, crystallization, super saturation, the Kelvin equation, fractional crystallization",
+      "courseCode": "28928",
+      "danishTitle": "Elektrolytopløsningers termodynamik",
+      "schedule": [
+        [
+          "OutsideSchedule"
+        ]
+      ],
+      "ects": "7.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Se kursusindhold i den engelske kursusbeskrivelse",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "28",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Electrolyte Solution Thermodynamics"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "In groups of 2 persons the following tasks are performed:1. 5 exercises based on unit operation, process control and reaction engineering large scale experiments. The exercises are identical with the experiments offered for course 28123 (International summer university course) with the following exceptions: To the ordinary manual are added a number of tasks comprising a selection of more advanced experimental work, more calculations, scale up considerations are included, as well as modeling and increased theoretical details (see the list on detailed supplementary tasks in the connected appendix). The report work is limited to results from calculations, process and safety discussions\/conclusions, uncertainty calculations and synopsis. The selection of experiments is according to the principles in course 28121, but limited to max one process control or one reaction engineering exercise out of the total 5 experiments. The reports are discussed with the teacher and if necessary revised. Estimated time spent 160 h.2. A report on the production and systems design principles of the following utilities: Process steam, clean steam, compressed air and various water qualities. Estimated time spent 25 h.Additionally each student must3. Read background material and participate in a lecture on valves, pumps, instruments and special analytical and sampling methods, where working principles and functionality, design details, application and accuracy are covered. Estimated time spent 6 h.4. Based on given information of a process plant the student will give a lecture room presentation of the resulting detailed PI diagram. Estimated time spent 4 h.",
+      "courseCode": "28932",
+      "danishTitle": "Procestekniske øvelser i pilot plant",
+      "schedule": [
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "ects": "7.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Følgende opgaver udføres i grupper af 2 personer:1. 5 stor skala øvelser (enhedsoperationer, proces regulering, reaktionslære). Øvelserne er identiske med de eksperimenter, der tilbydes i kursus 28123 (Internationalt sommerkursus) med følgende undtagelser: I tillæg til den ordinære øvelsesvejledning føjes et antal opgaver af mere avanceret eksperimentel karakter, eller flere beregninger, eller opskalerings betragtninger, modelarbejde eller flere teoretiske detaljer (se liste vedr. supplerende opgaver i kursusbeskrivelsens appendix).Rapportarbejdet er begrænset til resultater og beregninger, usikkerhedsberegning, diskussion især vedr. proces- og sikkerhedsaspekter samt synopsis.Valg af eksperimenter er i henhold til de samme princiopper som i kursus 28121, men begrænset til max. 1 øvelse i proces regulering eller reaktionslære ud af de 5. Rapporterne diskuteres med læreren og revideres om nødvendigt. Estimeret samlet tidsforbrug 160 t.2. En rapport vedr. produktionsmetoder og system design principper for følgende utilities: Procesdamp, rendamp, trykluft og forskellige vandkvaliteter. Estimeret samlet tidsforbrug 25 t.I tillæg hertil skal hver enkelt student udføre følgende:3. Læse baggrundsmateriale og deltage i en forelæsning om ventiler, pumper, instrumentering og specielle analyse- og prøvetagningsmetoder, hvor princip, funktionalitet, design detaljer, anvendelse og nøjagtighed er omfattet. Estimeret samlet tidsforbrug 6 t.4. Baseret på given information om en proces gives en forelæsning med basis i det udarbejdede PI-diagram. Estimeret samlet tidsforbrug 4 t.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "28",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Process Engineering Laboratory"
     },
     {
       "courseType": "DTU_MSC",
@@ -20085,6 +20529,27 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Coatings Science and Technology"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "Biotechnology is currently being revolutionized by rapid and extraordinary technological advances in molecular and synthetic biology that have led to unprecedented improvements in bio-based production. Translating this knowledge into new commercial processes demands a deep understanding of the synthetic and systems biology of living cells, and approaches for engineering cell factories.Bio-manufacturing is a rapidly developing field, as demand is growing to replace oil-based industry with biosustainable methods for production of chemicals and proteins essential for therapeutics and other purposes. Optimization of microbial cell factories through metabolic engineering is of central importance for efficient biological production of chemicals. Cell factory design is informed by integrating metabolic research, synthetic biology, \u2018omics and modeling, while high-throughput technologies support efficient production with high yield. At the same time synthetic biology is influencing the way we design experiments in basic research.The course brings together a group of experienced researchers to provide training on how to analyze data and think critically about state-of-the-art cellular, molecular, and computational techniques and approaches for optimization of cell factory engineering and biosustainability. Specifically, the content of the course will focus on discussing primary literature from current topics in bacterial, yeast and mammalian cell factory engineering; synthetic biology; and biosustainable production of beneficial compounds (e.g. antibiotics; therapeutic proteins).",
+      "courseCode": "29900",
+      "danishTitle": "Bioengineering and Critical Thinking",
+      "schedule": [
+        [
+          "F"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Se venligst den engelske kursusbeskrivelse",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "29",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Bioengineering and Critical Thinking"
     },
     {
       "courseType": "DTU_BSC",
@@ -20639,10 +21104,7 @@
       "mainDepartment": "30",
       "qualifiedPrerequisites": [
         [
-          "30020"
-        ],
-        [],
-        [
+          "30020",
           "30021"
         ]
       ],
@@ -20833,10 +21295,7 @@
           "02502"
         ],
         [
-          "02504"
-        ],
-        [],
-        [
+          "02504",
           "02501"
         ]
       ],
@@ -21311,7 +21770,7 @@
     },
     {
       "courseType": "DTU_MSC",
-      "englishContents": "The course will start with an introduction to the use of Linux systems followed by basic knowledge about astronomical instrumentation (including detectors and optics), calibration, measurement significance, and different kinds of noise. The participants will learn how to reduce imaging and spectroscopy data and how to perform photometry. The students will learn about single-dish and interferometric observations at millimeter and radio wavelengths, and will get to reduce and analyze continuum and spectroscopic data. X-ray data will be provided from currently flying X-ray instruments aboard NuSTAR, Swift, INTEGRAL and XMM satellites as well as NICER. All lectures will be followed by hands-on exercises based on the methods and techniques described during the lectures. Example applications include analyzing the spectra of supernova explosions, measuring the molecular content of distant galaxies and studying accretion disks around black holes and thermonuclear explosions on neutron stars.",
+      "englishContents": "The course will start with an introduction to the use of Linux systems followed by basic knowledge about astronomical instrumentation (including detectors and optics), calibration, measurement significance, and different kinds of noise. The participants will learn how to reduce imaging and spectroscopy data and how to perform photometry. The students will learn about single-dish and interferometric observations at millimeter and radio wavelengths, and will get to reduce and analyze continuum and spectroscopic data. X-ray data will be provided from currently flying X-ray instruments aboard NuSTAR, Swift, INTEGRAL and XMM satellites as well as NICER. All lectures will be followed by hands-on exercises based on the methods and techniques described during the lectures. Example applications include analyzing the spectra of supernova explosions, measuring the molecular content of distant galaxies and studying accretion disks around black holes and thermonuclear explosions on neutron stars.",
       "courseCode": "30794",
       "danishTitle": "Analyseteknikker af astrofysiske data",
       "schedule": [
@@ -21579,8 +22038,8 @@
         [
           "30010"
         ],
-        [],
         [
+          "",
           "02318"
         ],
         [
@@ -21866,10 +22325,8 @@
       "danishTitle": "Reguleringsteknik 1",
       "schedule": [
         [
+          "E5B",
           "F5B"
-        ],
-        [
-          "E5B"
         ]
       ],
       "ects": "5",
@@ -21985,10 +22442,7 @@
       "mainDepartment": "31",
       "qualifiedPrerequisites": [
         [
-          "31300"
-        ],
-        [],
-        [
+          "31300",
           "31301"
         ]
       ],
@@ -22864,6 +23318,9 @@
           "31003"
         ],
         [
+          "eller"
+        ],
+        [
           "62732"
         ]
       ],
@@ -23182,7 +23639,6 @@
       "schedule": [
         [
           "F4B",
-          "F",
           "F3B"
         ]
       ],
@@ -23680,6 +24136,27 @@
       "englishTitle": "Rethinking Healthcare\/Innovation as a powerful driver"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course has a theoretical part and a methods part.In the theoretical part, the physics, chemistry, and technology of the fabrication processesused in modern nano fabrication is described:·Lithography: UV-microlithography, e-beam nanolithography, and nano-imprint·Pattern-transfer: etching, lift-off·Thin film processes: CVD, PVD, spin-on·Substrate-materials: Silicon and Silica·Material modification: Ion-implant and doping-diffusion, annealing·Bonding: anodic bonding, fusion bonding·Process integration·Process simulationYou will learn to use a modern process simulator (ATHENA - www.silvaco.com) which willallow you to perform advanced computation.The methods part consists of 3 mandatory and 2 selective TPTs (Tool Package Trainings)containing hands-on instructions1. Cleanroom safety*2. Lithography*3. Mask design*4. Scanning electron microscopy5. Plasma etching*mandatoryIn the final part of the course you work in teams to make process flows. Each student mustbring their own topic for a device or material to be fabricated.",
+      "courseCode": "33651",
+      "danishTitle": "Metoder i mikro og nano fabrikation",
+      "schedule": [
+        [
+          "OutsideSchedule"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "The course has a theoretical part and a methods part.In the theoretical part, the physics, chemistry, and technology of the fabrication processesused in modern nano fabrication is described:·Lithography: UV-microlithography, e-beam nanolithography, and nano-imprint·Pattern-transfer: etching, lift-off·Thin film processes: CVD, PVD, spin-on·Substrate-materials: Silicon and Silica·Material modification: Ion-implant and doping-diffusion, annealing·Bonding: anodic bonding, fusion bonding·Process integration·Process simulationYou will learn to use a modern process simulator (ATHENA - www.silvaco.com) which willallow you to perform advanced computation.The methods part consists of 3 mandatory and 2 selective TPTs (Tool Package Trainings)containing hands-on instructions1. Cleanroom safety*2. Lithography*3. Mask design*4. Scanning electron microscopy5. Plasma etching*mandatoryIn the final part of the course you work in teams to make process flows. Each student mustbring their own topic for a device or material to be fabricated.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "33",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Methods in micro and nano fabrication"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "Project: Subjects with relation to the research activities at the Department of Physics, Department of Micro- and Nanotechnology or the Department of Photonics are offered, and the students choose among these.",
       "courseCode": "34019",
@@ -23730,15 +24207,9 @@
       "mainDepartment": "34",
       "qualifiedPrerequisites": [
         [
-          "10009"
-        ],
-        [
-          "10013"
-        ],
-        [
-          "10036"
-        ],
-        [
+          "10009",
+          "10013",
+          "10036",
           "31400"
         ]
       ],
@@ -24269,6 +24740,48 @@
       "englishTitle": "Light transport theory and simulation methods"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course consists of presentations and discussions of scientific articles within photonics devices and related topics, cf. the list of keywords below. The students takes turns in presenting the main results of a chosen paper using a computer presentation. Presentations may include electrical, optical and thermal design of the devices and the working principle. In addition, the fabrication methods, applications and competing technologies may be included where appropriate.",
+      "courseCode": "34091",
+      "danishTitle": "Studiekreds indenfor avancerede fotoniske komponenter",
+      "schedule": [
+        [
+          "E3A"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "The course consists of presentations and discussions of scientific articles within photonics devices and related topics, cf. the list of keywords below. The students tak turns in presenting the main results of a chosen paper using a computer presentation. Presentations may include electrical, optical and thermal design of the devices and the working principle. In addition, the fabrication methods, applications and competing technologies may be included where appropriate.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "34",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Advanced photonic devices journal club"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The scientific papers discussed in this course range from fundamental, highly-cited papers in the field of quantum information technology to recent papers dealing with advanced structures with implementations of quantum information technology. At each meeting, the students take turns at presenting the material. Which papers to be studied is continually discussed, such that also up-to-date scientific papers may be included.In contrast to the course provided at DTU Fysik \u201CJournal club in quantum optics\u201D (7.5 ECTS), this journal club has a theoretical approach to quantum informatics and considers implementations in semiconductor materials.",
+      "courseCode": "34094",
+      "danishTitle": "Studiegruppe om Kvanteinformation",
+      "schedule": [
+        [
+          "F4B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "The scientific papers discussed in this course range from fundamental, highly-cited papers in the field of quantum information technology to recent papers dealing with advanced structures with implementations of quantum information technology. At each meeting, the students take turns at presenting the material. Which papers to be studied is continually discussed, such that also up-to-date scientific papers may be included.In contrast to the course provided at DTU Fysik \u201CJournal club in quantum optics\u201D (7.5 ECTS), this journal club has a theoretical approach to quantum informatics and considers implementations in semiconductor materials.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "34",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Quantum Information Journal Club"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "Electromagnetic waves. Transmission lines. Optical fibers. Radio waves. Maxwell\u2019s equations",
       "courseCode": "34120",
@@ -24515,14 +25028,8 @@
       "mainDepartment": "34",
       "qualifiedPrerequisites": [
         [
-          "34130"
-        ],
-        [],
-        [
-          "34153"
-        ],
-        [
-          "",
+          "34130",
+          "34153",
           "34210"
         ]
       ],
@@ -24531,6 +25038,34 @@
         "34150"
       ],
       "englishTitle": "Advanced Optical Communication Systems"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The articles studied during the course will cover some of the hottest research topics in modern optical communications. The topics will include high-capacity and spectrally efficient data transmission in optical fibres, spatial multiplexing, silicon photonics, optical signal processing etc. (see keywords). A number of potential papers\/topics will be presented at the beginning of the course.",
+      "courseCode": "34192",
+      "danishTitle": "Optical Communications Journal Club",
+      "schedule": [
+        [
+          "E"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Artiklerne vil omhandle nogle af de nyeste og mest populære emner indenfor forskningen ioptiskkommunikation. Emnerne vil inkludere højkapacitets data transmission i optiske fibre, spatial multiplexing, silicon photonics, optisk signalprocessering mm. (se nøgleord). Mulige emner og artikler vil blive præsenteret i starten af kurset.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "34",
+      "qualifiedPrerequisites": [
+        [
+          "34130"
+        ],
+        [
+          "34150"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Optical Communications Journal Club"
     },
     {
       "courseType": "DTU_BSC",
@@ -24814,6 +25349,27 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Computational imaging and spectroscopy"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course covers the fundamental results in information theory: Entropies for various classes of sources including 2-D, channel capacity and coding theorems for information channels, coding theorems for data compression. Some recent results will be selected depending on the interests of the participants.",
+      "courseCode": "34290",
+      "danishTitle": "Informationsteori",
+      "schedule": [
+        [
+          "F"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset omfatter de fundamentale resultater i informationsteorien: Entropi for forskellige kildetyper inklusiv 2-D, kanalkapacitet og kodningssætninger for informationskanaler, kodningssætninger for datakompression. Aktuelle emner vil blive udvalgt efter deltagernes interesser.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "34",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Information Theory"
     },
     {
       "courseType": "DTU_BSC",
@@ -25494,6 +26050,27 @@
       "englishTitle": "Core and transport networks"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course deals with performance evaluation and control of future telecommunication networks using stochastic modelling and simulation tools. The networks may include mobile and wireless networks (cellular, satellite), high-speed networks, Internet (wired & wireless), intelligent networks, etc. The actual course content will depend upon and include the most recent problems, networks and tools.",
+      "courseCode": "34390",
+      "danishTitle": "Fremtidens telenet - Performance & Evaluation",
+      "schedule": [
+        [
+          "F"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset behandler metoder og modeller til evaluering af fremtidige telekommunikationsnet ved anvendelse af stokastisk modellering og simulationsværktøjer. Netværkene omfatter mobile og trådløse systemer (cellulære, satellit), optiske højhastighedsnet, Internet, intelligente net osv. Det aktuelle kursusindhold vil afhænge af og omfatte de nyeste problemer, netværk og værktøjer.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "34",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Telecommunication Networks of the Future - Performance & Evaluation"
+    },
+    {
       "courseType": "DTU_MSC",
       "englishContents": "The lectures will cover the biological background for light interaction between light and soft matter (cells, cells in suspension, or tissue), photobiology and basic spectroscopic techniques. Principles of bio-imaging will be discussed. Furthermore, lasers\/light sources will be covered, including basic principles of operation, various laser systems and their potential\/relevance for biophotonics. Throughout the course practical examples and demonstrations will be usedwhenever possible.",
       "courseCode": "34430",
@@ -26064,13 +26641,8 @@
       "ects": "10",
       "mandatoryPrerequisites": [
         [
-          "02631"
-        ],
-        [
-          "02632"
-        ],
-        [
-          "",
+          "02631",
+          "02632",
           "02633"
         ]
       ],
@@ -26116,17 +26688,11 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41012"
-        ],
-        [
-          "",
+          "41012",
           "42012"
         ],
         [
-          "41010"
-        ],
-        [
-          "",
+          "41010",
           "42010"
         ]
       ],
@@ -26230,14 +26796,8 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41010"
-        ],
-        [],
-        [
-          "41603"
-        ],
-        [],
-        [
+          "41010",
+          "41603",
           "41612"
         ]
       ],
@@ -27399,6 +27959,27 @@
       "englishTitle": "IC engines - experimental methods and data processing"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The Ph.D. course consists of 3 parts:Part I: Programming FORTRANPart II: Introduction to OpenMPPart III: MPI",
+      "courseCode": "41391",
+      "danishTitle": "High Performance Computing: FORTRAN, OpenMP and MPI",
+      "schedule": [
+        [
+          "January"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Phd. kurset består af 3 dele:Del I: FORTRAN programmeringDel II: Introduktion til OpenMPDel III: MPI",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "41",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "High Performance Computing: FORTRAN, OpenMP and MPI"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "Thermodynamic concepts and properties. Property diagrams. Conservation of mass and energy, Control mass and control volume. Entropy. Thermodynamic cycles, steam power plants, gas turbines, engines, refrigeration and other systems for energy conversion. Efficiency. Exergy. Gas mixtures and psychrometry. Introduction to heat transfer. Steady state heat conduction, heat transfer by forced convection and radiation. Dimensionless numbers.",
       "courseCode": "41401",
@@ -27600,6 +28181,31 @@
       "englishTitle": "Applied engineering thermodynamics"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course will consist of presentations by the students of scientific papers from recognizedjournals. The goal, results and conclusions shall be presented, and a critical review of methodand results shall be made. The individual student shall give an account of the important elements in the paper and how this can contribute to the student\u2019s research. The presentations are given as visual presentations and shall also result in summaries of the important results and conclusions.",
+      "courseCode": "41490",
+      "danishTitle": "Journal klub om forbrændingsmotorer",
+      "schedule": [
+        [
+          "F4A"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset vil bestå af præsentationer givet af studerende af videnskabelige artikler fra anerkendtetidsskrifter. Artiklens formål, resultater og konklusioner skal præsenteres, og en kritisk stillingtagen til metode og resultat skal foretages. Den enkelte studerende skal redegøre for, hvad der er det vigtige i artiklen, og for hvorledes dette kan bidrage til vedkommendes forskningsprojekt. Præsentationerne gives som visuelle præsentationer og skal resultere i et resume med de vigtigste resultater og konklusioner.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "41",
+      "qualifiedPrerequisites": [
+        [
+          "41346"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Journal club in internal combustion engines"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "Single forces. Moment of single forces. Force systems. The fundamental principle of statics. Projection on a line. Loading, reaction and sectional forces. Statically determinate and indeterminate structures. Uniaxial tensile testing. Hookes law for uniaxial stress. Simple, elastic beams. Beams made of composite materials. Euler columns. Hookes law for shearing. Torsion of bars and tubes with circular cross-section. Shear stress distribution in beams. The shear centre. The superposition principle. Simple, combined beam structures.",
       "courseCode": "41501",
@@ -27629,9 +28235,7 @@
           "10002",
           "10010",
           "10011",
-          "10001"
-        ],
-        [
+          "10001",
           "10022"
         ]
       ],
@@ -27873,6 +28477,12 @@
         [
           "41812",
           "11305"
+        ],
+        [
+          "eller"
+        ],
+        [
+          "tilsvarende"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -27900,22 +28510,10 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41560"
-        ],
-        [],
-        [
-          "41214"
-        ],
-        [],
-        [
-          "41514"
-        ],
-        [],
-        [
-          "62643"
-        ],
-        [],
-        [
+          "41560",
+          "41214",
+          "41514",
+          "62643",
           "41237"
         ]
       ],
@@ -28005,10 +28603,7 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41502"
-        ],
-        [],
-        [
+          "41502",
           "41534"
         ]
       ],
@@ -28038,10 +28633,7 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41502"
-        ],
-        [],
-        [
+          "41502",
           "41534"
         ]
       ],
@@ -28079,6 +28671,9 @@
         ],
         [
           "62794"
+        ],
+        [
+          "samtidig"
         ]
       ],
       "teachingLanguage": "da-DK",
@@ -28171,14 +28766,8 @@
           "41812"
         ],
         [
-          "02631"
-        ],
-        [],
-        [
-          "02632"
-        ],
-        [],
-        [
+          "02631",
+          "02632",
           "02633"
         ]
       ],
@@ -28260,6 +28849,27 @@
       "englishTitle": "Strength of Materials 1 (English version)"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course deals with theory and practice of topology design. Topics include:\u2022 Design parametrization (interpolation schemes, composites, etc.)\u2022 Sensitivity analysis (direct and adjoint methods)\u2022 Algorithms (OC-methods, mathematical programming, convex approximation schemes and other methods)\u2022 Computational issues (checkerboards, filters, robust design, parallelization)\u2022 Applications in structural and multi-physics problems (industrial examples, MicroElectroMechanical Systems (MEMS), wave-propagation problems)\u2022 Large scale implementation of topology optimization on parallel computers\u2022 Poster presentation on own research project",
+      "courseCode": "41591",
+      "danishTitle": "Topologioptimering",
+      "schedule": [
+        [
+          "June"
+        ]
+      ],
+      "ects": "3.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset omhandler teori og praktisk implementering af topologi-optimering.Emnerne omfatter:\u2022 Design parametrisering (interpolationsfunktioner, kompositmaterialer osv.)\u2022 Følsomhedsanalyse (direkte og adjungerede metoder)\u2022 Algoritmer (OC-metoder, matematisk programmering, konvekse tilnærmelser og andre metoder)\u2022 Beregningsmæssige emner (filtre, robust design, parallelisering)\u2022 Anvendelser for struktur-og multi-fysik problemer (industrielle eksempler, MikroElektroMekaniske Systemer (MEMS), bølgeudbredelses problemer)\u2022 Storskala implementering af topologioptimering på parallelle computere\u2022 Poster presentation af eget forskningprojekt",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "41",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Topology Optimization - Theory, Methods and Applications"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "The course deals with the early phases of problem solving: Problem analysis, including need concepts, gathering of information, concepts of system theory, design specification, requirements and criteria. Search for solutions, including creative and systematic generation of ideas. Application of design models. Evaluation of alternative solutions. Project work. During the laboratory part the student practise engineering design in project groups on the basis of formulated need (the groups can choose to formulate a need themselves). At the end of the course, each group presents and reports their work.",
       "courseCode": "41603",
@@ -28328,10 +28938,7 @@
           "42901"
         ],
         [
-          "42020"
-        ],
-        [
-          "",
+          "42020",
           "41020"
         ]
       ],
@@ -28384,7 +28991,8 @@
       "danishTitle": "CAD for designingeniører",
       "schedule": [
         [
-          "E5B"
+          "E5B",
+          "F2A"
         ]
       ],
       "ects": "5",
@@ -28559,6 +29167,9 @@
           "41681",
           "41683",
           "41680"
+        ],
+        [
+          "or"
         ],
         [
           "41661",
@@ -29036,7 +29647,13 @@
           "41680"
         ],
         [
+          "or"
+        ],
+        [
           "41650"
+        ],
+        [
+          "or"
         ],
         [
           "41015"
@@ -29073,26 +29690,11 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "41650"
-        ],
-        [],
-        [
-          "41659"
-        ],
-        [],
-        [
-          "41680"
-        ],
-        [],
-        [
-          "41681"
-        ],
-        [],
-        [
-          "41683"
-        ],
-        [],
-        [
+          "41650",
+          "41659",
+          "41680",
+          "41681",
+          "41683",
           "41015"
         ],
         [
@@ -29102,6 +29704,35 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Materials characterization and testing"
+    },
+    {
+      "courseType": "DTU_PHD",
+      "englishContents": "This course introduces electron microscopy as a method for characterizing the microstructure, crystallographic orientations and local chemistry of metals and alloys. Students will learn the operating principles of the transmission and scanning electron microscopes, and how to obtain and interpret images, diffraction patterns and energy-dispersive X-ray spectra. In addition, each student will be involved in practical work using at least one of the electron microscopy techniques. This form of study will involve discussion with and guidance from a member of DTU staff. Topics will include: \u2022\tMain components of electron microscopes \u2022\tInteraction of  electrons with solid matter\u2022\tElectron detection for different signals and image formation in TEM and SEM\u2022\tDifferent types of TEM contrast (diffraction contrast, mass-thickness contrast, phase contrast)\u2022\tImaging TEM techniques (bright-field, dark-field, high-resolution) \u2022\tSpectroscopic methods \u2022\tDiffraction patterns in TEM and SEM (EBSD)\u2022\tSpecimen preparation for TEM and SEM",
+      "courseCode": "41690",
+      "danishTitle": "Elektronmikroskopi og analyse for materialeforskning",
+      "schedule": [
+        [
+          "E1B"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Dette kursus introducerer elektronmikroskopi som en metode til karakterisering af mikrostruktur, krystallografiske orienteringer og lokal kemi i metaller og legeringer. De studerende vil lære grundprincipperne bag transmissions- og skanningelektronmikroskoper, og hvordan billeder, diffraktionsmønstre og energy dispersive røntgen spektre optages og fortolkes. Desuden vil hver studerende blive involveret i praktisk brug af mindst en af elektronmikroskopiteknikkerne. Dette vil involvere diskussion og vejledning fra en DTU ansat.Emner inkluderer:\u2022      Nøglekomponenter i elektronmikroskoper\u2022      Vekselvirkning mellem elektroner og fast stof\u2022      Elektrondetektion for forskellige signaler og billeddannelse i TEM and SEM\u2022      Forskellige typer af TEM kontrast (diffraktions-, masse-tykkelse- og fasekontrast)\u2022      Billeddannende TEM teknikker (bright-field, dark-field, højopløsning)\u2022      Spektroskopiske metoder\u2022      Diffraktionsmønstre i TEM og SEM (EBSD)\u2022      Prøvepræparation til TEM og SEM",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "41",
+      "qualifiedPrerequisites": [
+        [
+          "41658"
+        ],
+        [
+          "41650",
+          "41659"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Electron Microscopy and Analysis for Materials Research"
     },
     {
       "courseType": "DTU_BSC",
@@ -29602,6 +30233,27 @@
       "englishTitle": "Production technology"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "The course will focus on the fundamental principles of nanotribology illustrated by a number of applications. List of lecture topics: \u2022\tIntroduction to nanotribology with a state of the art overview of the stage of the research. \u2022\tNanotribological contact mechanics which are the basics of the research area. \u2022\tNanotribological simulations (e.g. Molecular Dynamics) and theories. Computer modelling. \u2022\tAn example of nanotribological experimental method: The atomic force microscope (AFM). \u2022\tA number of applications including: \u2022\tNanotribological investigations of the lubricity of Dimethyl Ether (DME) at DTU. \u2022\tTheory of rubber friction at the nano-scale with applications to the tire and the medical industry. \u2022\tFriction of polymers with application to the medical industry. \u2022\tMicro\/nano processing: A research area at DTU. The content of the course will be adapted to the most recent and interesting research every year. The most prominent researchers in the field will teach the students",
+      "courseCode": "41791",
+      "danishTitle": "Nanotribologi: Teori og anvendelser",
+      "schedule": [
+        [
+          "January"
+        ]
+      ],
+      "ects": "5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "Kurset fokuserer på de basale principper i nanotribologi illustret med en række praktiske anvendelser. Kursets rygrad er en række prominente gæsteforelæsere fra det meste ad verdenen. Emner der bliver berørt er: Introduktion til nanotribologi med state of the art indenfor forskningen. Nanotribologisk kontaktmekanikNanotribologiske simuleringsværktøjer såsom Molecular Dynamics. Et eksempel på eksperimentel metode indenfor nanotribologi: Atomic Force Microscope En række anvendelser såsom Brændstoffers smøreevnePolymer friktionMicro\/nano processering Kursusindholdet er dynamisk forstået således at det hvert år opdateres med den nyeste forskning. Samtidigt inviteres de mest prominente forskere indenfor området til at forelæse.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "41",
+      "qualifiedPrerequisites": [],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Nanotribology: theory and applications"
+    },
+    {
       "courseType": "DTU_BSC",
       "englishContents": "The topics in the course will depend on the selected project, but it is an essential part in the course to train project work (team-work) in larger groups. This is obtained by controlling the process of forming the groups, starting the groups by requiring a contract on their cooperation and having a special initiation of the project.Projects with a CDIO (Conceive, Design, Implement and Operate) character are emphasized.",
       "courseCode": "41801",
@@ -29710,14 +30362,8 @@
           "41502"
         ],
         [
-          "41560"
-        ],
-        [],
-        [
-          "41035"
-        ],
-        [],
-        [
+          "41560",
+          "41035",
           "41214"
         ],
         [
@@ -29855,14 +30501,8 @@
       "mainDepartment": "41",
       "qualifiedPrerequisites": [
         [
-          "62603"
-        ],
-        [],
-        [
-          "41401"
-        ],
-        [],
-        [
+          "62603",
+          "41401",
           "41045"
         ]
       ],
@@ -30243,6 +30883,9 @@
         [
           "42021",
           "42640"
+        ],
+        [
+          "or"
         ],
         [
           "02810",
@@ -30692,6 +31335,32 @@
       "englishTitle": "Optimization using metaheuristics"
     },
     {
+      "courseType": "DTU_PHD",
+      "englishContents": "After the seminar students are expected to participate in a scientific descussion critically reviewing the approach taken and suggesting areas of related and future research.",
+      "courseCode": "42142",
+      "danishTitle": "Recent Research Results in Management Science",
+      "schedule": [
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "ects": "2.5",
+      "mandatoryPrerequisites": [],
+      "danishContents": "en studernede forventes at deltage i en videnskabelig diskussion med kritisk forholden til den fremlagte forskning samt perspektivering til relaterede forsknings emner.",
+      "location": "Campus_Lyngby",
+      "previousCourses": [],
+      "mainDepartment": "42",
+      "qualifiedPrerequisites": [
+        [
+          "42101"
+        ]
+      ],
+      "teachingLanguage": "en-GB",
+      "noCreditPointsWith": [],
+      "englishTitle": "Recent Research Results in Management Science"
+    },
+    {
       "courseType": "DTU_MSC",
       "englishContents": "Fundamental concepts and terminology of safety, risk and reliability.Principles of safety assessment as required by legislation, regulations and standards.Technical risk analysis: a general accident model, hazard identification, accident scenario, probability measures for reliability and risk, damage and consequence assessment of accidental events, risk evaluation.Techniques and approaches to domain specific hazard identifications and quantitative risk assessments including what-if analysis, rapid risk ranking, FMEA, risk matrix, barrier diagrams, event trees and fault trees.Models for reliability assessmentData sources for reliability assessment and risk analysisAccounting for uncertainty: stochastic and epistemic uncertainty, probabilistic reliability and risk measures, mathematics of probability, approaches to the assessments of the measures.Utilization and role of quantified risk analysis in management of system safety and reliability. Link between technological system and organisational management, and role of inspection, maintenance, procedures, etc. in safeguarding technological systems.",
       "courseCode": "42171",
@@ -30819,6 +31488,21 @@
         [
           "02402",
           "02403"
+        ],
+        [
+          "eller"
+        ],
+        [
+          "lignende"
+        ],
+        [
+          "introduktion"
+        ],
+        [
+          "til"
+        ],
+        [
+          "statistik"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -30872,7 +31556,7 @@
     },
     {
       "courseType": "DTU_MSC",
-      "englishContents": "The classes are taught in an interactive manner, with theoretical parts, intermingled with practice with Jupyter Notebooks. Main topics are: Introduction to Python programming and Pandas, data visualisation, forecasting and regression models, classification, clustering, dimensionality reduction. The methods will be exemplified through different cases within e.g. transportation, business management and marketing.",
+      "englishContents": "The classes are taught in an interactive manner, with theoretical parts, intermingled with practice with Jupyter Notebooks. Main topics are: Introduction to Python programming and Pandas, data visualisation, forecasting and regression models, classification, clustering, dimensionality reduction. The methods will be exemplified through different cases within e.g. transportation, business management and marketing.",
       "courseCode": "42184",
       "danishTitle": "Data science inden for mobilitet",
       "schedule": [
@@ -30882,7 +31566,7 @@
       ],
       "ects": "5",
       "mandatoryPrerequisites": [],
-      "danishContents": "The classes are taught in an interactive manner, with theoretical parts, intermingled with practice with Jupyter Notebooks. Main topics are: Introduction to Python programming and Pandas, data visualisation, forecasting and regression models, classification, clustering, dimensionality reduction. The methods will be exemplified through different cases within e.g. transportation, business management and marketing.",
+      "danishContents": "The classes are taught in an interactive manner, with theoretical parts, intermingled with practice with Jupyter Notebooks. Main topics are: Introduction to Python programming and Pandas, data visualisation, forecasting and regression models, classification, clustering, dimensionality reduction. The methods will be exemplified through different cases within e.g. transportation, business management and marketing.",
       "location": "Campus_Lyngby",
       "previousCourses": [],
       "mainDepartment": "42",
@@ -30927,7 +31611,7 @@
     },
     {
       "courseType": "DTU_MSC",
-      "englishContents": "This course will have lectures with slides and with laboratory work using interactive tools (e.g. Jupyter notebook). Students will always work manually each module, during and after the theoretical class, to assimilate new concepts. It is designed to be incremental, and strongly supported with practice. Modules: \u2028- Review of basics \u2013 random variable, probability distributions, Bayes Theorem - Probabilistic Graphical Models foundations \u2013 Bayesian networks, factorization,  D-separation, conditional independence- Probabilistic Graphical Models \u2013 Generative models, Representing your own problem \u2028- Different models \u2013 Regression, Classification, Temporal models, Topic Models- Inference \u2013 Exact Inference - Inference \u2013 Markov Chain Monte Carlo - Inference \u2013 Variational Inference- Advanced topics",
+      "englishContents": "This course will have lectures with slides and with laboratory work using interactive tools (e.g. Jupyter notebook). Students will always work manually each module, during and after the theoretical class, to assimilate new concepts. It is designed to be incremental, and strongly supported with practice. Modules: \u2028- Review of basics \u2013 random variable, probability distributions, Bayes Theorem - Probabilistic Graphical Models foundations \u2013 Bayesian networks, factorization,  D-separation, conditional independence- Probabilistic Graphical Models \u2013 Generative models, Representing your own problem \u2028- Different models \u2013 Regression, Classification, Temporal models, Topic Models- Inference \u2013 Exact Inference - Inference \u2013 Markov Chain Monte Carlo - Inference \u2013 Variational Inference- Advanced topics",
       "courseCode": "42186",
       "danishTitle": "Model-based machine learning",
       "schedule": [
@@ -30975,14 +31659,8 @@
       "mainDepartment": "42",
       "qualifiedPrerequisites": [
         [
-          "42180"
-        ],
-        [],
-        [
-          "02441"
-        ],
-        [],
-        [
+          "42180",
+          "02441",
           "02409"
         ]
       ],
@@ -31166,38 +31844,6 @@
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Sustainable Urban Development: a project oriented approach"
-    },
-    {
-      "courseType": "DTU_MSC",
-      "englishContents": "We explore emerging trends in technology related to smart and connected cities, and the implications they have for the quality of life within the urban environment. This process will be supported by reading assignments, in-class assignments, in-class discussions, student presentations, excursions, and group work. Throughout the course, students will evaluate various smart solutions, technological trends, and innovation regarding specific urban issues, and choose one topic to study in depth as a group project. The project will be presented at the end of the course, and have both individual and group deliverables. Course content includes: - Urban Technologies and Systems (digital infrastructure, mobility, big data, system integration, IoT) - Urban Issues (congestion, resources, security, privacy, equality) - Future Challenges and Opportunities",
-      "courseCode": "42280",
-      "danishTitle": "Smarte byer",
-      "schedule": [
-        [
-          "E4A"
-        ]
-      ],
-      "ects": "5",
-      "mandatoryPrerequisites": [],
-      "danishContents": "Vi undersøger nye tendenser inden for teknologi relateret til smarte og forbundne byer, og de konsekvenser, de har for livskvaliteten inden for bymiljøet. Denne proces understøttes af læsningsopgaver, i klasseprojekter, i klassediskussioner, studerendes præsentationer, udflugter og gruppearbejde. I løbet af kurset vil eleverne evaluere forskellige smarte løsninger, teknologiske trends og innovation vedrørende specifikke byproblemer og vælge et emne at studere dybtgående som et gruppeprojekt. Projektet vil blive præsenteret i slutningen af kurset og har både individuelle og gruppearrangementer.Kursusindhold omfatter:- Urbane teknologier og systemer (digital infrastruktur, mobilitet, store data, systemintegration, IoT)- Urbane problemer (overbelastning, ressourcer, sikkerhed, privatlivets fred, ligestilling)- Fremtidige udfordringer og muligheder",
-      "location": "Campus_Lyngby",
-      "previousCourses": [],
-      "mainDepartment": "42",
-      "qualifiedPrerequisites": [
-        [
-          "11823",
-          "11829",
-          "42543",
-          "42270",
-          "42273",
-          "42401",
-          "42913",
-          "42970"
-        ]
-      ],
-      "teachingLanguage": "en-GB",
-      "noCreditPointsWith": [],
-      "englishTitle": "Smart Cities"
     },
     {
       "courseType": "DTU_MSC",
@@ -34808,6 +35454,18 @@
       "qualifiedPrerequisites": [
         [
           "10333"
+        ],
+        [
+          "Physics"
+        ],
+        [
+          "of"
+        ],
+        [
+          "Sustainable"
+        ],
+        [
+          "Energy"
         ]
       ],
       "teachingLanguage": "en-GB",
@@ -35009,7 +35667,11 @@
       "location": "Campus_Other",
       "previousCourses": [],
       "mainDepartment": "83",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "KU002"
+        ]
+      ],
       "teachingLanguage": "da-DK",
       "noCreditPointsWith": [
         "27311",
@@ -35033,7 +35695,14 @@
       "location": "Campus_Other",
       "previousCourses": [],
       "mainDepartment": "83",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "KU002"
+        ],
+        [
+          "KU003"
+        ]
+      ],
       "teachingLanguage": "da-DK",
       "noCreditPointsWith": [],
       "englishTitle": "Clinical methods in diagnosis and treatment"
@@ -35354,7 +36023,11 @@
       "location": "Campus_Other",
       "previousCourses": [],
       "mainDepartment": "83",
-      "qualifiedPrerequisites": [],
+      "qualifiedPrerequisites": [
+        [
+          "KU015"
+        ]
+      ],
       "teachingLanguage": "en-GB",
       "noCreditPointsWith": [],
       "englishTitle": "Pharmacometrics"
@@ -35816,10 +36489,19 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
+          "Enten"
+        ],
+        [
           "62018"
         ],
         [
+          "eller"
+        ],
+        [
           "62019"
+        ],
+        [
+          "eller"
         ],
         [
           "62048"
@@ -37233,10 +37915,7 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62175"
-        ],
-        [],
-        [
+          "62175",
           "62185"
         ]
       ],
@@ -38549,9 +39228,7 @@
           "62263"
         ],
         [
-          "62273"
-        ],
-        [
+          "62273",
           "11957"
         ]
       ],
@@ -38828,22 +39505,10 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62254"
-        ],
-        [],
-        [
-          "62276"
-        ],
-        [],
-        [
-          "13511"
-        ],
-        [],
-        [
-          "42986"
-        ],
-        [],
-        [
+          "62254",
+          "62276",
+          "13511",
+          "42986",
           "42975"
         ]
       ],
@@ -39079,8 +39744,8 @@
         [
           "62254"
         ],
-        [],
         [
+          "",
           "62268"
         ],
         [
@@ -39784,7 +40449,7 @@
     },
     {
       "courseType": "DTU_DIPLOM",
-      "englishContents": "Anatomy and Physiology Basic understanding of the body \u2022 Renal structure and function \u2022 Digestive organs including Hepar \/ Pancreas (enzymes) \u2022 craniums anatomy \u2022 CNS\/PNS \u2022 Endocrinology Pathology, Pathophysiology and Pharmacology Pathology \u2022 Diseases of digestive organs, including Hepar\/Pancreas \u2022 Renal and urinary disorders \u2022 Disorders of locomotor apparatus \u2022 Ischemic heart disease including hypertension \u2022 Oncology \u2022 Diabetes types 1 and 2           Pharmacology \u2022 General pharmacology, pharmacokinetics, and pharmacodynamics \u2022 Special Pharmacology relating to the above exemplary diseases",
+      "englishContents": "Anatomy and Physiology Basic understanding of the body \u2022 Renal structure and function \u2022 Digestive organs including Hepar \/ Pancreas (enzymes) \u2022 craniums anatomy \u2022 CNS\/PNS \u2022 Endocrinology Pathology, Pathophysiology and Pharmacology Pathology \u2022 Diseases of digestive organs, including Hepar\/Pancreas \u2022 Renal and urinary disorders \u2022 Disorders of locomotor apparatus \u2022 Ischemic heart disease including hypertension \u2022 Oncology \u2022 Diabetes types 1 and 2           Pharmacology \u2022 General pharmacology, pharmacokinetics, and pharmacodynamics \u2022 Special Pharmacology relating to the above exemplary diseases",
       "courseCode": "62454",
       "danishTitle": "Sundhedsvidenskab 2",
       "schedule": [
@@ -40243,10 +40908,7 @@
           "02313"
         ],
         [
-          "02314"
-        ],
-        [],
-        [
+          "02314",
           "02312"
         ]
       ],
@@ -40370,7 +41032,7 @@
     },
     {
       "courseType": "DTU_DIPLOM",
-      "englishContents": "Fundamental characteristics of secure communications in embedded systems:- Cryptographic Algorithms and Protocols   (including Key Management and Lightweight Cryptography)- Important Safety Properties   (including Confidentiality, Integrity, Availability, Authenticity and Privacy)- Authentication Mechanisms and Protocols- \"Trusted Computing\"   (including concepts such as Trusted Platform Modules and Trust Zones)- Signed Software   (including Signature Validation and Public Key Infrastructures)- Physical Security and Distribution of Elements in an Embedded System- Data Security   (including Secure Data Storage - locally and in the Cloud - as well as Secure Data Reporting)",
+      "englishContents": "Fundamental characteristics of secure communications in embedded systems:- Cryptographic Algorithms and Protocols   (including Key Management and Lightweight Cryptography)- Important Safety Properties   (including Confidentiality, Integrity, Availability, Authenticity and Privacy)- Authentication Mechanisms and Protocols- \"Trusted Computing\"   (including concepts such as Trusted Platform Modules and Trust Zones)- Signed Software   (including Signature Validation and Public Key Infrastructures)- Physical Security and Distribution of Elements in an Embedded System- Data Security   (including Secure Data Storage - locally and in the Cloud - as well as Secure Data Reporting)",
       "courseCode": "62575",
       "danishTitle": "Sikkerhed i indlejrede systemer",
       "schedule": [
@@ -40380,7 +41042,7 @@
       ],
       "ects": "5",
       "mandatoryPrerequisites": [],
-      "danishContents": "Fundamentale egenskaber ved sikker kommunikation i indlejrede systemer:- Kryptologiske algoritmer og protokoller   (herunder nøglehåndtering og letvægtskryptografi)- Vigtige sikkerheds egenskaber   (herunder konfidentialitet, integritet, tilgængelighed, autenticitet og privathed)- Autentifikations mekanismer og protokoller- \u201DTrusted Computing\u201D   (herunder begreber som Trusted Platform Modules og Trust Zones)- Signeret software   (herunder signaturvalidering og Public Key Infrastructures)- Fysisk sikkerhed og distribution af elementer i et indlejret system- Datasikkerhed   (herunder sikker lagring af data \u2013 lokalt og i skyen \u2013 samt sikker rapportering af data)",
+      "danishContents": "Fundamentale egenskaber ved sikker kommunikation i indlejrede systemer:- Kryptologiske algoritmer og protokoller   (herunder nøglehåndtering og letvægtskryptografi)- Vigtige sikkerheds egenskaber   (herunder konfidentialitet, integritet, tilgængelighed, autenticitet og privathed)- Autentifikations mekanismer og protokoller- \u201DTrusted Computing\u201D   (herunder begreber som Trusted Platform Modules og Trust Zones)- Signeret software   (herunder signaturvalidering og Public Key Infrastructures)- Fysisk sikkerhed og distribution af elementer i et indlejret system- Datasikkerhed   (herunder sikker lagring af data \u2013 lokalt og i skyen \u2013 samt sikker rapportering af data)",
       "location": "Campus_Ballerup",
       "previousCourses": [],
       "mainDepartment": "IHK",
@@ -40889,6 +41551,9 @@
           "62657"
         ],
         [
+          "or"
+        ],
+        [
           "62852"
         ]
       ],
@@ -40918,6 +41583,9 @@
       "qualifiedPrerequisites": [
         [
           "62603"
+        ],
+        [
+          "og"
         ],
         [
           "41860"
@@ -41339,14 +42007,8 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62676"
-        ],
-        [],
-        [
-          "62745"
-        ],
-        [],
-        [
+          "62676",
+          "62745",
           "62760"
         ]
       ],
@@ -41645,6 +42307,12 @@
       "qualifiedPrerequisites": [
         [
           "62738"
+        ],
+        [
+          "eller"
+        ],
+        [
+          "tilsvarende"
         ]
       ],
       "teachingLanguage": "da-DK",
@@ -41784,14 +42452,8 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62760"
-        ],
-        [],
-        [
-          "62714"
-        ],
-        [],
-        [
+          "62760",
+          "62714",
           "62752"
         ]
       ],
@@ -41925,18 +42587,9 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62755"
-        ],
-        [],
-        [
-          "31039"
-        ],
-        [],
-        [
-          "62602"
-        ],
-        [],
-        [
+          "62755",
+          "31039",
+          "62602",
           "62714"
         ]
       ],
@@ -42090,10 +42743,7 @@
       "mainDepartment": "IHK",
       "qualifiedPrerequisites": [
         [
-          "62741"
-        ],
-        [],
-        [
+          "62741",
           "62742"
         ]
       ],
