@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
     KursusTypeFragment kursusTypeFragment;
     SkemaPlaceringFragment skemaPlaceringFragment;
+    TagetKursusFragment tagetKursusFragment;
     GetStartedFragment getStartedFragment;
 
     OnboardingFragment currentFragment;
@@ -87,16 +89,17 @@ public class OnboardingActivity extends AppCompatActivity {
             }
         };
 
+        buttonNext.setOnClickListener(nextDefaultListener);
+
         //Listener for when the fragment is on the last view.
         nextLastViewListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBoardingViewModel.setOnboardingInProgress(false);
+                getStartedFragment.savePreferenceData();
                 launchMainActivity();
             }
         };
-
-        buttonNext.setOnClickListener(nextDefaultListener);
 
         buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -143,34 +146,27 @@ public class OnboardingActivity extends AppCompatActivity {
      */
 
     private void updateButtonView(int position) {
-        if (isLastView(position)) {
-            buttonNext.setText(R.string.button_done);
+        if (position == fragmentAdapter.getFragmentsList().size()-1) {
             buttonNext.setOnClickListener(nextLastViewListener);
+            buttonNext.setText(R.string.button_done);
         } else if (position == 0) {
             buttonBack.setVisibility(View.INVISIBLE);
         } else {
-            buttonNext.setText(R.string.button_next);
             buttonNext.setOnClickListener(nextDefaultListener);
+            buttonNext.setText(R.string.button_next);
             buttonBack.setVisibility(View.VISIBLE);
         }
-    }
-
-    /**
-     * @param position
-     * @return true if the fragment is the last view in the viewpager
-     */
-    private boolean isLastView(int position) {
-        return position == fragmentAdapter.getFragmentsList().size()-1;
     }
 
     /**
      * Adds fragments to the onboarding activity
      */
     private void setupOnboarding() {
-        KursusTypeFragment kursusTypeFragment = new KursusTypeFragment();
-        TagetKursusFragment tagetKursusFragment = new TagetKursusFragment();
-        SkemaPlaceringFragment skemaPlaceringFragment = new SkemaPlaceringFragment();
+        kursusTypeFragment = new KursusTypeFragment();
+        tagetKursusFragment = new TagetKursusFragment();
+        skemaPlaceringFragment = new SkemaPlaceringFragment();
         getStartedFragment = new GetStartedFragment();
+
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(tagetKursusFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
@@ -179,7 +175,8 @@ public class OnboardingActivity extends AppCompatActivity {
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
     private boolean restorePreferences() {
-        return true;
+        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+        return sp.getBoolean("Onboarded",false);
     }
 
     private void launchMainActivity() {

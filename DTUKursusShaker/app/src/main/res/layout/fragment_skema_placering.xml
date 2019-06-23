@@ -160,6 +160,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -170,6 +171,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -180,6 +182,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -189,6 +192,7 @@
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
+                android:checked="true"
                 android:textAllCaps="false"
                 android:textIsSelectable="false" />
 
@@ -200,6 +204,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -231,6 +236,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -241,6 +247,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -251,6 +258,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -261,6 +269,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -271,6 +280,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -306,6 +316,7 @@
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
+                android:checked="true"
                 android:textIsSelectable="false" />
 
             <Space

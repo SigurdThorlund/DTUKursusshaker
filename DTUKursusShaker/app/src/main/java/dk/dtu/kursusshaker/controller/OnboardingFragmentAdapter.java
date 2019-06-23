@@ -17,7 +17,7 @@ import java.util.List;
 
 public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
-    private final int NUM_ONBOARDING_PAGES = 3;
+    private final int NUM_ONBOARDING_PAGES = 4;
 
     private List<Fragment> fragmentsList = new ArrayList<>();
 

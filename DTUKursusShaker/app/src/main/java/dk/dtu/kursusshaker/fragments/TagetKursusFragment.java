@@ -21,7 +21,7 @@ import dk.dtu.kursusshaker.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TagetKursusFragment extends Fragment {
+public class TagetKursusFragment extends OnboardingFragment {
 
 
     public TagetKursusFragment() {
@@ -37,4 +37,8 @@ public class TagetKursusFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_taget_kursus, container, false);
     }
 
+    @Override
+    public void savePreferenceData() {
+        //This does not do anything for now
+    }
 }

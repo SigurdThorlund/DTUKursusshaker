@@ -88,7 +88,6 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
             }
         }
 
-
         sp.edit().putStringSet("Skemaplacering", skemaplaceringer).apply();
     }
 }
