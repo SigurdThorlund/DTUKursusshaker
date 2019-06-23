@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,25 +106,81 @@ public class SearchFragment extends Fragment {
         }
     }
 
+    private ArrayList getFilteredCourses() {
+        Course[] allCourses = coursesAsObject.getCourseArray(new ArrayList<String>());
+
+        ArrayList<Course> filteredCourses = new ArrayList<>(Arrays.asList(allCourses));
+
+        // getSharedPreferences("schedule")?
+        ArrayList<String> filterSchedule = new ArrayList<>();
+        filterSchedule.add("E5A");
+        filterSchedule.add("F5A");
+
+        String[] completed = {"26000"};
+
+
+        for (Course course : allCourses) {
+            String[][] courseSchedule = course.getSchedule();
+
+            System.out.println("" + course.getCourseCode() + ": ");
+            if (!scheduleMeetsPreferences(filterSchedule, courseSchedule)) {
+                if (!allPrerequisitesAreMet(completed, course.getQualifiedPrerequisites())) {
+                    filteredCourses.remove(course);
+                }
+            }
+
+        }
+
+        return filteredCourses;
+    }
+
+    private boolean allPrerequisitesAreMet(String[] completedCourses, String[][] prerequisites) {
+        if (prerequisites.length == 0) return true;
+        System.out.println(Arrays.deepToString(prerequisites));
+
+        for (String[] prerequisite : prerequisites) {
+            if (!prerequisiteIsMet(completedCourses, prerequisite)) return false;
+        }
+
+        return true;
+    }
+
+    boolean prerequisiteIsMet(String[] completedCourses, String[] prerequisites) {
+
+        for (String course : completedCourses) {
+            if (Arrays.asList(prerequisites).contains(course)) {
+                System.out.println("true");
+                return true;
+            }
+        }
+        System.out.println("false");
+        return false;
+    }
+
+
+    private boolean scheduleMeetsPreferences(ArrayList filterSchedule, String[][] courseSchedule) {
+        if (courseSchedule.length == 0) return true;
+
+        for (String[] schedules : courseSchedule) {
+            if (filterSchedule.containsAll(Arrays.asList(schedules))) return true;
+
+        }
+        return false;
+    }
+
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        ArrayList<String> excludedCourses = new ArrayList<String>();
-
-        // Exclude these three courses just for fun
-        // TODO: This is where we want to implement actual filtering stuff
-        excludedCourses.add("01005");
-        excludedCourses.add("01003");
-        excludedCourses.add("01006");
-
-
 
         coursesAsObject = new CoursesAsObject(getContext());
-        final Course[] course = coursesAsObject.getCourseArray(excludedCourses);
+        final ArrayList<Course> courseArray = getFilteredCourses();
 
-        String[] courseNames = new String[course.length];
-        String[] courseIds = new String[course.length];
-        for (int i = 0; i < course.length; i++) {
-            courseNames[i] = course[i].getDanishTitle();
-            courseIds[i] = course[i].getCourseCode();
+        String[] courseNames = new String[courseArray.size()];
+        String[] courseIds = new String[courseArray.size()];
+
+        int j = 0;
+        for (Course currentCourse : courseArray) {
+            courseNames[j] = currentCourse.getDanishTitle();
+            courseIds[j] = currentCourse.getCourseCode();
+            j++;
         }
 
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
@@ -178,11 +235,11 @@ public class SearchFragment extends Fragment {
                 if (onBoardingViewModel.addFinishedCourseToArrayList(intentCourse)) {
                     onBoardingViewModel.callViewModel();
                     Toast toast = Toast.makeText(getContext(), "Course: " + intentCourse.getCourseCode() + " added", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 } else {
                     Toast toast = Toast.makeText(getContext(), "Course already added!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 }
 
@@ -192,7 +249,7 @@ public class SearchFragment extends Fragment {
                 // We make an intent with result in case the user adds the course to his/her basket
                 // and then the result course is added to the PrimaryViewModel so the basketFragment can interact with it!
                 Intent intent = new Intent(getContext(), ViewCourseActivity.class);
-                intent.putExtra("selectedCourse",intentCourse);
+                intent.putExtra("selectedCourse", intentCourse);
                 startActivityForResult(intent, 1);
             }
         }
