@@ -155,6 +155,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_man_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -164,7 +165,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/cb_tir_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -174,6 +175,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_ons_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -183,6 +185,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_tor_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -192,6 +195,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_fre_m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -222,6 +226,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_man_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -231,7 +236,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/cb_tir_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -241,6 +246,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_ons_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -250,6 +256,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_tor_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -259,6 +266,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_fre_e"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -288,7 +296,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
             <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_tir_a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -297,42 +310,17 @@
                 android:textAllCaps="false"
                 android:textIsSelectable="false" />
 
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/checkBox2"
+            <Space
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:textIsSelectable="false" />
+                android:layout_height="match_parent" />
 
-            <com.google.android.material.checkbox.MaterialCheckBox
+            <Space
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:textIsSelectable="false" />
+                android:layout_height="match_parent" />
 
-            <com.google.android.material.checkbox.MaterialCheckBox
+            <Space
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:textIsSelectable="false" />
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:textIsSelectable="false" />
+                android:layout_height="match_parent" />
         </TableRow>
     </TableLayout>
 

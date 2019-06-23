@@ -37,6 +37,9 @@ public class OnboardingActivity extends AppCompatActivity {
     private View.OnClickListener nextDefaultListener;
     private View.OnClickListener nextLastViewListener;
 
+    KursusTypeFragment kursusTypeFragment;
+    SkemaPlaceringFragment skemaPlaceringFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +104,7 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 updateButtonView(position);
+                kursusTypeFragment.savePreferenceData();
             }
 
             @Override
@@ -140,8 +144,8 @@ public class OnboardingActivity extends AppCompatActivity {
      * Adds fragments to the onboarding activity
      */
     private void setupOnboarding() {
-        KursusTypeFragment kursusTypeFragment = new KursusTypeFragment();
-        SkemaPlaceringFragment skemaPlaceringFragment = new SkemaPlaceringFragment();
+        kursusTypeFragment = new KursusTypeFragment();
+        skemaPlaceringFragment = new SkemaPlaceringFragment();
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
     }

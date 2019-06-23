@@ -9,7 +9,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +37,10 @@ public class PrimaryActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             setupButtomNavigationBar();
         }
+
+        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+
+        Toast.makeText(this, sp.getString("Kursustype", "None"), Toast.LENGTH_SHORT).show();
     }
 
     @Override
