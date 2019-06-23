@@ -3,29 +3,32 @@ package dk.dtu.kursusshaker.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.OnBoardingViewModel;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
 public class PrimaryActivity extends AppCompatActivity {
 
+    private static final String TAG = "Debug";
     private int backButtonCounter;
     private static MenuItem item;
     private static NavController navController;
     NavController navigationController = null;
-    //BottomNavigationView bottomNavigationView = null;
+    PrimaryViewModel primaryViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class PrimaryActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             setupButtomNavigationBar();
+            primaryViewModel = ViewModelProviders.of(this).get(PrimaryViewModel.class);
+            primaryViewModel.callViewModel();
         }
     }
 
@@ -65,17 +70,15 @@ public class PrimaryActivity extends AppCompatActivity {
     NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
         @Override
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-
             // Usefull method.. Following can be removed before final release!
-            if (destination.getId() == R.id.navigation_dashboard) {
-                Toast.makeText(getApplicationContext(), "Changed to Dashboard Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.navigation_search) {
-                Toast.makeText(getApplicationContext(), "Changed to Search Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.navigation_basket) {
-                Toast.makeText(getApplicationContext(), "Changed to Basket Fragment", Toast.LENGTH_SHORT).show();
-            } else if (destination.getId() == R.id.navigation_settings) {
-                Toast.makeText(getApplicationContext(), "Changed to Settings Fragment", Toast.LENGTH_SHORT).show();
+            /*
+            try {
+                Toast.makeText(getApplicationContext(), destination.getLabel().toString(), Toast.LENGTH_SHORT).show();
+            } catch (NullPointerException e) {
+                Toast.makeText(getApplicationContext(), "NULL DESTINATION", Toast.LENGTH_SHORT).show();
             }
+            */
+
         }
     };
 
@@ -96,4 +99,14 @@ public class PrimaryActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // requestCode 1 equals the intent request made from SearchFragment if a search item is
+        // clicked within the primaryActivity scope
+        Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+        primaryViewModel.addCourseToBasketArrayList(returnedcourse);
+        Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT).show();
+    }
 }

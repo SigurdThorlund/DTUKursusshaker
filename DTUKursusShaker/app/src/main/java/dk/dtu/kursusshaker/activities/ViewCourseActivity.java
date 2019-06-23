@@ -5,8 +5,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
@@ -24,6 +26,7 @@ public class ViewCourseActivity extends AppCompatActivity {
     ChipGroup chipGroup;
     ChipGroup chipGroupPrereq;
     ChipGroup chipGroupPoints;
+    MaterialButton addToBasketButton;
 
     public ViewCourseActivity() {
     }
@@ -35,7 +38,6 @@ public class ViewCourseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         course = (Course) intent.getSerializableExtra("selectedCourse");
         setTextViews();
-
     }
 
     private void setTextViews() {
@@ -53,6 +55,9 @@ public class ViewCourseActivity extends AppCompatActivity {
 
         infoprereq = findViewById(R.id.prereq_text);
         chipGroupPrereq = findViewById(R.id.chip_group_pereq);
+
+        addToBasketButton = findViewById(R.id.addToBasketButton);
+        addToBasketButton.setOnClickListener(addToBasketClickListener); // onAddToBasket click listener
 
         chipGroup = findViewById(R.id.chip_group);
 
@@ -122,4 +127,15 @@ public class ViewCourseActivity extends AppCompatActivity {
             }
         }
     }
+
+    View.OnClickListener addToBasketClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("returnedCourse", course);
+            setResult(1,returnIntent);
+            finish();
+        }
+    };
+
 }

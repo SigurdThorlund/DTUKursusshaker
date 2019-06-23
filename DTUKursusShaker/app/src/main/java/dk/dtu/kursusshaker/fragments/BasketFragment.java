@@ -1,16 +1,20 @@
 package dk.dtu.kursusshaker.fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.data.OnBoardingViewModel;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +35,9 @@ public class BasketFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private OnBoardingViewModel onBoardingViewModel;
+    private PrimaryViewModel primaryViewModel;
 
     public BasketFragment() {
         // Required empty public constructor
@@ -66,8 +73,17 @@ public class BasketFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
+        int basketArraySize = primaryViewModel.getSizeOfBasketArrayList();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_basket, container, false);
+        final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_basket, container, false);
+
+        TextView numberOfBasketTextView = constraintLayout.findViewById(R.id.numberOfBasketItems);
+        numberOfBasketTextView.setText("Size of basket: " + basketArraySize + " model is counted: " + primaryViewModel.getCallViewModelCount());
+
+        return constraintLayout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

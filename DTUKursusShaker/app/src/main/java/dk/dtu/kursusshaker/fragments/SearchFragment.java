@@ -5,16 +5,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,6 +32,8 @@ import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.activities.ViewCourseActivity;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
+import dk.dtu.kursusshaker.data.OnBoardingViewModel;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,22 +44,38 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
+
+    private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String SOURCE = "param1";
+    private static final String ACTION = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    View view;
-    SimpleAdapter simpleAdapter;
+    public View view;
+    public SimpleAdapter simpleAdapter;
 
     private OnFragmentInteractionListener mListener;
+    public ListView listView;
+
+    OnBoardingViewModel onBoardingViewModel;
+    PrimaryViewModel primaryViewModel;
+
+    CoursesAsObject coursesAsObject;
+
 
     public SearchFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
     }
 
     /**
@@ -67,8 +90,8 @@ public class SearchFragment extends Fragment {
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(SOURCE, param1);
+        args.putString(ACTION, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -77,13 +100,13 @@ public class SearchFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(SOURCE);
+            mParam2 = getArguments().getString(ACTION);
         }
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        final CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
+        coursesAsObject = new CoursesAsObject(getContext());
         final Course[] course = coursesAsObject.getCourseArray();
 
         String[] courseNames = new String[course.length];
@@ -106,21 +129,10 @@ public class SearchFragment extends Fragment {
         simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
                 new String[]{"title", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
 
-        ListView listView = (ListView) view.findViewById(R.id.list_item_all_courses);
+        listView = (ListView) view.findViewById(R.id.list_item_all_courses);
         listView.setAdapter(simpleAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                HashMap clickItemObj = (HashMap) adapterView.getAdapter().getItem(index);
-                String selectedCourseCode = (String) clickItemObj.get("description");
-
-                Intent intent = new Intent(getActivity().getApplicationContext(), ViewCourseActivity.class);
-                Course intentCourse = coursesAsObject.getCourseFromId(selectedCourseCode);
-                intent.putExtra("selectedCourse",intentCourse);
-                startActivity(intent);
-            }
-        });
+        listView.setOnItemClickListener(onItemClickListener);
 
         TextInputEditText courseFilter = (TextInputEditText) view.findViewById(R.id.search_all_courses_filter);
 
@@ -142,16 +154,64 @@ public class SearchFragment extends Fragment {
         });
 
     }
+
+    // Listener that chooses the behavior when user clicks an Item in the list
+    public AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
+            HashMap clickItemObj = (HashMap) adapterView.getAdapter().getItem(index);
+            String selectedCourseCode = (String) clickItemObj.get("description");
+            Course intentCourse = coursesAsObject.getCourseFromId(selectedCourseCode);
+
+            // Let the listView behave differently on userInput based on application state
+            if (onBoardingViewModel.getOnBoardingInProgress()) {
+                if (onBoardingViewModel.addFinishedCourseToArrayList(intentCourse)) {
+                    onBoardingViewModel.callViewModel();
+                    Toast toast = Toast.makeText(getContext(), "Course: " + intentCourse.getCourseCode() + " added", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getContext(), "Course already added!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.show();
+                }
+
+            } else {
+                // Following code is run when in primaryActivity aka. when onBoarding is done
+                // the intent goes from PrimaryActivity to ViewCourseActivity
+                // We make an intent with result in case the user adds the course to his/her basket
+                // and then the result course is added to the PrimaryViewModel so the basketFragment can interact with it!
+                Intent intent = new Intent(getContext(), ViewCourseActivity.class);
+                intent.putExtra("selectedCourse",intentCourse);
+                startActivityForResult(intent, 1);
+            }
+        }
+    };
+
+
+    public AdapterView.OnItemClickListener getOnItemClickListener() {
+        return onItemClickListener;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.e(WHAT_FRAGMENT_HOST, "SearchFragment is attached to: " + getActivity());
+
+        // Link SearchFragment to the OnBoardingViewModel
+        onBoardingViewModel = ViewModelProviders.of(this.getActivity()).get(OnBoardingViewModel.class);
+
+        // Link SearchFragment to the PrimaryViewModel
+        //primaryViewModel = ViewModelProviders.of(this.getActivity()).get(PrimaryViewModel.class);
+
         view = inflater.inflate(R.layout.fragment_search, container, false);
         try {
             this.insertCoursesInListView();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return view;
     }
 
@@ -174,9 +234,19 @@ public class SearchFragment extends Fragment {
     }*/
 
     @Override
+    public void onResume() {
+        super.onResume();
+        //Log.e(WHAT_FRAGMENT_HOST, "SearchFragment is attached to: " + getActivity());
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void sayHello() {
+        Toast.makeText(getContext(), "Hello", Toast.LENGTH_SHORT).show();
     }
 
     /**
