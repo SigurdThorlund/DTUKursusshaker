@@ -62,17 +62,13 @@ public class ShakeListener implements SensorEventListener {
     }
 
     private float getMaxCurrentLinearAcceleration() {
-        // Start by setting the value to the x value
         float maxLinearAcceleration = linearAcceleration[0];
-        // Check if the y value is greater
         if (linearAcceleration[1] > maxLinearAcceleration) {
             maxLinearAcceleration = linearAcceleration[1];
         }
-        // Check if the z value is greater
         if (linearAcceleration[2] > maxLinearAcceleration) {
             maxLinearAcceleration = linearAcceleration[2];
         }
-        // Return the greatest value
         return maxLinearAcceleration;
     }
 
