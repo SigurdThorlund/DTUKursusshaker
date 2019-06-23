@@ -9,12 +9,17 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
@@ -30,6 +35,9 @@ public class PrimaryActivity extends AppCompatActivity {
     NavController navigationController = null;
     PrimaryViewModel primaryViewModel;
 
+    //Sigurd, skal slettes senere
+    Button resetPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,24 @@ public class PrimaryActivity extends AppCompatActivity {
             primaryViewModel = ViewModelProviders.of(this).get(PrimaryViewModel.class);
             primaryViewModel.callViewModel();
         }
+
+        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+
+        Toast.makeText(this, sp.getString("Kursustype", "None"), Toast.LENGTH_SHORT).show();
+
+        HashSet<String> strings = (HashSet<String>) sp.getStringSet("Skemaplacering",new HashSet<String>());
+        for (String placering : strings) {
+
+            Toast.makeText(this, placering, Toast.LENGTH_SHORT).show();
+        }
+
+        resetPrefs = findViewById(R.id.button_reset);
+        resetPrefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
+            }
+        });
     }
 
     @Override
