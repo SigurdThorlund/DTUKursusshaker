@@ -224,6 +224,7 @@ public class ExportDataToJson {
 
             // Split the prerequisites by "AND" first
             String[] prerequisitesStringSplit = prerequisitesString
+                    .replaceAll("[()]","")
                     .replaceAll("\\s*/\\s*","/")
                     .split("[ .,]+");
 
