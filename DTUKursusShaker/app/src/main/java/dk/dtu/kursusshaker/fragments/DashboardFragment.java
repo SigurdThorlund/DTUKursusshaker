@@ -101,61 +101,6 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-
-    private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        ArrayList<String> excludedCourses = new ArrayList<String>();
-
-        // Exclude these three courses just for fun
-        // TODO: This is where we want to implement actual filtering stuff
-        excludedCourses.add("01005");
-        excludedCourses.add("01003");
-        excludedCourses.add("01006");
-
-        CoursesAsObject coursesAsObject = new CoursesAsObject(getContext());
-
-        Course[] course = coursesAsObject.getCourseArray(excludedCourses);
-
-        String[] courseNames = new String[course.length];
-        String[] courseIds = new String[course.length];
-        // String[] courseNames = {"Matematik 1", "Matematik 2", "Statistik", "Software", "Android"};
-        // String[] courseIds = {"01005", "01839", "32892", "09732", "56782"};
-        for (int i = 0; i < course.length; i++) {
-            courseNames[i] = course[i].getDanishTitle();
-            courseIds[i] = course[i].getCourseCode();
-        }
-
-        ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
-
-        int titleLen = courseNames.length;
-        for (int i = 0; i < titleLen; i++) {
-            Map<String, Object> listItemMap = new HashMap<String, Object>();
-            listItemMap.put("title", courseNames[i]);
-            listItemMap.put("description", courseIds[i]);
-            itemDataList.add(listItemMap);
-        }
-
-        simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
-                new String[]{"title", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
-
-        ListView listView = (ListView) view.findViewById(R.id.list_item_all_courses);
-        listView.setAdapter(simpleAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                Object clickItemObj = adapterView.getAdapter().getItem(index);
-                //     Toast.makeText(this, "You clicked " + clickItemObj.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        TextInputEditText courseFilter = (TextInputEditText) view.findViewById(R.id.search_all_courses_filter);
-
-        courseFilter.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

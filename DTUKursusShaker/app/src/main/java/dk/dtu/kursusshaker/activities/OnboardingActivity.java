@@ -47,15 +47,9 @@ public class OnboardingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_intro);
 
         context = getApplicationContext();
-
-        //If onboarding has already been completed then launch the mainactivity.
-        if (restorePreferences()) {
-            launchMainActivity();
-        }
-
-        setContentView(R.layout.activity_intro);
 
         //Connect adapter, tablayout and viewpager.
         fragmentAdapter = new OnboardingFragmentAdapter(getSupportFragmentManager());
@@ -166,17 +160,11 @@ public class OnboardingActivity extends AppCompatActivity {
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
     private boolean restorePreferences() {
-         return getSharedPreferences("Preferences", MODE_PRIVATE).getBoolean("onBoardingComplete", false);
-    }
-
-    private void savePreferences() {
-        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
-        sp.edit().putBoolean("onBoardingComplete", true).apply();
+        return true;
     }
 
     private void launchMainActivity() {
-        savePreferences();
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
