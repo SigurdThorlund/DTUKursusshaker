@@ -18,6 +18,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import dk.dtu.kursusshaker.activities.PrimaryActivity;
@@ -38,13 +42,23 @@ public class MainActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DTU_K_shaker")
                 .setSmallIcon(R.drawable.ic_home_black_24dp) //Need new icon, current one is a placeholder
-                .setContentTitle("DTU Kursusshaker")
-                .setContentText("App has launched")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        Calendar calendar = Calendar.getInstance();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        int thisMonth = calendar.get(Calendar.MONTH);
+        if(thisMonth == 11) {
+            builder.setContentTitle("DTU Kursusshaker").setContentText("Husk tilmeldning til 3-ugers kursus i januar!");
+            notificationManager.notify(0,builder.build());
+        }
+        else if(thisMonth == 4) {
+            builder.setContentTitle("DTU Kursusshaker").setContentText("Husk tilmeldning til 3-ugers sommerkurser!");
+            notificationManager.notify(1,builder.build());
+        }
 
 // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(0, builder.build());
+        builder.setContentTitle("DTU Kursusshaker")
+                .setContentText("App has launched");
+        notificationManager.notify(2, builder.build());
         finish();
     }
 
