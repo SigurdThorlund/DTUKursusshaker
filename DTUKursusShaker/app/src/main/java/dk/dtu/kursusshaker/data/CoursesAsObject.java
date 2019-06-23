@@ -33,7 +33,6 @@ public class CoursesAsObject {
         // Convert JSON File to Java Object
         courseArray = gson.fromJson(reader, Course[].class);
 
-        System.out.println(Arrays.deepToString(courseArray[5].getQualifiedPrerequisites()));
 
 
     }
@@ -70,6 +69,17 @@ public class CoursesAsObject {
 
         // Returns the filtered course list
         return filteredArray;
+    }
+
+    public  Course getCourseFromId(String id){
+        Course tempCourse = new Course();
+        for (Course c:courseArray
+             ) {
+            if (c.getCourseCode().equals(id)){
+                tempCourse = c;
+            }
+        }
+        return tempCourse;
     }
 
 

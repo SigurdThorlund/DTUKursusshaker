@@ -4,4 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SettingsFragment"/>
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.ViewCourseActivity"
+    tools:showIn="@layout/activity_view_course">
+
+</androidx.constraintlayout.widget.ConstraintLayout>

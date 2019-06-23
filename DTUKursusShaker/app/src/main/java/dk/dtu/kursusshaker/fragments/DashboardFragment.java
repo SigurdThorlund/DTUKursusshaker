@@ -1,10 +1,17 @@
 package dk.dtu.kursusshaker.fragments;
 
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,8 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -21,8 +33,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.Inflater;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.activities.PrimaryActivity;
+import dk.dtu.kursusshaker.activities.ShakeFragment;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 
@@ -36,6 +51,8 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
  */
 public class DashboardFragment extends Fragment {
 
+    View view;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,10 +60,7 @@ public class DashboardFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    View view;
-    SimpleAdapter simpleAdapter;
-
+    private SensorManager mSensorManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -75,11 +89,18 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent;
+        ShakeFragment shakeFrag = new ShakeFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.navigation_dashboard, shakeFrag, "Shake")
+                .addToBackStack(null)
+                .commit();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
         ArrayList<String> excludedCourses = new ArrayList<String>();
@@ -135,31 +156,23 @@ public class DashboardFragment extends Fragment {
 
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                simpleAdapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        try {
-            this.insertCoursesInListView();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return view;
+        final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        ImageButton shakeItButton = (ImageButton) constraintLayout.getViewById(R.id.shakeViewButton);
+        shakeItButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(constraintLayout).navigate(R.id.recommendationsFragment);
+            }
+        });
+
+
+        return constraintLayout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -169,16 +182,20 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    /*@Override
-    public void onAttach(Context context) {
+    @Override
+    public void onAttach(final Context context) {
         super.onAttach(context);
+
+        // Not sure how to use this piece of code.. But it is the prefered way to glue the connection together
+        /*
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }*/
+        */
+    }
 
     @Override
     public void onDetach() {

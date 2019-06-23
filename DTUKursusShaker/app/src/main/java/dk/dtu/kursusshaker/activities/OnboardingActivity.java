@@ -1,21 +1,29 @@
 package dk.dtu.kursusshaker.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.controller.OnboardingFragmentAdapter;
+import dk.dtu.kursusshaker.data.OnBoardingViewModel;
+import dk.dtu.kursusshaker.fragments.KursusTypeFragment;
+import dk.dtu.kursusshaker.fragments.SkemaPlaceringFragment;
+import dk.dtu.kursusshaker.fragments.TagetKursusFragment;
+
+import static androidx.lifecycle.ViewModelProviders.of;
 
 /**
  * Activity that hosts the onboarding fragments
@@ -24,7 +32,6 @@ import dk.dtu.kursusshaker.R;
  */
 
 public class OnboardingActivity extends AppCompatActivity {
-
     OnboardingFragmentAdapter fragmentAdapter;
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -58,6 +65,9 @@ public class OnboardingActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
+        final OnBoardingViewModel onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
+        onBoardingViewModel.setOnboardingInProgress(true);
+
         //Add the fragments to the layout
         setupOnboarding();
 
@@ -78,6 +88,7 @@ public class OnboardingActivity extends AppCompatActivity {
         nextLastViewListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onBoardingViewModel.setOnboardingInProgress(false);
                 launchMainActivity();
             }
         };
@@ -145,14 +156,12 @@ public class OnboardingActivity extends AppCompatActivity {
      * Adds fragments to the onboarding activity
      */
     private void setupOnboarding() {
-        KursusFragment kf = new KursusFragment();
-        KursusFragment kf1 = new KursusFragment();
-        OnboardingFragment sf = new OnboardingFragment();
-        Fragment sf1 = new Fragment();
-        fragmentAdapter.addItem(kf);
-        fragmentAdapter.addItem(sf1);
-        fragmentAdapter.addItem(sf);
-        fragmentAdapter.addItem(kf1);
+        KursusTypeFragment kursusTypeFragment = new KursusTypeFragment();
+        TagetKursusFragment tagetKursusFragment = new TagetKursusFragment();
+        SkemaPlaceringFragment skemaPlaceringFragment = new SkemaPlaceringFragment();
+        fragmentAdapter.addItem(kursusTypeFragment);
+        fragmentAdapter.addItem(tagetKursusFragment);
+        fragmentAdapter.addItem(skemaPlaceringFragment);
     }
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.

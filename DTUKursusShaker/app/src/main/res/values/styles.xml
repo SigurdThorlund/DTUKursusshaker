@@ -9,14 +9,31 @@
         <item name="colorSecondary">@color/secondaryColor</item>
     </style>
 
-    <style name="SplashTheme" parent="AppTheme">
-    <item name="android:windowBackground">@drawable/splash_screen</item>
-    <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
-    <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    <style name="OnBoardingTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->"
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
     </style>
 
-    <style name="buttonStyle" parent ="AppTheme">
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
+        <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    </style>
+
+    <style name="buttonStyle" parent="AppTheme">
         <item name="colorPrimary">@android:color/white</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -7,6 +7,9 @@
     <string name="title_activity_settings">Settings</string>
     <string name="hint_text_search_course">Søg efter kursus</string>
     <string name="hint_text_search_course_hint">Du kan søge efter kursusnummer eller navn</string>
+    <string name="scheme_placement">Skemaplacering</string>
+    <string name="no_points_with">Spærrer for følgende kurser</string>
+    <string name="prereq">Du burde have haft følgende fag</string>
 
 
     <!-- Preference Titles -->
@@ -35,4 +38,5 @@
     <string name="button_next">Frem</string>
     <string name="button_done">Kom i gang</string>
     <string name="button_back">Tilbage</string>
+    <string name="title_activity_view_course">Se Kursus</string>
 </resources>
