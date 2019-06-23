@@ -30,6 +30,7 @@ public class ExportDataToJson {
         // Reads courses from "rensetkurser.csv"
         BufferedReader reader = new BufferedReader(new FileReader("rensetkurser.csv"));
         while (reader.readLine() != null) {
+
             // Get the course code of the current course
             String id = reader.readLine().substring(0, 5);
 
@@ -223,25 +224,36 @@ public class ExportDataToJson {
 
             // Split the prerequisites by "AND" first
             String[] prerequisitesStringSplit = prerequisitesString
-                    .replace("(", "")
-                    .replace(")", "")
-                    //.split("[\\s.,]+");
-                    .split("\\s*(\\.|\\s)\\s*");
+                    .replaceAll("\\s*/\\s*","/")
+                    .split("[ .,]+");
 
-            for (int i = 0; i < prerequisitesStringSplit.length; i++) {
+
+            for (String string : prerequisitesStringSplit) {
+                String[] prerequisitearr = string.split("[/]");
+                JSONArray prerequisite = new JSONArray();
+                for (String string2 : prerequisitearr) {
+                    prerequisite.add(string2);
+                }
+                prerequisites.add(prerequisite);
+            }
+
+
+
+            /*for (int i = 0; i < prerequisitesStringSplit.length; i++) {
                 // Split the prerequisites by "OR"
 
                 JSONArray prerequisite = new JSONArray();
                 if (!prerequisitesStringSplit[i].matches(".*[a-zA-Z]+.*")) {
                     String[] array = (prerequisitesStringSplit[i].trim().split("[/]"));
+
                     for (int j = 0; j < array.length; j++) {
-                        prerequisite.add(array[j]);
+                        if (!array[j].equals("")) prerequisite.add(array[j]);
                     }
 
                     System.out.println(prerequisite);
-                    prerequisites.add(prerequisite);
+                    if (prerequisite.size() > 0) prerequisites.add(prerequisite);
                 }
-            }
+            }*/
             return prerequisites;
         } catch (NullPointerException e) {
             return prerequisites;

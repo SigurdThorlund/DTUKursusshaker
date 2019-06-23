@@ -183,8 +183,8 @@ public class ImportDataFromXML {
 
         BufferedReader reader = new BufferedReader(new FileReader("rensetkurser.csv"));
         ArrayList<String> id = new ArrayList<String>();
-        while (reader.readLine() != null){
-           id.add(reader.readLine().substring(0, 5));
+        while (reader.readLine() != null) {
+            id.add(reader.readLine().substring(0, 5));
         }
         StringBuilder xml = new StringBuilder();
         for (String s : id) {
@@ -193,7 +193,7 @@ public class ImportDataFromXML {
         }
 //        String allXml = xml.toString();
         try {
-            FileWriter fw=new FileWriter("kurser20191.xml"); //TODO ,true
+            FileWriter fw = new FileWriter("kurser20191.xml"); //TODO ,true
 //            JSONObject xmlJSONObj = XML.toJSONObject(allXml);
 //            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
 //            fw.write(allXml);
