@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CoursesAsObject {
@@ -36,8 +37,38 @@ public class CoursesAsObject {
 
     }
 
-    public Course[] getCourseArray() {
-        return courseArray;
+    public Course[] getCourseArray(ArrayList<String> excludedCourses) {
+        // Returns the full list of courses if there are no filters (filters = excluded courses)
+        if (excludedCourses.size() == 0) return courseArray;
+
+        // Initializes new array for the filtered courses
+        Course[] filteredArray = new Course[courseArray.length - excludedCourses.size()];
+        int originalCourseCounter = 0;
+        int excludedCounter = 0;
+        int filteredCounter = 0;
+
+
+        // Copy all the courses which aren't in excludedCourses into the new array.
+        for (Course course : courseArray) {
+            // If every excluded course has been checked, copy the rest of the courseArray into the
+            // filteredArray.
+            if (excludedCounter == excludedCourses.size()) {
+                System.arraycopy(courseArray, originalCourseCounter,
+                        filteredArray, filteredCounter,
+                        courseArray.length - originalCourseCounter);
+                return filteredArray;
+            }
+
+            // Copy the current course to the new array, unless it should be excluded
+            if (!excludedCourses.contains(course.getCourseCode())) {
+                filteredArray[filteredCounter++] = course;
+            } else excludedCounter++;
+
+            originalCourseCounter++;
+        }
+
+        // Returns the filtered course list
+        return filteredArray;
     }
 
     public  Course getCourseFromId(String id){
