@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -57,6 +58,12 @@ public class OnboardingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //If onbaording has been completed launch the main activity
+        if (restorePreferences()) {
+            launchMainActivity();
+        }
+
         setContentView(R.layout.activity_intro);
 
         context = getApplicationContext();
