@@ -18,7 +18,7 @@ import android.widget.RadioGroup;
 import dk.dtu.kursusshaker.PreferenceData;
 import dk.dtu.kursusshaker.R;
 
-public class KursusTypeFragment extends Fragment implements PreferenceData {
+public class KursusTypeFragment extends OnboardingFragment {
     private RadioButton checkedButton;
     private RadioGroup group;
 
@@ -38,7 +38,6 @@ public class KursusTypeFragment extends Fragment implements PreferenceData {
     public void savePreferenceData() {
         checkedButton = getView().findViewById(group.getCheckedRadioButtonId());
         SharedPreferences.Editor sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE).edit();
-        System.out.println(checkedButton.getText());
         sp.putString("Kursustype",(String) checkedButton.getText());
         sp.apply();
     }

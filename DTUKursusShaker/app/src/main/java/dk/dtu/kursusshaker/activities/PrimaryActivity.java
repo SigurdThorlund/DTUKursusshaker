@@ -13,11 +13,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 
@@ -28,6 +32,9 @@ public class PrimaryActivity extends AppCompatActivity {
     private static NavController navController;
     NavController navigationController = null;
     //BottomNavigationView bottomNavigationView = null;
+
+    //Sigurd, skal slettes senere
+    Button resetPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,20 @@ public class PrimaryActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
 
         Toast.makeText(this, sp.getString("Kursustype", "None"), Toast.LENGTH_SHORT).show();
+
+        HashSet<String> strings = (HashSet<String>) sp.getStringSet("Skemaplacering",new HashSet<String>());
+        for (String placering : strings) {
+
+            Toast.makeText(this, placering, Toast.LENGTH_SHORT).show();
+        }
+
+        resetPrefs = findViewById(R.id.button_reset);
+        resetPrefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
+            }
+        });
     }
 
     @Override

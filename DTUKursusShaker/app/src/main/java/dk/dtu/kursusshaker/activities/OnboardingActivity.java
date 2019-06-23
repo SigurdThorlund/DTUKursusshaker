@@ -15,7 +15,9 @@ import com.google.android.material.tabs.TabLayout;
 
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.fragments.GetStartedFragment;
 import dk.dtu.kursusshaker.fragments.KursusTypeFragment;
+import dk.dtu.kursusshaker.fragments.OnboardingFragment;
 import dk.dtu.kursusshaker.fragments.SkemaPlaceringFragment;
 
 /**
@@ -39,6 +41,9 @@ public class OnboardingActivity extends AppCompatActivity {
 
     KursusTypeFragment kursusTypeFragment;
     SkemaPlaceringFragment skemaPlaceringFragment;
+    GetStartedFragment getStartedFragment;
+
+    OnboardingFragment currentFragment;
 
 
     @Override
@@ -61,6 +66,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         //Back and Next buttons functionality
         buttonNext = findViewById(R.id.button_next);
+
         nextDefaultListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,11 +110,18 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 updateButtonView(position);
-                kursusTypeFragment.savePreferenceData();
+                if (position != 0) {
+                    currentFragment = (OnboardingFragment) fragmentAdapter.getItem(position-1);
+                    currentFragment.savePreferenceData();
+                } else {
+                    currentFragment = (OnboardingFragment) fragmentAdapter.getItem(position);
+                    currentFragment.savePreferenceData();
+                }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
@@ -146,8 +159,10 @@ public class OnboardingActivity extends AppCompatActivity {
     private void setupOnboarding() {
         kursusTypeFragment = new KursusTypeFragment();
         skemaPlaceringFragment = new SkemaPlaceringFragment();
+        getStartedFragment = new GetStartedFragment();
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
+        fragmentAdapter.addItem(getStartedFragment);
     }
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.

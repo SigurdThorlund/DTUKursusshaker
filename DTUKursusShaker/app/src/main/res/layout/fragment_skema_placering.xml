@@ -155,7 +155,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_man_m"
+                android:id="@+id/cb_1a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -165,7 +165,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_tir_m"
+                android:id="@+id/cb_3a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -175,7 +175,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_ons_m"
+                android:id="@+id/cb_5a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -185,7 +185,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_tor_m"
+                android:id="@+id/cb_2b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -195,7 +195,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_fre_m"
+                android:id="@+id/cb_4b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -226,7 +226,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_man_e"
+                android:id="@+id/cb_2a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -236,7 +236,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_tir_e"
+                android:id="@+id/cb_4a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -246,7 +246,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_ons_e"
+                android:id="@+id/cb_5b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -256,7 +256,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_tor_e"
+                android:id="@+id/cb_1b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -266,7 +266,7 @@
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_fre_e"
+                android:id="@+id/cb_3b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
@@ -301,7 +301,7 @@
                 android:layout_height="match_parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_tir_a"
+                android:id="@+id/cb_aftenmodul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
