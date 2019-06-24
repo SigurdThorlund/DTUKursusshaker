@@ -92,7 +92,7 @@ public class SearchFragment extends Fragment {
         String[] completed = {};
         String[] teachingLanguages = {};
         String[] locations = {};
-        String type = "DTU_BSC";
+        String type = "DTU_MSC";
         String[] departments = {};
         String[] ects = {};
 
