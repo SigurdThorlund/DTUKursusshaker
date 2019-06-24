@@ -16,8 +16,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -91,7 +93,6 @@ public class BasketFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
         sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
 
     }
@@ -104,38 +105,12 @@ public class BasketFragment extends Fragment {
         int basketArraySize = primaryViewModel.getSizeOfBasketArrayList();
 
         // Inflate the layout for this fragment
-        final LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.fragment_basket, container, false);
-
-
-        /* DELETE THIS
-        TextView numberOfBasketTextView = constraintLayout.findViewById(R.id.numberOfBasketItems);
-        numberOfBasketTextView.setText("Size of basket: " + basketArraySize + " model is counted: " + primaryViewModel.getCallViewModelCount());
-
-        TextView preferenceText = constraintLayout.findViewById(R.id.preference_test);
-        HashSet<String> courses = (HashSet<String>) getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE).getStringSet("Courses", new HashSet<String>());
-
-        StringBuilder textPref = new StringBuilder();
-
-        for (String course : courses) {
-            textPref.append(course);
-        }
-
-        preferenceText.setText(textPref.toString());
-        */
-
-
-
-        recyclerView = linearLayout.findViewById(R.id.basket_recycler_view);
-        layoutManager = new LinearLayoutManager(getActivity());
-
-        recyclerView.setLayoutManager(layoutManager);
+        final FrameLayout frameLayout = (FrameLayout) inflater.inflate(R.layout.fragment_basket, container, false);
 
         //Parse hashset to arraylist
         HashSet<String> courses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
 
         ArrayList<String> coursesAsArrayList = new ArrayList<>(courses);
-
-        coursesAsArrayList.add("Shit");
 
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
 
@@ -149,11 +124,11 @@ public class BasketFragment extends Fragment {
         SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
                 new String[]{"title", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
 
-        listView = linearLayout.findViewById(R.id.basket_list);
+        listView = frameLayout.findViewById(R.id.basket_list);
         listView.setAdapter(simpleAdapter);
 
 
-        return linearLayout;
+        return frameLayout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
