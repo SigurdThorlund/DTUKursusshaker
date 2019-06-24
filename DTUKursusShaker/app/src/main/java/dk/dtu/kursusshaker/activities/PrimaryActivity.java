@@ -30,13 +30,6 @@ public class PrimaryActivity extends AppCompatActivity {
     NavController navigationController = null;
     PrimaryViewModel primaryViewModel;
 
-    SharedPreferences sp;
-    SharedPreferences.Editor spEditor;
-    HashSet<String> takenCourses;
-
-    //Sigurd, skal slettes senere
-    Button resetPrefs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,18 +40,6 @@ public class PrimaryActivity extends AppCompatActivity {
             primaryViewModel = ViewModelProviders.of(this).get(PrimaryViewModel.class);
             primaryViewModel.callViewModel();
         }
-
-        sp = getSharedPreferences("Preferences", MODE_PRIVATE);
-
-        takenCourses = (HashSet<String>) sp.getStringSet("Courses",new HashSet<String>());
-
-        resetPrefs = findViewById(R.id.button_reset);
-        resetPrefs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
-            }
-        });
     }
 
     @Override
@@ -122,21 +103,10 @@ public class PrimaryActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
-        Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
         // requestCode 1 equals the intent request made from SearchFragment if a search item is
         // clicked within the primaryActivity scope
-
-        sp.edit().remove("Courses").apply();
-
-        if (takenCourses.contains(returnedcourse.getCourseCode())) {
-            Toast.makeText(getApplicationContext(), "You already added this course", Toast.LENGTH_SHORT).show();
-        } else {
-            takenCourses.add(returnedcourse.getCourseCode());
-            primaryViewModel.addCourseToBasketArrayList(returnedcourse);
-            Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT).show();
-        }
-
-        sp.edit().putStringSet("Courses", takenCourses).apply();
+        Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+        primaryViewModel.addCourseToBasketArrayList(returnedcourse);
+        Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT).show();
     }
 }

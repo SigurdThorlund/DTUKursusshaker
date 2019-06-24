@@ -88,7 +88,6 @@
             android:layout_weight="1"
             android:buttonTint="#00BCD4"
             android:text="BSc"
-            android:checked="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/primaryTextColor"
             app:useMaterialThemeColors="true" />

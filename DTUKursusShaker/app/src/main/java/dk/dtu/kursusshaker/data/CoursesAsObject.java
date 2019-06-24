@@ -34,10 +34,12 @@ public class CoursesAsObject {
         courseArray = gson.fromJson(reader, Course[].class);
 
 
-
     }
 
-    public Course[] getCourseArray(ArrayList<String> excludedCourses) {
+    public Course[] getCourseArray() {
+        return courseArray;
+       /* //TODO: gør til simpel getter
+
         // Returns the full list of courses if there are no filters (filters = excluded courses)
         if (excludedCourses.size() == 0) return courseArray;
 
@@ -68,18 +70,17 @@ public class CoursesAsObject {
         }
 
         // Returns the filtered course list
-        return filteredArray;
+        return filteredArray;*/
     }
 
-    public  Course getCourseFromId(String id){
+    public Course getCourseFromId(String id) {
         Course tempCourse = new Course();
-        for (Course c:courseArray
-             ) {
-            if (c.getCourseCode().equals(id)){
-                tempCourse = c;
+        for (Course c : courseArray) {
+            if (c.getCourseCode().equals(id)) {
+                return c;
             }
         }
-        return tempCourse;
+        return null;
     }
 
 

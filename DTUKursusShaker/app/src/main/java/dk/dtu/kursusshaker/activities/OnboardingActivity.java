@@ -9,14 +9,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
-
-import java.io.File;
 
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
@@ -46,22 +43,10 @@ public class OnboardingActivity extends AppCompatActivity {
     private View.OnClickListener nextDefaultListener;
     private View.OnClickListener nextLastViewListener;
 
-    KursusTypeFragment kursusTypeFragment;
-    SkemaPlaceringFragment skemaPlaceringFragment;
-    TagetKursusFragment tagetKursusFragment;
-
-    OnboardingFragment currentFragment;
-    OnBoardingViewModel onBoardingViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //If onbaording has been completed launch the main activity
-        if (restorePreferences()) {
-            launchMainActivity();
-        }
-
         setContentView(R.layout.activity_intro);
 
         context = getApplicationContext();
@@ -74,7 +59,7 @@ public class OnboardingActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
+        final OnBoardingViewModel onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
         onBoardingViewModel.setOnboardingInProgress(true);
 
         //Add the fragments to the layout
@@ -98,10 +83,6 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBoardingViewModel.setOnboardingInProgress(false);
-                //Save the onboarding
-                SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
-                sp.edit().putBoolean("Onboarded", true).apply();
-                sp.edit().putStringSet("Courses", onBoardingViewModel.getCourseNumbersOfFinishedCourses()).apply();
                 launchMainActivity();
             }
         };
@@ -169,9 +150,9 @@ public class OnboardingActivity extends AppCompatActivity {
      * Adds fragments to the onboarding activity
      */
     private void setupOnboarding() {
-        kursusTypeFragment = new KursusTypeFragment();
-        tagetKursusFragment = new TagetKursusFragment();
-        skemaPlaceringFragment = new SkemaPlaceringFragment();
+        KursusTypeFragment kursusTypeFragment = new KursusTypeFragment();
+        TagetKursusFragment tagetKursusFragment = new TagetKursusFragment();
+        SkemaPlaceringFragment skemaPlaceringFragment = new SkemaPlaceringFragment();
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(tagetKursusFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
@@ -183,9 +164,6 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void launchMainActivity() {
-
-
-        // start mainActivity
         Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

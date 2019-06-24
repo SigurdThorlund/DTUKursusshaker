@@ -1,21 +1,16 @@
 package dk.dtu.kursusshaker.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-
-import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
@@ -32,8 +27,6 @@ public class ViewCourseActivity extends AppCompatActivity {
     ChipGroup chipGroupPrereq;
     ChipGroup chipGroupPoints;
     MaterialButton addToBasketButton;
-
-    HashSet<String> takenCourses;
 
     public ViewCourseActivity() {
     }
