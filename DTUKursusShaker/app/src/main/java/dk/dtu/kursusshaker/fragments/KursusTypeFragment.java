@@ -15,7 +15,6 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import dk.dtu.kursusshaker.PreferenceData;
 import dk.dtu.kursusshaker.R;
 
 public class KursusTypeFragment extends OnboardingFragment {
