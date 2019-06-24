@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1FD082">
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:background="#1FD082"
+    tools:context=".fragments.RecommendationsFragment">
 
     <TextView
         android:id="@+id/recommendedCourseTitle"

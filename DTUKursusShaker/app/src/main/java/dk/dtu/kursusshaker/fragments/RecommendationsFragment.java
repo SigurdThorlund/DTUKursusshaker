@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -87,6 +88,7 @@ public class RecommendationsFragment extends Fragment {
                     Toast toast = Toast.makeText(getContext(), recommendedCourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                     toast.show();
+                    Navigation.findNavController(v).navigate(R.id.navigation_dashboard);
                 }
                 sp.edit().putStringSet("Courses", takenCourses).apply();
             }
