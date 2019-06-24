@@ -29,6 +29,7 @@ public class ShakeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Toast.makeText(getActivity().getApplicationContext(),"ShakeFragment",Toast.LENGTH_SHORT).show();
         sensorListener = new ShakeListener(new OnShakeListener() {
             @Override
             public void onShake() {
