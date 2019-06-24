@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.File;
+
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.fragments.GetStartedFragment;
@@ -54,6 +56,8 @@ public class OnboardingActivity extends AppCompatActivity {
 
     OnboardingFragment currentFragment;
 
+    OnBoardingViewModel onBoardingViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +80,7 @@ public class OnboardingActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        final OnBoardingViewModel onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
+        onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
         onBoardingViewModel.setOnboardingInProgress(true);
 
         //Add the fragments to the layout
@@ -103,7 +107,6 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBoardingViewModel.setOnboardingInProgress(false);
-                getStartedFragment.savePreferenceData();
                 launchMainActivity();
             }
         };
@@ -172,12 +175,10 @@ public class OnboardingActivity extends AppCompatActivity {
         kursusTypeFragment = new KursusTypeFragment();
         tagetKursusFragment = new TagetKursusFragment();
         skemaPlaceringFragment = new SkemaPlaceringFragment();
-        getStartedFragment = new GetStartedFragment();
 
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(tagetKursusFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
-        fragmentAdapter.addItem(getStartedFragment);
     }
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
@@ -187,6 +188,11 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void launchMainActivity() {
+        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+        sp.edit().putBoolean("Onboarded", true).apply();
+
+
+        // start mainActivity
         Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

@@ -175,7 +175,7 @@ public class SearchFragment extends Fragment {
 
             // Let the listView behave differently on userInput based on application state
             if (onBoardingViewModel.getOnBoardingInProgress()) {
-                if (onBoardingViewModel.addFinishedCourseToArrayList(intentCourse)) {
+                if (onBoardingViewModel.addFinishedCourseToHashSet(intentCourse.getCourseCode())) {
                     onBoardingViewModel.callViewModel();
                     Toast toast = Toast.makeText(getContext(), "Course: " + intentCourse.getCourseCode() + " added", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
