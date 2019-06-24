@@ -33,6 +33,7 @@ import java.util.Map;
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.activities.ViewCourseActivity;
 import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
@@ -110,28 +111,36 @@ public class SearchFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        ArrayList<String> excludedCourses = new ArrayList<String>();
-
-        // Exclude these three courses just for fun
-        // TODO: This is where we want to implement actual filtering stuff
-        excludedCourses.add("01005");
-        excludedCourses.add("01003");
-        excludedCourses.add("01006");
-
-
+        String season = "";
+        String[] scheduleFilter = {};
+        String[] completed = {};
+        String[] teachingLanguages = {};
+        String[] locations = {};
+        String type = "DTU_BSC";
+        String[] departments = {};
+        String[] ects = {};
 
         coursesAsObject = new CoursesAsObject(getContext());
-        final Course[] course = coursesAsObject.getCourseArray(excludedCourses);
+        CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
+                scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
 
-        String[] courseNames = new String[course.length];
-        String[] courseIds = new String[course.length];
-        for (int i = 0; i < course.length; i++) {
-            courseNames[i] = course[i].getDanishTitle();
-            courseIds[i] = course[i].getCourseCode();
+        // The filtered list of courses
+        final ArrayList<Course> courseArray = courseFilterBuilder.filterAllCourses();
+
+        String[] courseNames = new String[courseArray.size()];
+        String[] courseIds = new String[courseArray.size()];
+
+
+        // Reads course names and IDs into arrays
+        int j = 0;
+        for (Course currentCourse : courseArray) {
+            courseNames[j] = currentCourse.getDanishTitle();
+            courseIds[j] = currentCourse.getCourseCode();
+            j++;
         }
 
+        // Shows course names and IDs in the listview
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
-
         int titleLen = courseNames.length;
         for (int i = 0; i < titleLen; i++) {
             Map<String, Object> listItemMap = new HashMap<String, Object>();
