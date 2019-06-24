@@ -3,12 +3,15 @@ package dk.dtu.kursusshaker.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 import dk.dtu.kursusshaker.fragments.dummy.DummyContent.DummyItem;
 
 /**
@@ -18,6 +21,8 @@ import dk.dtu.kursusshaker.fragments.dummy.DummyContent.DummyItem;
  * interface.
  */
 public class RecommendationsFragment extends Fragment {
+
+    private PrimaryViewModel primaryViewModel;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -37,7 +42,11 @@ public class RecommendationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
         View view = inflater.inflate(R.layout.fragment_recommendation, container, false);
+
+        TextView recommendedCourseTitleView = view.findViewById(R.id.recommendedCourseTitle);
+        recommendedCourseTitleView.setText(primaryViewModel.getRecommendedCourse().getDanishTitle());
 
         return view;
     }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 import dk.dtu.kursusshaker.OnShakeListener;
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.ShakeListener;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,6 +87,9 @@ public class DashboardFragment extends Fragment {
         sensorListener = new ShakeListener(new OnShakeListener() {
             @Override
             public void onShake() {
+                PrimaryViewModel primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
+                CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
+                primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
                 Navigation.findNavController(getActivity(), R.id.primary_host_fragment).navigate(R.id.recommendationsFragment);
             }
         });
