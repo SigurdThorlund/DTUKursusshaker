@@ -42,11 +42,9 @@ public class PrimaryActivity extends AppCompatActivity {
     PrimaryViewModel primaryViewModel;
 
     SharedPreferences sp;
-    SharedPreferences.Editor spEditor;
     HashSet<String> takenCourses;
 
     //Sigurd, skal slettes senere
-    Button resetPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +60,6 @@ public class PrimaryActivity extends AppCompatActivity {
         sp = getSharedPreferences("Preferences", MODE_PRIVATE);
 
         takenCourses = (HashSet<String>) sp.getStringSet("Courses",new HashSet<String>());
-
-        resetPrefs = findViewById(R.id.button_reset);
-        resetPrefs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
-            }
-        });
     }
 
     @Override

@@ -34,11 +34,15 @@ public class KursusTypeFragment extends OnboardingFragment {
         group = getView().findViewById(R.id.kursus_group);
     }
 
+    //Save kursusdata.
     @Override
     public void savePreferenceData() {
         checkedButton = getView().findViewById(group.getCheckedRadioButtonId());
+        String kursusType = "DTU_" + checkedButton.getText();
+        kursusType = kursusType.toUpperCase();
+
         SharedPreferences.Editor sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE).edit();
-        sp.putString("Kursustype",(String) checkedButton.getText());
+        sp.putString("Kursustype", kursusType);
         sp.apply();
     }
 }

@@ -213,7 +213,6 @@ public class SearchFragment extends Fragment {
                 // We make an intent with result in case the user adds the course to his/her basket
                 // and then the result course is added to the PrimaryViewModel so the basketFragment can interact with it!
 
-
                 Intent intent = new Intent(getContext(), ViewCourseActivity.class);
                 intent.putExtra("selectedCourse", intentCourse);
                 startActivityForResult(intent, 1);

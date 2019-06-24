@@ -4,26 +4,52 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import dk.dtu.kursusshaker.R;
 
-import android.os.Bundle;
+import static android.content.Context.MODE_PRIVATE;
 
-import androidx.preference.PreferenceFragmentCompat;
+public class SettingsFragment extends Fragment {
+    Button resetPrefs;
 
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
-import dk.dtu.kursusshaker.R;
+    public SettingsFragment() {
+        // Required empty public constructor
+    }
 
-public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        Log.d("KEY", rootKey + "KEY");
-        setPreferencesFromResource(R.xml.root_preferences, rootKey);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_settings, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        resetPrefs = view.findViewById(R.id.button_reset);
+        resetPrefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
+            }
+        });
     }
 }
