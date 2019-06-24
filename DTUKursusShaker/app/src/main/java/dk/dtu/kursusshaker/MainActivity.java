@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startPrimaryActivityIntent);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DTU_K_shaker")
-                .setSmallIcon(R.drawable.ic_notifications_black_24dp) //Need new icon, current one is a placeholder
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         Calendar calendar = Calendar.getInstance();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
