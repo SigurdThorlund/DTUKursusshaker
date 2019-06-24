@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -71,6 +72,8 @@ public class SearchFragment extends Fragment {
 
     CoursesAsObject coursesAsObject;
 
+
+    SharedPreferences sp;
     HashSet<String> takenCourses;
 
 
@@ -111,21 +114,30 @@ public class SearchFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        String season = "";
-        String[] scheduleFilter = {};
-        String[] completed = {};
-        String[] teachingLanguages = {};
-        String[] locations = {};
-        String type = "DTU_BSC";
-        String[] departments = {};
-        String[] ects = {};
-
         coursesAsObject = new CoursesAsObject(getContext());
-        CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
-                scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
 
-        // The filtered list of courses
-        final ArrayList<Course> courseArray = courseFilterBuilder.filterAllCourses();
+        ArrayList<Course> courseArray;
+
+        if (onBoardingViewModel.getOnBoardingInProgress()) {
+            courseArray = new ArrayList<>(Arrays.asList(coursesAsObject.getCourseArray()));
+        } else {
+            String season = "E";
+            String[] scheduleFilter = {"2A"};
+            String[] teachingLanguages = {};
+            String[] locations = {};
+            String type = "DTU_DIPLOM";
+            String[] departments = {"1"};
+            String[] ects = {};
+
+            sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+            takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+
+            String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
+
+            CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
+                    scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
+            courseArray = courseFilterBuilder.filterAllCourses();
+        }
 
         String[] courseNames = new String[courseArray.size()];
         String[] courseIds = new String[courseArray.size()];
@@ -191,11 +203,11 @@ public class SearchFragment extends Fragment {
                 if (onBoardingViewModel.addFinishedCourseToHashSet(intentCourse.getCourseCode())) {
                     onBoardingViewModel.callViewModel();
                     Toast toast = Toast.makeText(getContext(), "Course: " + intentCourse.getCourseCode() + " added", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 } else {
                     Toast toast = Toast.makeText(getContext(), "Course already added!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 }
 
@@ -207,7 +219,7 @@ public class SearchFragment extends Fragment {
 
 
                 Intent intent = new Intent(getContext(), ViewCourseActivity.class);
-                intent.putExtra("selectedCourse",intentCourse);
+                intent.putExtra("selectedCourse", intentCourse);
                 startActivityForResult(intent, 1);
             }
         }
