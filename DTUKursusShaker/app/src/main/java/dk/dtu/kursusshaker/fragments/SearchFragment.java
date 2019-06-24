@@ -43,6 +43,8 @@ public class SearchFragment extends Fragment {
 
     private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
 
+    private static final String TAG = "SearchFragment";
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String SOURCE = "param1";
@@ -129,6 +131,7 @@ public class SearchFragment extends Fragment {
             scheduleDays = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
             String[] scheduleFilter = scheduleDays.toArray(new String[takenCourses.size()]);
 
+            System.out.println(Arrays.toString(scheduleFilter));
 
             primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                     scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));

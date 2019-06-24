@@ -39,6 +39,8 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
 
     private HashSet<String> skemaplaceringer = new HashSet<>();
 
+    private static final String TAG = "SkemaPlaceringFragment";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -91,7 +93,7 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
                 skemaplaceringer.add(formattedSkemaPlacering.toUpperCase());
             }
         }
-
+        
         sp.edit().putStringSet("Skemaplacering", skemaplaceringer).apply();
     }
 }

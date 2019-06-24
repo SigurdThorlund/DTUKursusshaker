@@ -22,6 +22,8 @@ public class KursusTypeFragment extends OnboardingFragment {
     private RadioButton checkedButton;
     private RadioGroup group;
 
+    private static final String TAG = "KursusTypeFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
