@@ -85,7 +85,7 @@ public class SearchFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        
+
         // TODO: Get these from shared preferences
         String season = "E";
         String[] scheduleFilter = {"2A", "4B"};

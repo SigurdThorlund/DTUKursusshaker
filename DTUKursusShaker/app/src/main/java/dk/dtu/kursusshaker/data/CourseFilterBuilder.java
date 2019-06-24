@@ -43,7 +43,6 @@ public class CourseFilterBuilder {
     }
 
     public ArrayList<Course> filterAllCourses() {
-        filterCourse(coursesAsObject.getCourseFromId("02155"));
         for (Course course : allCourses) {
             filterCourse(course);
         }
@@ -149,7 +148,6 @@ public class CourseFilterBuilder {
         if (previousNames != null) set.addAll(Arrays.asList(previousNames));
 
         // Return as String array
-        System.out.println(course.getCourseCode() + " has aliases: " + Arrays.toString(set.toArray(new String[0])));
         return set.toArray(new String[0]);
     }
 
@@ -157,7 +155,6 @@ public class CourseFilterBuilder {
     private boolean prerequisiteIsMet(String[] courseArray) {
         // Returns true if at least one course in the array has been completed by the user
         for (String course : courseArray) {
-            System.out.println(course);
             Course courseAsObject = coursesAsObject.getCourseFromId(course);
             String[] aliases;
 
@@ -165,13 +162,9 @@ public class CourseFilterBuilder {
             else aliases = new String[]{course};
 
             for (String string : aliases) {
-                System.out.println(Arrays.toString(completed) + " contains " + string + ": ");
-
                 if (Arrays.asList(completed).contains(string)) {
-                    System.out.print("true");
                     return true;
                 }
-                System.out.print("false");
             }
         }
 
