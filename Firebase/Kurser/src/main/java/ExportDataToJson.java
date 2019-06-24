@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 public class ExportDataToJson {
     private static String USER_AGENT = "Mozilla/5.0";
-    private static String filePath = "database.json";
+    private static String filePath = "database2.json";
 
     public static void main(String argv[]) throws Exception {
 
@@ -28,7 +28,7 @@ public class ExportDataToJson {
         JSONObject data = new JSONObject();
 
         // Reads courses from "rensetkurser.csv"
-        BufferedReader reader = new BufferedReader(new FileReader("rensetkurser.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("kursercsv.csv"));
         while (reader.readLine() != null) {
 
             // Get the course code of the current course
