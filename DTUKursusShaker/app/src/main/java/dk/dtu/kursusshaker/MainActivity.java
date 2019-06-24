@@ -54,11 +54,6 @@ public class MainActivity extends AppCompatActivity {
             builder.setContentTitle("DTU Kursusshaker").setContentText("Husk tilmeldning til 3-ugers sommerkurser!");
             notificationManager.notify(1,builder.build());
         }
-
-// notificationId is a unique int for each notification that you must define
-        builder.setContentTitle("DTU Kursusshaker")
-                .setContentText("App has launched");
-        notificationManager.notify(2, builder.build());
         finish();
     }
 
