@@ -153,58 +153,49 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_1a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
-                android:textAllCaps="false"
-                android:checked="true"
-                android:textIsSelectable="false" />
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_3a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:checked="true"
-                android:textIsSelectable="false" />
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_5a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:textAllCaps="false"
-                android:checked="true"
-                android:textIsSelectable="false" />
-
-            <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_2b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#E4E4E4"
-                android:elegantTextHeight="false"
-                android:freezesText="false"
-                android:checked="true"
                 android:textAllCaps="false"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_4b"
+                android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
+                android:textIsSelectable="false" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -229,58 +220,49 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_2a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_4a"
+                android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_5b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_1b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_3b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -304,32 +286,51 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_aftenmodul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
-            <Space
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
 
-            <Space
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
 
-            <Space
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#E4E4E4"
+                android:elegantTextHeight="false"
+                android:freezesText="false"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" />
         </TableRow>
     </TableLayout>
 

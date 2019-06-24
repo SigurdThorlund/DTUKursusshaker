@@ -3,44 +3,40 @@ package dk.dtu.kursusshaker;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 
-
-//Den klasse og alle andre kodedele for implementationen af Shake-Detection
-//er kode fra http://jasonmcreynolds.com/?p=388 som er blevet tilpasset til vores behov
 public class ShakeListener implements SensorEventListener {
-    private OnShakeListener onShakeListener;;
-    private static final float ACCELERATION_THRESHHOLD = 2.5F;
-    private static final int SHAKE_MAX_DURATION = 500;
-    private long startTime;
-
+    private static final int MIN_SHAKE_STENGHT = 5; //Minimum acceleration need to register a shake
+    private static final int MIN_MOVEMENTS = 2; //The minimum amount of movements needed to register a shake
+    private static final int MAX_SHAKE_TIME = 500; //The maximum time a shake needs to last inorder to be registered
+    private float[] gravity = { 0.0f, 0.0f, 0.0f };
+    private float[] linearAcceleration = { 0.0f, 0.0f, 0.0f };
+    private OnShakeListener onShakeListener;
+    long startTime = 0;
+    int moveCount = 0;
     public ShakeListener(OnShakeListener shakeListener) {
         onShakeListener = shakeListener;
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (onShakeListener != null) {
-            float x = event.values[0];
-            float y = event.values[1];
-            float z = event.values[2];
-
-            float gX = x / SensorManager.GRAVITY_EARTH;
-            float gY = y / SensorManager.GRAVITY_EARTH;
-            float gZ = z / SensorManager.GRAVITY_EARTH;
-
-            // gForce will be close to 1 when there is no movement.
-            float gForce = (float) Math.sqrt(gX * gX + gY * gY + gZ * gZ);
-
-            if (gForce > ACCELERATION_THRESHHOLD) {
-                final long now = System.currentTimeMillis();
-                // ignore shake events too close to each other (500ms)
-                if (startTime + SHAKE_MAX_DURATION > now) {
-                    return;
-                }
+        setCurrentAcceleration(event);
+        float maxLinearAcceleration = getMaxCurrentLinearAcceleration();
+        if (maxLinearAcceleration > MIN_SHAKE_STENGHT) {
+            long now = System.currentTimeMillis();
+            if (startTime == 0) {
                 startTime = now;
+            }
+            long elapsedTime = now - startTime;
+            if (elapsedTime > MAX_SHAKE_TIME) {
+                resetShakeDetection();
+            }
+            else {
+                moveCount++;
 
-                onShakeListener.onShake();
+                if (moveCount > MIN_MOVEMENTS) {
+                    onShakeListener.onShake();
+                    resetShakeDetection();
+                }
             }
         }
     }
@@ -49,5 +45,35 @@ public class ShakeListener implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         //Unused interface method, needs to be kept though
         //since interface demands implementation
+    }
+
+    private void setCurrentAcceleration(SensorEvent event) {
+        final float alpha = 0.8f;
+
+        // Gravity components of x, y, and z acceleration
+        gravity[0] = alpha * gravity[0] + (1 - alpha) * event.values[0];
+        gravity[1] = alpha * gravity[1] + (1 - alpha) * event.values[1];
+        gravity[2] = alpha * gravity[2] + (1 - alpha) * event.values[2];
+
+        // Linear acceleration along the x, y, and z axes (gravity effects removed)
+        linearAcceleration[0] = event.values[0] - gravity[0];
+        linearAcceleration[1] = event.values[1] - gravity[1];
+        linearAcceleration[2] = event.values[2] - gravity[2];
+    }
+
+    private float getMaxCurrentLinearAcceleration() {
+        float maxLinearAcceleration = linearAcceleration[0];
+        if (linearAcceleration[1] > maxLinearAcceleration) {
+            maxLinearAcceleration = linearAcceleration[1];
+        }
+        if (linearAcceleration[2] > maxLinearAcceleration) {
+            maxLinearAcceleration = linearAcceleration[2];
+        }
+        return maxLinearAcceleration;
+    }
+
+    private void resetShakeDetection() {
+        startTime = 0;
+        moveCount = 0;
     }
 }
