@@ -2,7 +2,6 @@ package dk.dtu.kursusshaker.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -52,66 +51,67 @@ public class CourseFilterBuilder {
 
     public void filterCourse(Course course) {
         if (Arrays.asList(completed).contains(course.getCourseCode()) ||
-                !scheduleMeetsPreferences(course.getSchedule()) ||
-                !allPrerequisitesAreMet(completed, course) ||
+                !scheduleFilter(course.getSchedule()) ||
+                !prerequisiteFilter(completed, course) ||
                 prerequisiteIsMet(course.getNoCreditPointsWith()) ||
-                !filterLanguage(course) ||
-                !filterLocation(course) ||
-                !filterType(course) ||
-                !filterDepartments(course) ||
-                !filterEcts(course)) {
+                !languageFilter(course) ||
+                !locationFilter(course) ||
+                !courseTypeFilter(course) ||
+                !instituteFilter(course) ||
+                !ectsFilter(course)) {
             filteredCourses.remove(course);
         }
     }
 
-    private boolean filterType(Course course) {
+    private boolean courseTypeFilter(Course course) {
         // Returns true if the user is allowed to take this course.
-        /* DTU_BSC: Can take BTU_MSC and DTU_MSC courses
-         DTU_DIPLOM: Can take all courses
-         DTU_MSC: Can only take DTU_MSC courses*/
-
         String courseType = course.getCourseType();
+
+        // If user is BSc and course is either a BSc or MSc course
         if (type.equals("DTU_BSC")) {
             if (courseType.equals("DTU_BSC") || courseType.equals("DTU_MSC")) return true;
         }
 
-        if (type.equals("DTU_MSC")) {
-            if (courseType.equals("DTU_MSC")) return true;
-        }
+        // If user is MSc and course is a MSc course
+        if (type.equals("DTU_MSC") && courseType.equals("DTU_MSC")) return true;
 
-        if (type.equals("DTU_DIPLOM")) return true;
+        // If user is PhD and course is a PhD course
+        if (type.equals("DTU_PHD") && courseType.equals("DTU_PHD")) return true;
+
+        // If user is diplom and course is anything but a PhD course
+        if (type.equals("DTU_DIPLOM") && !courseType.equals("DTU_PHD")) return true;
 
         return false;
     }
 
-    private boolean filterDepartments(Course course) {
+    private boolean instituteFilter(Course course) {
         // Returns true if the course's main department (institute) is in the user's preferences
         // E.g. "1" = compute
         if (departments.length == 0) return true;
         return Arrays.asList(departments).contains(course.getMainDepartment());
     }
 
-    private boolean filterEcts(Course course) {
+    private boolean ectsFilter(Course course) {
         // Returns true if the course's ects points are in the user's preferences
         if (ects.length == 0) return true;
         return Arrays.asList(ects).contains(course.getEcts());
     }
 
-    private boolean filterLocation(Course course) {
+    private boolean locationFilter(Course course) {
         /* Returns true if the course's main location fits with the user's preferences
          Locations are "DTU_LYNGBY" and "DTU_BALLERUP"*/
         if (locations.length == 0) return true;
         return Arrays.asList(locations).contains(course.getLocation());
     }
 
-    private boolean filterLanguage(Course course) {
+    private boolean languageFilter(Course course) {
         /* Returns true if the course's teaching language fits with the user's preference
          Languages are either "da-DK" or "en-GB"*/
         if (teachingLanguages.length == 0) return true;
         return Arrays.asList(teachingLanguages).contains(course.getTeachingLanguage());
     }
 
-    private boolean allPrerequisitesAreMet(String[] completedCourses, Course course) {
+    private boolean prerequisiteFilter(String[] completedCourses, Course course) {
         /* Returns true if at least one course in each prerequisite array is completed
          There are mandatory and qualified preferences, but they are treated equally*/
 
@@ -134,23 +134,6 @@ public class CourseFilterBuilder {
         return true;
     }
 
-    private String[] getAliases(Course course) {
-        /* Returns an array of possible aliases of a course. Some courses have existed under previous
-         names, or they are identical to another course.*/
-
-        String[] noPointsWith = course.getNoCreditPointsWith();
-        String[] previousNames = course.getPreviousCourses();
-
-        // Collect all equivalent courses
-        Set<String> set = new HashSet<>();
-        set.add(course.getCourseCode());
-        if (noPointsWith != null) set.addAll(Arrays.asList(noPointsWith));
-        if (previousNames != null) set.addAll(Arrays.asList(previousNames));
-
-        // Return as String array
-        return set.toArray(new String[0]);
-    }
-
     // TODO: samarbejde ml. prerequisites og aliases, se 02155's krav - man behøves ikke overholde alle krav!
     private boolean prerequisiteIsMet(String[] courseArray) {
         // Returns true if at least one course in the array has been completed by the user
@@ -158,7 +141,8 @@ public class CourseFilterBuilder {
             Course courseAsObject = coursesAsObject.getCourseFromId(course);
             String[] aliases;
 
-            if (courseAsObject != null) aliases = getAliases(coursesAsObject.getCourseFromId(course));
+            if (courseAsObject != null)
+                aliases = getAliases(coursesAsObject.getCourseFromId(course));
             else aliases = new String[]{course};
 
             for (String string : aliases) {
@@ -171,7 +155,7 @@ public class CourseFilterBuilder {
         return false;
     }
 
-    private boolean scheduleMeetsPreferences(String[][] courseSchedule) {
+    private boolean scheduleFilter(String[][] courseSchedule) {
         /* Returns true if at least one of the possible schedules fits to the user's preferences.
          This is because some courses have several schedules, e.g. [E4B, January] OR [F4B, June].*/
 
@@ -196,8 +180,27 @@ public class CourseFilterBuilder {
         return false;
     }
 
+    private String[] getAliases(Course course) {
+        /* Returns an array of possible aliases of a course. Some courses have existed under previous
+         names, or they are identical to another course.*/
+
+        String[] noPointsWith = course.getNoCreditPointsWith();
+        String[] previousNames = course.getPreviousCourses();
+
+        // Collect all equivalent courses
+        Set<String> set = new HashSet<>();
+        set.add(course.getCourseCode());
+        if (noPointsWith != null) set.addAll(Arrays.asList(noPointsWith));
+        if (previousNames != null) set.addAll(Arrays.asList(previousNames));
+
+        // Return as String array
+        return set.toArray(new String[0]);
+    }
+
     public ArrayList<Course> getFilteredCourses() {
         // Gets the filtered courses
         return filteredCourses;
     }
+
+
 }

@@ -87,14 +87,14 @@ public class SearchFragment extends Fragment {
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
 
         // TODO: Get these from shared preferences
-        String season = "E";
-        String[] scheduleFilter = {"2A", "4B"};
-        String[] completed = {"02131", "02312"};
-        String[] teachingLanguages = {"en-GB", "da-DK"};
-        String[] locations = {"Campus_Lyngby"};
+        String season = "";
+        String[] scheduleFilter = {};
+        String[] completed = {};
+        String[] teachingLanguages = {};
+        String[] locations = {};
         String type = "DTU_BSC";
         String[] departments = {};
-        String[] ects = {"5","7.5"};
+        String[] ects = {};
 
         coursesAsObject = new CoursesAsObject(getContext());
         CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
