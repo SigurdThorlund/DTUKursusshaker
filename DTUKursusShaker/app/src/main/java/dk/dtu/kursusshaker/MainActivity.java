@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("DTU_K_shaker", "Kursusshaker_Notifications", importance); //Need for better channel name+id
+            NotificationChannel channel = new NotificationChannel("DTU_K_shaker", "Kursusshaker_Notifications", importance);
             channel.setDescription("Notifications from DTU Kursusshaker");
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
