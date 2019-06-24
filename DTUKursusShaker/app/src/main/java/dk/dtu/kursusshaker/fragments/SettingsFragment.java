@@ -8,10 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import dk.dtu.kursusshaker.R;
 
@@ -49,6 +51,9 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getActivity().getSharedPreferences("Preferences", MODE_PRIVATE).edit().clear().apply();
+                Toast toast = Toast.makeText(getContext(), "Genstart appen", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                toast.show();
             }
         });
     }
