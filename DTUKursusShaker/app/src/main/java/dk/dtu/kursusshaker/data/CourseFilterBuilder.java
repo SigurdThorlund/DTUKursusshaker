@@ -3,6 +3,7 @@ package dk.dtu.kursusshaker.data;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class CourseFilterBuilder {
@@ -200,6 +201,11 @@ public class CourseFilterBuilder {
     public ArrayList<Course> getFilteredCourses() {
         // Gets the filtered courses
         return filteredCourses;
+    }
+
+    public Course getRandomCourse() {
+        int random = new Random().nextInt(filteredCourses.size());
+        return filteredCourses.get(random);
     }
 
 

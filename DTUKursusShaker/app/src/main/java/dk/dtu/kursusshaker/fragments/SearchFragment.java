@@ -134,9 +134,9 @@ public class SearchFragment extends Fragment {
 
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
 
-            CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
-                    scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
-            courseArray = courseFilterBuilder.filterAllCourses();
+            primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
+                    scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
+            courseArray = primaryViewModel.getCourseFilterBuilder().filterAllCourses();
         }
 
         String[] courseNames = new String[courseArray.size()];
@@ -239,7 +239,7 @@ public class SearchFragment extends Fragment {
         onBoardingViewModel = ViewModelProviders.of(this.getActivity()).get(OnBoardingViewModel.class);
 
         // Link SearchFragment to the PrimaryViewModel
-        //primaryViewModel = ViewModelProviders.of(this.getActivity()).get(PrimaryViewModel.class);
+        primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
 
         view = inflater.inflate(R.layout.fragment_search, container, false);
         try {
