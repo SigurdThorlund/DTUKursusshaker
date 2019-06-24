@@ -2,6 +2,7 @@ package dk.dtu.kursusshaker.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -26,6 +27,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
@@ -67,6 +69,8 @@ public class SearchFragment extends Fragment {
     PrimaryViewModel primaryViewModel;
 
     CoursesAsObject coursesAsObject;
+
+    HashSet<String> takenCourses;
 
 
     public SearchFragment() {
@@ -191,6 +195,8 @@ public class SearchFragment extends Fragment {
                 // the intent goes from PrimaryActivity to ViewCourseActivity
                 // We make an intent with result in case the user adds the course to his/her basket
                 // and then the result course is added to the PrimaryViewModel so the basketFragment can interact with it!
+
+
                 Intent intent = new Intent(getContext(), ViewCourseActivity.class);
                 intent.putExtra("selectedCourse",intentCourse);
                 startActivityForResult(intent, 1);

@@ -7,25 +7,6 @@
     tools:context=".fragments.BasketFragment">
 
     <TextView
-        android:id="@+id/numberOfBasketItems"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="411dp" />
-
-    <TextView
-        android:id="@+id/preference_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="348dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
         android:id="@+id/basketHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,6 +18,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/preference_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pref test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basketHeader" />
+
+    <TextView
+        android:id="@+id/numberOfBasketItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="basket size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preference_test" />
+
+    <!--
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -50,5 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basketHeader"
         app:layout_constraintVertical_bias="1.0" />
+        -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
