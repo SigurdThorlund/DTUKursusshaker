@@ -3,6 +3,7 @@ package dk.dtu.kursusshaker;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 
 public class ShakeListener implements SensorEventListener {
     private static final int MIN_SHAKE_STENGHT = 5; //Minimum acceleration need to register a shake
@@ -13,30 +14,50 @@ public class ShakeListener implements SensorEventListener {
     private OnShakeListener onShakeListener;
     long startTime = 0;
     int moveCount = 0;
+
+    private static final float SHAKE_THRESHOLD_GRAVITY = 2.7F;
+    private static final int SHAKE_SLOP_TIME_MS = 500;
+    private static final int SHAKE_COUNT_RESET_TIME_MS = 3000;
+
+
+    private long mShakeTimestamp;
+    private int mShakeCount;
+
+
     public ShakeListener(OnShakeListener shakeListener) {
         onShakeListener = shakeListener;
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        setCurrentAcceleration(event);
-        float maxLinearAcceleration = getMaxCurrentLinearAcceleration();
-        if (maxLinearAcceleration > MIN_SHAKE_STENGHT) {
-            long now = System.currentTimeMillis();
-            if (startTime == 0) {
-                startTime = now;
-            }
-            long elapsedTime = now - startTime;
-            if (elapsedTime > MAX_SHAKE_TIME) {
-                resetShakeDetection();
-            }
-            else {
-                moveCount++;
+        if (onShakeListener != null) {
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
 
-                if (moveCount > MIN_MOVEMENTS) {
-                    onShakeListener.onShake();
-                    resetShakeDetection();
+            float gX = x / SensorManager.GRAVITY_EARTH;
+            float gY = y / SensorManager.GRAVITY_EARTH;
+            float gZ = z / SensorManager.GRAVITY_EARTH;
+
+            // gForce will be close to 1 when there is no movement.
+            float gForce = (float) Math.sqrt(gX * gX + gY * gY + gZ * gZ);
+
+            if (gForce > SHAKE_THRESHOLD_GRAVITY) {
+                final long now = System.currentTimeMillis();
+                // ignore shake events too close to each other (500ms)
+                if (mShakeTimestamp + SHAKE_SLOP_TIME_MS > now) {
+                    return;
                 }
+
+                // reset the shake count after 3 seconds of no shakes
+                if (mShakeTimestamp + SHAKE_COUNT_RESET_TIME_MS < now) {
+                    mShakeCount = 0;
+                }
+
+                mShakeTimestamp = now;
+                mShakeCount++;
+
+                onShakeListener.onShake();
             }
         }
     }
@@ -47,7 +68,7 @@ public class ShakeListener implements SensorEventListener {
         //since interface demands implementation
     }
 
-    private void setCurrentAcceleration(SensorEvent event) {
+    /*private void setCurrentAcceleration(SensorEvent event) {
         final float alpha = 0.8f;
 
         // Gravity components of x, y, and z acceleration
@@ -70,7 +91,7 @@ public class ShakeListener implements SensorEventListener {
             maxLinearAcceleration = linearAcceleration[2];
         }
         return maxLinearAcceleration;
-    }
+    }*/
 
     private void resetShakeDetection() {
         startTime = 0;
