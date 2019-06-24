@@ -21,6 +21,7 @@ public class ShakeFragment extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Baserer også på kode fra http://jasonmcreynolds.com/?p=388
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorListener = new ShakeListener(new OnShakeListener() {
