@@ -10,7 +10,7 @@ public class ShakeListener implements SensorEventListener {
     long startTime = 0;
     int moveCount = 0;
 
-    private static final float ACCELERATION_THRESHHOLD = 2.5F;
+    private static final float ACCELERATION_THRESHHOLD = 2.2F;
     private static final int SHAKE_MAX_DURATION = 500;
     private static final int SHAKE_COUNT_RESET_TIME_MS = 3000;
     private long timeAtStart;

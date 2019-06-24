@@ -3,6 +3,8 @@ package dk.dtu.kursusshaker.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -27,6 +29,7 @@ import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
+import dk.dtu.kursusshaker.fragments.DashboardFragment;
 
 public class PrimaryActivity extends AppCompatActivity {
 
@@ -91,8 +94,15 @@ public class PrimaryActivity extends AppCompatActivity {
     NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
         @Override
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+
+            if (destination.getId() != R.id.navigation_dashboard) {
+
+
+            }
+
             // Usefull method.. Following can be removed before final release!
             /*
+
             try {
                 Toast.makeText(getApplicationContext(), destination.getLabel().toString(), Toast.LENGTH_SHORT).show();
             } catch (NullPointerException e) {
