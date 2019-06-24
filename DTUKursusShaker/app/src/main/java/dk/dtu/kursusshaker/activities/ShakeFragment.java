@@ -2,20 +2,14 @@ package dk.dtu.kursusshaker.activities;
 
 import android.content.Context;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import dk.dtu.kursusshaker.OnShakeListener;
 import dk.dtu.kursusshaker.ShakeListener;
-
-import static android.widget.Toast.makeText;
 
 public class ShakeFragment extends Fragment {
     private SensorManager sensorManager;
