@@ -141,28 +141,27 @@ public class PrimaryActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
         // requestCode 1 equals the intent request made from SearchFragment if a search item is
         // clicked within the primaryActivity scope
 
         sp.edit().remove("Courses").apply();
 
-        if (takenCourses.contains(returnedcourse.getCourseCode())) {
-            Toast.makeText(getApplicationContext(), "You already added this course", Toast.LENGTH_SHORT).show();
-        } else {
-            takenCourses.add(returnedcourse.getCourseCode());
-            primaryViewModel.addCourseToBasketArrayList(returnedcourse);
-            Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT).show();
+        if (resultCode == 1) {
+            Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+
+            if (takenCourses.contains(returnedcourse.getCourseCode())) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Du har allerede tilføjet dette kursus", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                toast.show();
+            } else {
+                takenCourses.add(returnedcourse.getCourseCode());
+                Toast toast = Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                toast.show();
+            }
+
         }
 
         sp.edit().putStringSet("Courses", takenCourses).apply();
-        
-        if (resultCode == 1) {
-            Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
-            primaryViewModel.addCourseToBasketArrayList(returnedcourse);
-            Toast toast = Toast.makeText(getApplicationContext(),returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
-            toast.show();
-        }
     }
 }

@@ -121,12 +121,12 @@ public class SearchFragment extends Fragment {
         if (onBoardingViewModel.getOnBoardingInProgress()) {
             courseArray = new ArrayList<>(Arrays.asList(coursesAsObject.getCourseArray()));
         } else {
-            String season = "E";
-            String[] scheduleFilter = {"2A"};
+            String season = "";
+            String[] scheduleFilter = {};
             String[] teachingLanguages = {};
             String[] locations = {};
             String type = "DTU_DIPLOM";
-            String[] departments = {"1"};
+            String[] departments = {};
             String[] ects = {};
 
             sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
