@@ -112,15 +112,11 @@ public class SearchFragment extends Fragment {
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
         ArrayList<String> excludedCourses = new ArrayList<String>();
 
-        // TODO: Get these from shared preferences
-        String season = "";
-        String[] scheduleFilter = {};
-        String[] completed = {};
-        String[] teachingLanguages = {};
-        String[] locations = {};
-        String type = "DTU_MSC";
-        String[] departments = {};
-        String[] ects = {};
+        // Exclude these three courses just for fun
+        // TODO: This is where we want to implement actual filtering stuff
+        excludedCourses.add("01005");
+        excludedCourses.add("01003");
+        excludedCourses.add("01006");
 
 
 
