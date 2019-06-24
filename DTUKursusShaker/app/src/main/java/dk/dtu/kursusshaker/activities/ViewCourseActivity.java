@@ -145,4 +145,12 @@ public class ViewCourseActivity extends AppCompatActivity {
         }
     };
 
+    // When user press back he will return back to primaryActivity with a resultCode 2
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+        setResult(2, returnIntent);
+        finish();
+    }
+
 }

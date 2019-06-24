@@ -2,44 +2,24 @@ package dk.dtu.kursusshaker.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.zip.Inflater;
-
+import dk.dtu.kursusshaker.OnShakeListener;
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.activities.PrimaryActivity;
-import dk.dtu.kursusshaker.activities.ShakeFragment;
-import dk.dtu.kursusshaker.data.Course;
-import dk.dtu.kursusshaker.data.CoursesAsObject;
+import dk.dtu.kursusshaker.ShakeListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,6 +43,11 @@ public class DashboardFragment extends Fragment {
     private SensorManager mSensorManager;
 
     private OnFragmentInteractionListener mListener;
+
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private ShakeListener sensorListener;
+    private static final String TAG = "tag";
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -90,15 +75,18 @@ public class DashboardFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent;
-        ShakeFragment shakeFrag = new ShakeFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.navigation_dashboard, shakeFrag, "Shake")
-                .addToBackStack(null)
-                .commit();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorListener = new ShakeListener(new OnShakeListener() {
+            @Override
+            public void onShake() {
+                Navigation.findNavController(getActivity(), R.id.primary_host_fragment).navigate(R.id.recommendationsFragment);
+            }
+        });
     }
 
     @Override
@@ -146,6 +134,20 @@ public class DashboardFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+    public void onResume() {
+        super.onResume();
+        sensorManager.registerListener(sensorListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onStop() {
+        sensorManager.unregisterListener(sensorListener);
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     /**

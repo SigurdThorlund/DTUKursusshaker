@@ -3,6 +3,8 @@ package dk.dtu.kursusshaker.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -14,6 +16,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +30,7 @@ import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
+import dk.dtu.kursusshaker.fragments.DashboardFragment;
 
 public class PrimaryActivity extends AppCompatActivity {
 
@@ -96,8 +100,15 @@ public class PrimaryActivity extends AppCompatActivity {
     NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
         @Override
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+
+            if (destination.getId() != R.id.navigation_dashboard) {
+
+
+            }
+
             // Usefull method.. Following can be removed before final release!
             /*
+
             try {
                 Toast.makeText(getApplicationContext(), destination.getLabel().toString(), Toast.LENGTH_SHORT).show();
             } catch (NullPointerException e) {
@@ -111,7 +122,7 @@ public class PrimaryActivity extends AppCompatActivity {
     // When user press back during mainMenuTabs he will be asked if he wish to hide the app
     @Override
     public void onBackPressed() {
-        Toast myToast = Toast.makeText(this, "Press back again to exit!", Toast.LENGTH_SHORT);
+        Toast myToast = Toast.makeText(this, "Tryk tilbage igen for at afslutte!", Toast.LENGTH_SHORT);
         if (backButtonCounter >= 1) {
             myToast.cancel();
             backButtonCounter = 0;
@@ -145,5 +156,13 @@ public class PrimaryActivity extends AppCompatActivity {
         }
 
         sp.edit().putStringSet("Courses", takenCourses).apply();
+        
+        if (resultCode == 1) {
+            Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+            primaryViewModel.addCourseToBasketArrayList(returnedcourse);
+            Toast toast = Toast.makeText(getApplicationContext(),returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+            toast.show();
+        }
     }
 }

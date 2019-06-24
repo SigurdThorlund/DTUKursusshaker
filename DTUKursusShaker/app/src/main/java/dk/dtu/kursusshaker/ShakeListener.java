@@ -10,7 +10,7 @@ import android.hardware.SensorManager;
 //er kode fra http://jasonmcreynolds.com/?p=388 som er blevet tilpasset til vores behov
 public class ShakeListener implements SensorEventListener {
     private OnShakeListener onShakeListener;;
-    private static final float ACCELERATION_THRESHHOLD = 2.5F;
+    private static final float ACCELERATION_THRESHHOLD = 2.2F;
     private static final int SHAKE_MAX_DURATION = 500;
     private long startTime;
 
