@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -20,9 +21,11 @@ import java.io.File;
 
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
+import dk.dtu.kursusshaker.fragments.GetStartedFragment;
 import dk.dtu.kursusshaker.controller.OnboardingFragmentAdapter;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.fragments.KursusTypeFragment;
+import dk.dtu.kursusshaker.fragments.OnboardingFragment;
 import dk.dtu.kursusshaker.fragments.SkemaPlaceringFragment;
 import dk.dtu.kursusshaker.fragments.TagetKursusFragment;
 
@@ -51,7 +54,9 @@ public class OnboardingActivity extends AppCompatActivity {
     TagetKursusFragment tagetKursusFragment;
 
     OnboardingFragment currentFragment;
+
     OnBoardingViewModel onBoardingViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         //Back and Next buttons functionality
         buttonNext = findViewById(R.id.button_next);
+
         nextDefaultListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +98,8 @@ public class OnboardingActivity extends AppCompatActivity {
                 }
             }
         };
+
+        buttonNext.setOnClickListener(nextDefaultListener);
 
         //Listener for when the fragment is on the last view.
         nextLastViewListener = new View.OnClickListener() {
@@ -105,8 +113,6 @@ public class OnboardingActivity extends AppCompatActivity {
                 launchMainActivity();
             }
         };
-
-        buttonNext.setOnClickListener(nextDefaultListener);
 
         buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -130,10 +136,18 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 updateButtonView(position);
+                if (position != 0) {
+                    currentFragment = (OnboardingFragment) fragmentAdapter.getItem(position-1);
+                    currentFragment.savePreferenceData();
+                } else {
+                    currentFragment = (OnboardingFragment) fragmentAdapter.getItem(position);
+                    currentFragment.savePreferenceData();
+                }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
@@ -145,24 +159,16 @@ public class OnboardingActivity extends AppCompatActivity {
      */
 
     private void updateButtonView(int position) {
-        if (isLastView(position)) {
-            buttonNext.setText(R.string.button_done);
+        if (position == fragmentAdapter.getFragmentsList().size()-1) {
             buttonNext.setOnClickListener(nextLastViewListener);
+            buttonNext.setText(R.string.button_done);
         } else if (position == 0) {
             buttonBack.setVisibility(View.INVISIBLE);
         } else {
-            buttonNext.setText(R.string.button_next);
             buttonNext.setOnClickListener(nextDefaultListener);
+            buttonNext.setText(R.string.button_next);
             buttonBack.setVisibility(View.VISIBLE);
         }
-    }
-
-    /**
-     * @param position
-     * @return true if the fragment is the last view in the viewpager
-     */
-    private boolean isLastView(int position) {
-        return position == fragmentAdapter.getFragmentsList().size()-1;
     }
 
     /**
@@ -172,6 +178,7 @@ public class OnboardingActivity extends AppCompatActivity {
         kursusTypeFragment = new KursusTypeFragment();
         tagetKursusFragment = new TagetKursusFragment();
         skemaPlaceringFragment = new SkemaPlaceringFragment();
+
         fragmentAdapter.addItem(kursusTypeFragment);
         fragmentAdapter.addItem(tagetKursusFragment);
         fragmentAdapter.addItem(skemaPlaceringFragment);
@@ -179,7 +186,8 @@ public class OnboardingActivity extends AppCompatActivity {
 
     //TODO: Restore preferences from the onboarding, so that onboarding does not launch all the time.
     private boolean restorePreferences() {
-        return true;
+        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+        return sp.getBoolean("Onboarded",false);
     }
 
     private void launchMainActivity() {

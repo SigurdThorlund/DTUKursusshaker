@@ -119,7 +119,6 @@ public class BasketFragment extends Fragment {
             listItemMap.put("title", coursesAsArrayList.get(i));
             listItemMap.put("description", coursesAsArrayList.get(i));
             itemDataList.add(listItemMap);
-
         }
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
