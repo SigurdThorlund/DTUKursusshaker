@@ -34,6 +34,8 @@ import dk.dtu.kursusshaker.data.PrimaryViewModel;
  */
 public class DashboardFragment extends Fragment {
 
+    PrimaryViewModel primaryViewModel;
+
     View view;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -87,7 +89,6 @@ public class DashboardFragment extends Fragment {
         sensorListener = new ShakeListener(new OnShakeListener() {
             @Override
             public void onShake() {
-                PrimaryViewModel primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
                 CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
                 primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
                 Navigation.findNavController(getActivity(), R.id.primary_host_fragment).navigate(R.id.recommendationsFragment);
@@ -98,6 +99,8 @@ public class DashboardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
 
         // Inflate the layout for this fragment
         final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_dashboard, container, false);

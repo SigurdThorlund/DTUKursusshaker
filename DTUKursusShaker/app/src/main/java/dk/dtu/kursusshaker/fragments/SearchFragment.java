@@ -136,6 +136,7 @@ public class SearchFragment extends Fragment {
 
             primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                     scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
+
             courseArray = primaryViewModel.getCourseFilterBuilder().filterAllCourses();
         }
 

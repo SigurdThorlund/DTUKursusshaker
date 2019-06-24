@@ -24,13 +24,18 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
+import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 import dk.dtu.kursusshaker.fragments.DashboardFragment;
+import dk.dtu.kursusshaker.fragments.SearchFragment;
 
 public class PrimaryActivity extends AppCompatActivity {
 
@@ -55,6 +60,7 @@ public class PrimaryActivity extends AppCompatActivity {
             setupButtomNavigationBar();
             primaryViewModel = ViewModelProviders.of(this).get(PrimaryViewModel.class);
             primaryViewModel.callViewModel();
+            initFilteredCourses();
         }
 
         sp = getSharedPreferences("Preferences", MODE_PRIVATE);
@@ -85,6 +91,30 @@ public class PrimaryActivity extends AppCompatActivity {
         //Assign listeners
         navigationController.addOnDestinationChangedListener(onDestinationChangedListener);
 
+    }
+
+    private void initFilteredCourses() {
+        CoursesAsObject coursesAsObject = new CoursesAsObject(getApplicationContext());
+
+        ArrayList<Course> courseArray;
+
+        OnBoardingViewModel onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
+
+        String season = "";
+        String[] scheduleFilter = {};
+        String[] teachingLanguages = {};
+        String[] locations = {};
+        String type = "DTU_DIPLOM";
+        String[] departments = {};
+        String[] ects = {};
+
+        sp = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+
+        String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
+
+        primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
+                scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
     }
 
     NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
