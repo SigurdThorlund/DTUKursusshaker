@@ -26,8 +26,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.activities.ViewCourseActivity;
@@ -36,14 +39,7 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SearchFragment extends Fragment {
 
     private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
@@ -65,7 +61,6 @@ public class SearchFragment extends Fragment {
     public ListView listView;
 
     OnBoardingViewModel onBoardingViewModel;
-    PrimaryViewModel primaryViewModel;
 
     CoursesAsObject coursesAsObject;
 
@@ -79,24 +74,6 @@ public class SearchFragment extends Fragment {
         super.onAttach(context);
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchFragment newInstance(String param1, String param2) {
-        SearchFragment fragment = new SearchFragment();
-        Bundle args = new Bundle();
-        args.putString(SOURCE, param1);
-        args.putString(ACTION, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,56 +84,86 @@ public class SearchFragment extends Fragment {
     }
 
     private ArrayList getFilteredCourses() {
+        // Returns a filtered array of courses
         Course[] allCourses = coursesAsObject.getCourseArray();
-
         ArrayList<Course> filteredCourses = new ArrayList<>(Arrays.asList(allCourses));
 
-
-        String[] scheduleFilter = {};
-        String[] completed = {"02312"};
+        // TODO: Get these from shared preferences
+        String[] scheduleFilter = {"E2A","E","F2B","Januar"};
+        String[] completed = {"02131","02139","02115","01005","02102"};
+        String[] teachingLanguages = {"en-GB","da-DK"};
+        String[] locations = {"Campus_Lyngby"};
 
 
         for (Course course : allCourses) {
-            String[][] courseSchedule = course.getSchedule();
-
-            System.out.println("" + course.getCourseCode() + ": ");
-            if(Arrays.asList(completed).contains(course.getCourseCode())){
-                filteredCourses.remove(course);
-            } else if (!scheduleMeetsPreferences(scheduleFilter, courseSchedule)) {
-                filteredCourses.remove(course);
-            } else if (!allPrerequisitesAreMet(completed, course.getQualifiedPrerequisites())) {
-                filteredCourses.remove(course);
-            } else if (prerequisiteIsMet(completed,course.getNoCreditPointsWith())) {
+            if (Arrays.asList(completed).contains(course.getCourseCode()) ||
+                    !scheduleMeetsPreferences(scheduleFilter, course.getSchedule()) ||
+                    !allPrerequisitesAreMet(completed, course) ||
+                    prerequisiteIsMet(completed, course.getNoCreditPointsWith()) ||
+                    !filterLanguage(teachingLanguages,course) ||
+                    !filterLocation(locations,course))
+            {
                 filteredCourses.remove(course);
             }
-
         }
 
         return filteredCourses;
     }
 
-    private boolean allPrerequisitesAreMet(String[] completedCourses, String[][] prerequisites) {
-        if (prerequisites.length == 0) return true;
-        System.out.println(Arrays.deepToString(prerequisites));
+    private boolean filterLocation(String[] locations, Course course) {
+        return Arrays.asList(locations).contains(course.getLocation());
+    }
 
-        for (String[] prerequisite : prerequisites) {
+    private boolean filterLanguage(String[] languages, Course course) {
+        return Arrays.asList(languages).contains(course.getTeachingLanguage());
+    }
+
+    // Checks if at least one course in each prerequisite arrays is fulfilled
+    private boolean allPrerequisitesAreMet(String[] completedCourses, Course course) {
+        String[][] mandatoryPrerequisites = course.getMandatoryPrerequisites();
+        String[][] qualifiedPrerequisites = course.getQualifiedPrerequisites();
+
+        for (String[] prerequisite : qualifiedPrerequisites) {
+            if (!prerequisiteIsMet(completedCourses, prerequisite)) return false;
+        }
+
+        for (String[] prerequisite : mandatoryPrerequisites) {
             if (!prerequisiteIsMet(completedCourses, prerequisite)) return false;
         }
 
         return true;
     }
 
-    boolean prerequisiteIsMet(String[] completedCourses, String[] prerequisites) {
+    private String[] getAliases(Course course) {
+        String[] noPointsWith = course.getNoCreditPointsWith();
+        String[] previousNames = course.getPreviousCourses();
 
-        for (String course : completedCourses) {
-            if (Arrays.asList(prerequisites).contains(course)) {
-                return true;
+        // Collect all equivalent courses
+        Set<String> set = new HashSet<>(Collections.singleton(course.getCourseCode()));
+        if (noPointsWith != null) set.addAll(Arrays.asList(noPointsWith));
+        if (previousNames != null) set.addAll(Arrays.asList(previousNames));
+
+        return set.toArray(new String[0]);
+    }
+
+    // Checks if at least one value of completedCourses is also present in courseArray
+    // TODO: samarbejde ml. prerequisites og aliases, se 02155's krav
+    private boolean prerequisiteIsMet(String[] completedCourses, String[] courseArray) {
+        for (String course : courseArray) {
+            String[] aliases = getAliases(coursesAsObject.getCourseFromId(course));
+
+            for (String string : aliases) {
+
+                if (Arrays.asList(completedCourses).contains(string)) {
+                    return true;
+                }
             }
         }
+
         return false;
     }
 
-
+    // Checks if a course's schedule fits with the given filter
     private boolean scheduleMeetsPreferences(String[] scheduleFilter, String[][] courseSchedule) {
         if (courseSchedule.length == 0) return true;
         if (scheduleFilter.length == 0) return true;
@@ -288,17 +295,6 @@ public class SearchFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    /*@Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }*/
 
     @Override
     public void onResume() {
