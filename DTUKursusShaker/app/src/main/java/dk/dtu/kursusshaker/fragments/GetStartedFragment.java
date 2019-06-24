@@ -34,11 +34,6 @@ public class GetStartedFragment extends OnboardingFragment {
         return inflater.inflate(R.layout.fragment_get_started, container, false);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable final Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
     /**
      * When onboarding is complete, onboarded will be set, so that it will not be launched again
      */
