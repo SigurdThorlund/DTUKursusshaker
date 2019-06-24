@@ -84,7 +84,11 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
         for (int i = 0; i < NUM_CHECK_BOX; i++) {
             CheckBox currentBox = checkBoxes.get(i);
             if(currentBox.isChecked()) {
-                skemaplaceringer.add(getResources().getResourceName(currentBox.getId()));
+                String string = getResources().getResourceName(currentBox.getId());
+                String[] formattedSkema = string.split("_");
+                String formattedSkemaPlacering = formattedSkema[1];
+
+                skemaplaceringer.add(formattedSkemaPlacering.toUpperCase());
             }
         }
 

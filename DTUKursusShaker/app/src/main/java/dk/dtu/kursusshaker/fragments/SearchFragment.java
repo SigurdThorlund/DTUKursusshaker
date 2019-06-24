@@ -39,14 +39,6 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SearchFragment extends Fragment {
 
     private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
@@ -75,6 +67,7 @@ public class SearchFragment extends Fragment {
 
     SharedPreferences sp;
     HashSet<String> takenCourses;
+    HashSet<String> scheduleDays;
 
 
     public SearchFragment() {
@@ -121,8 +114,7 @@ public class SearchFragment extends Fragment {
         if (onBoardingViewModel.getOnBoardingInProgress()) {
             courseArray = new ArrayList<>(Arrays.asList(coursesAsObject.getCourseArray()));
         } else {
-            String season = "";
-            String[] scheduleFilter = {};
+            String season = "E";
             String[] teachingLanguages = {};
             String[] locations = {};
             String type = "DTU_DIPLOM";
@@ -130,9 +122,13 @@ public class SearchFragment extends Fragment {
             String[] ects = {};
 
             sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
-            takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
 
+            takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
+
+            scheduleDays = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
+            String[] scheduleFilter = scheduleDays.toArray(new String[takenCourses.size()]);
+
 
             primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                     scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
