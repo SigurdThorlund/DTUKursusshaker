@@ -1,5 +1,6 @@
 package dk.dtu.kursusshaker.fragments;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
@@ -68,6 +71,8 @@ public class BasketFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -82,6 +87,19 @@ public class BasketFragment extends Fragment {
 
         TextView numberOfBasketTextView = constraintLayout.findViewById(R.id.numberOfBasketItems);
         numberOfBasketTextView.setText("Size of basket: " + basketArraySize + " model is counted: " + primaryViewModel.getCallViewModelCount());
+
+        TextView preferenceText = constraintLayout.findViewById(R.id.preference_test);
+
+        HashSet<String> courses = (HashSet<String>) getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE).getStringSet("Courses", new HashSet<String>());
+
+
+        StringBuilder textPref = new StringBuilder();
+
+        for (String course : courses) {
+            textPref.append(course);
+        }
+
+        preferenceText.setText(textPref.toString());
 
         return constraintLayout;
     }

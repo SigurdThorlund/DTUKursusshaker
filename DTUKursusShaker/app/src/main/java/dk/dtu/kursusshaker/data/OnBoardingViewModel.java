@@ -1,5 +1,7 @@
 package dk.dtu.kursusshaker.data;
 
+import android.content.SharedPreferences;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModel;
@@ -50,9 +52,8 @@ public class OnBoardingViewModel extends ViewModel {
     public void setOnboardingInProgress(Boolean bool) {
         this.onboardingInProgress = bool;
     }
+
     public Boolean getOnBoardingInProgress() {
         return onboardingInProgress;
     }
-
-
 }

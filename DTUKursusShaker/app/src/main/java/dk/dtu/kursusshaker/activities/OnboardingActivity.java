@@ -52,7 +52,6 @@ public class OnboardingActivity extends AppCompatActivity {
     KursusTypeFragment kursusTypeFragment;
     SkemaPlaceringFragment skemaPlaceringFragment;
     TagetKursusFragment tagetKursusFragment;
-    GetStartedFragment getStartedFragment;
 
     OnboardingFragment currentFragment;
 
@@ -107,6 +106,10 @@ public class OnboardingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBoardingViewModel.setOnboardingInProgress(false);
+                //Save the onboarding
+                SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
+                sp.edit().putBoolean("Onboarded", true).apply();
+                sp.edit().putStringSet("Courses", onBoardingViewModel.getCourseNumbersOfFinishedCourses()).apply();
                 launchMainActivity();
             }
         };
@@ -188,8 +191,6 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void launchMainActivity() {
-        SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
-        sp.edit().putBoolean("Onboarded", true).apply();
 
 
         // start mainActivity
