@@ -2,7 +2,6 @@ package dk.dtu.kursusshaker.fragments;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -26,25 +25,22 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.activities.ViewCourseActivity;
 import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SearchFragment extends Fragment {
 
     private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
@@ -66,11 +62,8 @@ public class SearchFragment extends Fragment {
     public ListView listView;
 
     OnBoardingViewModel onBoardingViewModel;
-    PrimaryViewModel primaryViewModel;
 
     CoursesAsObject coursesAsObject;
-
-    HashSet<String> takenCourses;
 
 
     public SearchFragment() {
@@ -80,24 +73,6 @@ public class SearchFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchFragment newInstance(String param1, String param2) {
-        SearchFragment fragment = new SearchFragment();
-        Bundle args = new Bundle();
-        args.putString(SOURCE, param1);
-        args.putString(ACTION, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -110,28 +85,38 @@ public class SearchFragment extends Fragment {
     }
 
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
-        ArrayList<String> excludedCourses = new ArrayList<String>();
 
-        // Exclude these three courses just for fun
-        // TODO: This is where we want to implement actual filtering stuff
-        excludedCourses.add("01005");
-        excludedCourses.add("01003");
-        excludedCourses.add("01006");
-
-
+        // TODO: Get these from shared preferences
+        String season = "";
+        String[] scheduleFilter = {};
+        String[] completed = {};
+        String[] teachingLanguages = {};
+        String[] locations = {};
+        String type = "DTU_BSC";
+        String[] departments = {};
+        String[] ects = {};
 
         coursesAsObject = new CoursesAsObject(getContext());
-        final Course[] course = coursesAsObject.getCourseArray(excludedCourses);
+        CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
+                scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
 
-        String[] courseNames = new String[course.length];
-        String[] courseIds = new String[course.length];
-        for (int i = 0; i < course.length; i++) {
-            courseNames[i] = course[i].getDanishTitle();
-            courseIds[i] = course[i].getCourseCode();
+        // The filtered list of courses
+        final ArrayList<Course> courseArray = courseFilterBuilder.filterAllCourses();
+
+        String[] courseNames = new String[courseArray.size()];
+        String[] courseIds = new String[courseArray.size()];
+
+
+        // Reads course names and IDs into arrays
+        int j = 0;
+        for (Course currentCourse : courseArray) {
+            courseNames[j] = currentCourse.getDanishTitle();
+            courseIds[j] = currentCourse.getCourseCode();
+            j++;
         }
 
+        // Shows course names and IDs in the listview
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
-
         int titleLen = courseNames.length;
         for (int i = 0; i < titleLen; i++) {
             Map<String, Object> listItemMap = new HashMap<String, Object>();
@@ -179,14 +164,14 @@ public class SearchFragment extends Fragment {
 
             // Let the listView behave differently on userInput based on application state
             if (onBoardingViewModel.getOnBoardingInProgress()) {
-                if (onBoardingViewModel.addFinishedCourseToHashSet(intentCourse.getCourseCode())) {
+                if (onBoardingViewModel.addFinishedCourseToArrayList(intentCourse)) {
                     onBoardingViewModel.callViewModel();
                     Toast toast = Toast.makeText(getContext(), "Course: " + intentCourse.getCourseCode() + " added", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 } else {
                     Toast toast = Toast.makeText(getContext(), "Course already added!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 }
 
@@ -195,10 +180,8 @@ public class SearchFragment extends Fragment {
                 // the intent goes from PrimaryActivity to ViewCourseActivity
                 // We make an intent with result in case the user adds the course to his/her basket
                 // and then the result course is added to the PrimaryViewModel so the basketFragment can interact with it!
-
-
                 Intent intent = new Intent(getContext(), ViewCourseActivity.class);
-                intent.putExtra("selectedCourse",intentCourse);
+                intent.putExtra("selectedCourse", intentCourse);
                 startActivityForResult(intent, 1);
             }
         }
@@ -237,17 +220,6 @@ public class SearchFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    /*@Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }*/
 
     @Override
     public void onResume() {
