@@ -35,6 +35,7 @@ import java.util.Set;
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.activities.ViewCourseActivity;
 import dk.dtu.kursusshaker.data.Course;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
 import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
@@ -83,106 +84,30 @@ public class SearchFragment extends Fragment {
         }
     }
 
-    private ArrayList getFilteredCourses() {
-        // Returns a filtered array of courses
-        Course[] allCourses = coursesAsObject.getCourseArray();
-        ArrayList<Course> filteredCourses = new ArrayList<>(Arrays.asList(allCourses));
-
-        // TODO: Get these from shared preferences
-        String[] scheduleFilter = {"E2A","E","F2B","Januar"};
-        String[] completed = {"02131","02139","02115","01005","02102"};
-        String[] teachingLanguages = {"en-GB","da-DK"};
-        String[] locations = {"Campus_Lyngby"};
-
-
-        for (Course course : allCourses) {
-            if (Arrays.asList(completed).contains(course.getCourseCode()) ||
-                    !scheduleMeetsPreferences(scheduleFilter, course.getSchedule()) ||
-                    !allPrerequisitesAreMet(completed, course) ||
-                    prerequisiteIsMet(completed, course.getNoCreditPointsWith()) ||
-                    !filterLanguage(teachingLanguages,course) ||
-                    !filterLocation(locations,course))
-            {
-                filteredCourses.remove(course);
-            }
-        }
-
-        return filteredCourses;
-    }
-
-    private boolean filterLocation(String[] locations, Course course) {
-        return Arrays.asList(locations).contains(course.getLocation());
-    }
-
-    private boolean filterLanguage(String[] languages, Course course) {
-        return Arrays.asList(languages).contains(course.getTeachingLanguage());
-    }
-
-    // Checks if at least one course in each prerequisite arrays is fulfilled
-    private boolean allPrerequisitesAreMet(String[] completedCourses, Course course) {
-        String[][] mandatoryPrerequisites = course.getMandatoryPrerequisites();
-        String[][] qualifiedPrerequisites = course.getQualifiedPrerequisites();
-
-        for (String[] prerequisite : qualifiedPrerequisites) {
-            if (!prerequisiteIsMet(completedCourses, prerequisite)) return false;
-        }
-
-        for (String[] prerequisite : mandatoryPrerequisites) {
-            if (!prerequisiteIsMet(completedCourses, prerequisite)) return false;
-        }
-
-        return true;
-    }
-
-    private String[] getAliases(Course course) {
-        String[] noPointsWith = course.getNoCreditPointsWith();
-        String[] previousNames = course.getPreviousCourses();
-
-        // Collect all equivalent courses
-        Set<String> set = new HashSet<>(Collections.singleton(course.getCourseCode()));
-        if (noPointsWith != null) set.addAll(Arrays.asList(noPointsWith));
-        if (previousNames != null) set.addAll(Arrays.asList(previousNames));
-
-        return set.toArray(new String[0]);
-    }
-
-    // Checks if at least one value of completedCourses is also present in courseArray
-    // TODO: samarbejde ml. prerequisites og aliases, se 02155's krav
-    private boolean prerequisiteIsMet(String[] completedCourses, String[] courseArray) {
-        for (String course : courseArray) {
-            String[] aliases = getAliases(coursesAsObject.getCourseFromId(course));
-
-            for (String string : aliases) {
-
-                if (Arrays.asList(completedCourses).contains(string)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    // Checks if a course's schedule fits with the given filter
-    private boolean scheduleMeetsPreferences(String[] scheduleFilter, String[][] courseSchedule) {
-        if (courseSchedule.length == 0) return true;
-        if (scheduleFilter.length == 0) return true;
-
-        for (String[] schedules : courseSchedule) {
-            if (Arrays.asList(scheduleFilter).containsAll(Arrays.asList(schedules))) return true;
-
-        }
-        return false;
-    }
-
     private void insertCoursesInListView() throws IOException { //TODO skal laves til MVC
+        
+        // TODO: Get these from shared preferences
+        String season = "E";
+        String[] scheduleFilter = {"2A", "4B"};
+        String[] completed = {"02131", "02312"};
+        String[] teachingLanguages = {"en-GB", "da-DK"};
+        String[] locations = {"Campus_Lyngby"};
+        String type = "DTU_BSC";
+        String[] departments = {};
+        String[] ects = {"5","7.5"};
 
         coursesAsObject = new CoursesAsObject(getContext());
-        final ArrayList<Course> courseArray = getFilteredCourses();
+        CourseFilterBuilder courseFilterBuilder = new CourseFilterBuilder(coursesAsObject, season,
+                scheduleFilter, completed, teachingLanguages, locations, type, departments, ects);
+
+        // The filtered list of courses
+        final ArrayList<Course> courseArray = courseFilterBuilder.filterAllCourses();
 
         String[] courseNames = new String[courseArray.size()];
         String[] courseIds = new String[courseArray.size()];
 
+
+        // Reads course names and IDs into arrays
         int j = 0;
         for (Course currentCourse : courseArray) {
             courseNames[j] = currentCourse.getDanishTitle();
@@ -190,8 +115,8 @@ public class SearchFragment extends Fragment {
             j++;
         }
 
+        // Shows course names and IDs in the listview
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
-
         int titleLen = courseNames.length;
         for (int i = 0; i < titleLen; i++) {
             Map<String, Object> listItemMap = new HashMap<String, Object>();

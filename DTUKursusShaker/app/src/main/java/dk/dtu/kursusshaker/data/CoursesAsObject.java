@@ -34,7 +34,6 @@ public class CoursesAsObject {
         courseArray = gson.fromJson(reader, Course[].class);
 
 
-
     }
 
     public Course[] getCourseArray() {
@@ -74,15 +73,14 @@ public class CoursesAsObject {
         return filteredArray;*/
     }
 
-    public  Course getCourseFromId(String id){
+    public Course getCourseFromId(String id) {
         Course tempCourse = new Course();
-        for (Course c:courseArray
-             ) {
-            if (c.getCourseCode().equals(id)){
-                tempCourse = c;
+        for (Course c : courseArray) {
+            if (c.getCourseCode().equals(id)) {
+                return c;
             }
         }
-        return tempCourse;
+        return null;
     }
 
 
