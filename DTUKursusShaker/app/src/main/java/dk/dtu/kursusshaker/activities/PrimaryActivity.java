@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -116,7 +117,7 @@ public class PrimaryActivity extends AppCompatActivity {
     // When user press back during mainMenuTabs he will be asked if he wish to hide the app
     @Override
     public void onBackPressed() {
-        Toast myToast = Toast.makeText(this, "Press back again to exit!", Toast.LENGTH_SHORT);
+        Toast myToast = Toast.makeText(this, "Tryk tilbage igen for at afslutte!", Toast.LENGTH_SHORT);
         if (backButtonCounter >= 1) {
             myToast.cancel();
             backButtonCounter = 0;
@@ -136,8 +137,12 @@ public class PrimaryActivity extends AppCompatActivity {
 
         // requestCode 1 equals the intent request made from SearchFragment if a search item is
         // clicked within the primaryActivity scope
-        Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
-        primaryViewModel.addCourseToBasketArrayList(returnedcourse);
-        Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT).show();
+        if (resultCode == 1) {
+            Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+            primaryViewModel.addCourseToBasketArrayList(returnedcourse);
+            Toast toast = Toast.makeText(getApplicationContext(),returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
+            toast.show();
+        }
     }
 }

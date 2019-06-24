@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
@@ -137,5 +138,13 @@ public class ViewCourseActivity extends AppCompatActivity {
             finish();
         }
     };
+
+    // When user press back he will return back to primaryActivity with a resultCode 2
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+        setResult(2, returnIntent);
+        finish();
+    }
 
 }
