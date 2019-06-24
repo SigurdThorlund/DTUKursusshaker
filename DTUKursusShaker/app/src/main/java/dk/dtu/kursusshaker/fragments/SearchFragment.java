@@ -39,14 +39,7 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SearchFragment extends Fragment {
 
     private static final String WHAT_FRAGMENT_HOST = "WHAT_FRAGMENT_HOST";
@@ -125,12 +118,15 @@ public class SearchFragment extends Fragment {
             String[] scheduleFilter = {};
             String[] teachingLanguages = {};
             String[] locations = {};
-            String type = "DTU_DIPLOM";
+            //String type = "DTU_DIPLOM";
             String[] departments = {};
             String[] ects = {};
 
             sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
             takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+
+
+            String type = sp.getString("Kursustype", "DTU_BSC");
 
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
 
