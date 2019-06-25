@@ -40,6 +40,7 @@ public class CourseFilterBuilder {
         this.coursesAsObject = coursesAsObject;
         this.allCourses = coursesAsObject.getCourseArray();
         this.filteredCourses = new ArrayList<>(Arrays.asList(allCourses));
+        filteredCourses = filterAllCourses();
     }
 
     public ArrayList<Course> filterAllCourses() {
