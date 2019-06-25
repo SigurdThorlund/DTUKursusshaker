@@ -4,16 +4,18 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
 
     <!-- The background color, preferably the same as your normal theme -->
-    <item android:drawable="@color/secondaryColor"/>
+    <item android:drawable="@color/primaryTextColor"/>
 
     <!-- Your product logo - 144dp color version of your app icon -->
     <item>
 
         <bitmap
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:src="@drawable/dtu_logo_splash_v"
             android:gravity="center"
             android:width="20dp"
-            android:height="20dp"/>
+            android:height="20dp"
+            />
     </item>
 
 </layer-list>
