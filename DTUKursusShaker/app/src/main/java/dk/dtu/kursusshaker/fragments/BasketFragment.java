@@ -87,7 +87,6 @@ public class BasketFragment extends Fragment {
         }
 
         sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
-
     }
 
     @Override
@@ -101,10 +100,10 @@ public class BasketFragment extends Fragment {
         final FrameLayout frameLayout = (FrameLayout) inflater.inflate(R.layout.fragment_basket, container, false);
 
         //Parse hashset to arraylist
-        HashSet<String> courses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+        HashSet<String> basketCourses = (HashSet<String>) sp.getStringSet("BasketCourses", new HashSet<String>());
 
 
-        ArrayList<String> coursesAsArrayList = new ArrayList<>(courses);
+        ArrayList<String> coursesAsArrayList = new ArrayList<>(basketCourses);
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
         for (int i = 0; i < coursesAsArrayList.size(); i++) {
             Map<String, Object> listItemMap = new HashMap<String, Object>();

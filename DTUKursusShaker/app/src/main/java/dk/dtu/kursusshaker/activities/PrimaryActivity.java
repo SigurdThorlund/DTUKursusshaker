@@ -48,6 +48,7 @@ public class PrimaryActivity extends AppCompatActivity {
 
     SharedPreferences sp;
     HashSet<String> takenCourses;
+    HashSet<String> basketCourses;
 
     //Sigurd, skal slettes senere
 
@@ -66,6 +67,7 @@ public class PrimaryActivity extends AppCompatActivity {
         sp = getSharedPreferences("Preferences", MODE_PRIVATE);
 
         takenCourses = (HashSet<String>) sp.getStringSet("Courses",new HashSet<String>());
+        basketCourses = (HashSet<String>) sp.getStringSet("BasketCourses",new HashSet<String>());
     }
 
     @Override
@@ -158,24 +160,24 @@ public class PrimaryActivity extends AppCompatActivity {
         // requestCode 1 equals the intent request made from SearchFragment if a search item is
         // clicked within the primaryActivity scope
 
-        sp.edit().remove("Courses").apply();
+
 
         if (resultCode == 1) {
             Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
+            sp.edit().remove("BasketCourses").apply();
 
-            if (takenCourses.contains(returnedcourse.getCourseCode())) {
+            if (basketCourses.contains(returnedcourse.getCourseCode())) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Du har allerede tilføjet dette kursus", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                 toast.show();
             } else {
-                takenCourses.add(returnedcourse.getCourseCode());
+                basketCourses.add(returnedcourse.getCourseCode());
                 Toast toast = Toast.makeText(getApplicationContext(), returnedcourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                 toast.show();
             }
-
+            sp.edit().putStringSet("BasketCourses", basketCourses).apply();
         }
 
-        sp.edit().putStringSet("Courses", takenCourses).apply();
     }
 }
