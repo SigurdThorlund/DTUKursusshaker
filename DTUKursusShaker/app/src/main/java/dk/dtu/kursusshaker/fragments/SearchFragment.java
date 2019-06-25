@@ -120,6 +120,7 @@ public class SearchFragment extends Fragment {
             schedulePlacements = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
 
             String type = sp.getString("Kursustype", "DTU_BSC");
+
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
             String[] scheduleFilter = schedulePlacements.toArray(new String[schedulePlacements.size()]);
 

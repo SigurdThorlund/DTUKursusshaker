@@ -35,11 +35,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tagetKursusTitle" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skemaPlaceringDivider">
@@ -157,10 +158,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -168,10 +169,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -179,10 +180,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -190,9 +191,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
-                android:checked="true"
                 android:textAllCaps="false"
                 android:textIsSelectable="false" />
 
@@ -201,10 +202,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -233,10 +234,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -244,10 +245,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -255,10 +256,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -266,10 +267,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -277,10 +278,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
         </TableRow>
 
@@ -313,10 +314,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#E4E4E4"
+                android:checked="true"
                 android:elegantTextHeight="false"
                 android:freezesText="false"
                 android:textAllCaps="false"
-                android:checked="true"
                 android:textIsSelectable="false" />
 
             <Space
@@ -335,8 +336,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="270dp"
-        android:layout_height="270dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -345,6 +346,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Hvilket semester vil du søge kurser for?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <RadioGroup
+        android:id="@+id/radio_semester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <RadioButton
+            android:id="@+id/radio_efter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Efterår" />
+
+        <RadioButton
+            android:id="@+id/radio_for"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forår" />
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

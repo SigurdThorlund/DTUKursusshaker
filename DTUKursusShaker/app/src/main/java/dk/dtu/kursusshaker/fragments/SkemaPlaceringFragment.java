@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,11 +35,16 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
     private CheckBox cbFreE;
     private CheckBox cbTirA;
 
+    private RadioButton checkedSemester;
+    private RadioGroup semesterGroup;
+
     ArrayList<CheckBox> checkBoxes;
 
     private final int NUM_CHECK_BOX = 11;
 
     private HashSet<String> skemaplaceringer = new HashSet<>();
+
+    private static final String TAG = "SkemaPlaceringFragment";
 
     @Nullable
     @Override
@@ -74,6 +81,9 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
         checkBoxes.add(cbTorE);
         checkBoxes.add(cbFreM);
         checkBoxes.add(cbFreE);
+
+
+        semesterGroup = getView().findViewById(R.id.radio_semester);
     }
 
 
@@ -91,6 +101,19 @@ public class SkemaPlaceringFragment extends OnboardingFragment {
             }
         }
 
+        String semesterTime;
+
+        checkedSemester = getView().findViewById(semesterGroup.getCheckedRadioButtonId());
+
+        if (checkedSemester.getText().equals("Efterår")) {
+            semesterTime = "E";
+        } else {
+            semesterTime = "F";
+        }
+
+        sp.edit().putString("Semestertid", semesterTime).apply();
         sp.edit().putStringSet("Skemaplacering", skemaplaceringer).apply();
+
+        Log.d(TAG, "savePreferenceData: " + semesterTime);
     }
 }
