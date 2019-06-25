@@ -23,6 +23,11 @@ import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
+/**
+ * Recommendation for course which shows when the phone is shaken
+ *
+ */
+
 public class RecommendationsFragment extends Fragment {
 
     private PrimaryViewModel primaryViewModel;
