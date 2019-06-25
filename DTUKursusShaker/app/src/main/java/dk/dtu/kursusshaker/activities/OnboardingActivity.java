@@ -29,6 +29,8 @@ import static androidx.lifecycle.ViewModelProviders.of;
  * Activity that hosts the onboarding fragments
  *
  * Sigurd Thorlund s184189
+ *
+ * ViewPager code inspired by https://www.youtube.com/watch?v=pwcG6npiXyo
  */
 
 public class OnboardingActivity extends AppCompatActivity {
