@@ -68,6 +68,7 @@ public class SearchFragment extends Fragment {
 
     SharedPreferences sp;
     HashSet<String> takenCourses;
+    HashSet<String> basketCourses;
 
 
     public SearchFragment() {
@@ -79,15 +80,6 @@ public class SearchFragment extends Fragment {
         super.onAttach(context);
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
@@ -124,7 +116,6 @@ public class SearchFragment extends Fragment {
 
             sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
             takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
-
 
             String type = sp.getString("Kursustype", "DTU_BSC");
 

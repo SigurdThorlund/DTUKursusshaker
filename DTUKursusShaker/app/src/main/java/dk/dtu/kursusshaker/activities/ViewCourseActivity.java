@@ -97,7 +97,6 @@ public class ViewCourseActivity extends AppCompatActivity {
             chipGroupPoints.addView(chip);
         }
 
-
         if (course.getMandatoryPrerequisites().length != 0 || course.getQualifiedPrerequisites().length != 0) {
             infoprereq.setText("Du burde have haft følgende fag");
         }

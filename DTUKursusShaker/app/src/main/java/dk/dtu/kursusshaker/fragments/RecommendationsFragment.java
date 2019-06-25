@@ -1,7 +1,6 @@
 package dk.dtu.kursusshaker.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,8 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
 
 import java.util.HashSet;
 
@@ -39,7 +36,7 @@ public class RecommendationsFragment extends Fragment {
 
     private OnListFragmentInteractionListener mListener;
 
-    HashSet<String> takenCourses;
+    HashSet<String> basketCourses;
     SharedPreferences sp;
 
     /**
@@ -59,7 +56,8 @@ public class RecommendationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
-        takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+
+        basketCourses = (HashSet<String>) sp.getStringSet("BasketCourses", new HashSet<String>());
 
         primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
         final Course recommendedCourse = primaryViewModel.getRecommendedCourse();
@@ -81,18 +79,19 @@ public class RecommendationsFragment extends Fragment {
         addToBasketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (takenCourses.contains(recommendedCourse.getCourseCode())) {
+                sp.edit().remove("BasketCourses").apply();
+                if (basketCourses.contains(recommendedCourse.getCourseCode())) {
                     Toast toast = Toast.makeText(getContext(), "Du har allerede tilføjet dette kursus", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                     toast.show();
                 } else {
-                    takenCourses.add(recommendedCourse.getCourseCode());
+                    basketCourses.add(recommendedCourse.getCourseCode());
                     Toast toast = Toast.makeText(getContext(), recommendedCourse.getDanishTitle() + " tilføjet til kurven!", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                     toast.show();
                     Navigation.findNavController(v).navigate(R.id.navigation_dashboard);
                 }
-                sp.edit().putStringSet("Courses", takenCourses).apply();
+                sp.edit().putStringSet("BasketCourses", basketCourses).apply();
             }
         });
 
