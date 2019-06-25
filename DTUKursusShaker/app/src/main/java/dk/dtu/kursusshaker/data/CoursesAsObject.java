@@ -14,6 +14,10 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Helper class to access coursedata
+ *
+ */
 public class CoursesAsObject {
 
     Course[] courseArray;

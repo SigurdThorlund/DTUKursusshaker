@@ -37,6 +37,11 @@ import dk.dtu.kursusshaker.data.PrimaryViewModel;
 import dk.dtu.kursusshaker.fragments.DashboardFragment;
 import dk.dtu.kursusshaker.fragments.SearchFragment;
 
+/**
+ * The primary activity which hosts the fragments of the navigationbar
+ *
+ */
+
 public class PrimaryActivity extends AppCompatActivity {
 
     private static final String TAG = "Debug";
