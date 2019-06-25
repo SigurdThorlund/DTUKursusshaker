@@ -45,12 +45,14 @@ public class DashboardFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent;
-
+        //Del af koden fra http://jasonmcreynolds.com/?p=388
+        ///////////////////////////
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorListener = new ShakeListener(new OnShakeListener() {
             @Override
             public void onShake() {
+        //////////////////////////
                 CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
                 primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
                 Navigation.findNavController(getActivity(), R.id.primary_host_fragment).navigate(R.id.recommendationsFragment);
