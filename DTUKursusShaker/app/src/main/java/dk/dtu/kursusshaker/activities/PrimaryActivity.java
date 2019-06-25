@@ -96,10 +96,6 @@ public class PrimaryActivity extends AppCompatActivity {
     private void initFilteredCourses() {
         CoursesAsObject coursesAsObject = new CoursesAsObject(getApplicationContext());
 
-        ArrayList<Course> courseArray;
-
-        OnBoardingViewModel onBoardingViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel.class);
-
         String season = "";
         String[] scheduleFilter = {};
         String[] teachingLanguages = {};
@@ -122,8 +118,6 @@ public class PrimaryActivity extends AppCompatActivity {
         public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
 
             if (destination.getId() != R.id.navigation_dashboard) {
-
-
             }
 
             // Usefull method.. Following can be removed before final release!

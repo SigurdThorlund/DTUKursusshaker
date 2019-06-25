@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +73,7 @@ public class RecommendationsFragment extends Fragment {
         recommendedCourseID.setText(recommendedCourse.getCourseCode());
 
         TextView recommendedCourseDescription = view.findViewById(R.id.recommendedCourseDescription);
+        recommendedCourseDescription.setMovementMethod(new ScrollingMovementMethod());
         recommendedCourseDescription.setText(recommendedCourse.getDanishContents());
 
         // Also add the button as well as an listener

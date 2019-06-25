@@ -5,21 +5,15 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -29,11 +23,9 @@ import java.util.HashSet;
 import java.util.Map;
 
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.controller.BasketRecyclerViewAdapter;
+import dk.dtu.kursusshaker.data.Course;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.data.PrimaryViewModel;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class BasketFragment extends Fragment {
@@ -46,6 +38,7 @@ public class BasketFragment extends Fragment {
 
 
     SharedPreferences sp;
+    public SimpleAdapter simpleAdapter;
 
 
     private ListView listView;
@@ -110,10 +103,9 @@ public class BasketFragment extends Fragment {
         //Parse hashset to arraylist
         HashSet<String> courses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
 
+
         ArrayList<String> coursesAsArrayList = new ArrayList<>(courses);
-
         ArrayList<Map<String, Object>> itemDataList = new ArrayList<Map<String, Object>>();
-
         for (int i = 0; i < coursesAsArrayList.size(); i++) {
             Map<String, Object> listItemMap = new HashMap<String, Object>();
             listItemMap.put("title", coursesAsArrayList.get(i));
@@ -121,8 +113,9 @@ public class BasketFragment extends Fragment {
             itemDataList.add(listItemMap);
         }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
+        simpleAdapter = new SimpleAdapter(getActivity(), itemDataList, android.R.layout.simple_list_item_2,
                 new String[]{"title", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
+
 
         listView = frameLayout.findViewById(R.id.basket_list);
         listView.setAdapter(simpleAdapter);

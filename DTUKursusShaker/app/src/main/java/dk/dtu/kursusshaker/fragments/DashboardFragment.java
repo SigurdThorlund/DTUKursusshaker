@@ -109,6 +109,8 @@ public class DashboardFragment extends Fragment {
         shakeItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
+                primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
                 Navigation.findNavController(constraintLayout).navigate(R.id.recommendationsFragment);
             }
         });

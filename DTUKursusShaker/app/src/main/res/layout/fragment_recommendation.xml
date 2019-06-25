@@ -55,10 +55,11 @@
     <TextView
         android:id="@+id/recommendedCourseDescription"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
+        android:scrollbars="vertical"
         android:text="Kursus Beskrivelse"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/primaryTextColor"
@@ -70,11 +71,14 @@
         android:id="@+id/recommendedCourseAddToBasketButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         android:text="Tilføj til kurv"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recommendedCourseDescription"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintVertical_bias="0.098" />
 </androidx.constraintlayout.widget.ConstraintLayout>
