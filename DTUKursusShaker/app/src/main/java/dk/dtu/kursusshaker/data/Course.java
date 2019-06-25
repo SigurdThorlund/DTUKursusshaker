@@ -24,120 +24,54 @@ public class Course implements Serializable {
         return courseType;
     }
 
-    public void setCourseType(String courseType) {
-        this.courseType = courseType;
-    }
-
-    public String getEnglishContents() {
-        return englishContents;
-    }
-
-    public void setEnglishContents(String englishContents) {
-        this.englishContents = englishContents;
-    }
-
     public String getCourseCode() {
         return courseCode;
-    }
-
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
     }
 
     public String getDanishTitle() {
         return danishTitle;
     }
 
-    public void setDanishTitle(String danishTitle) {
-        this.danishTitle = danishTitle;
-    }
-
     public String getEcts() {
         return ects;
-    }
-
-    public void setEcts(String ects) {
-        this.ects = ects;
     }
 
     public String getDanishContents() {
         return danishContents;
     }
 
-    public void setDanishContents(String danishContents) {
-        this.danishContents = danishContents;
-    }
-
     public String getLocation() {
         return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getMainDepartment() {
         return mainDepartment;
     }
 
-    public void setMainDepartment(String mainDepartment) {
-        this.mainDepartment = mainDepartment;
-    }
 
     public String getTeachingLanguage() {
         return teachingLanguage;
-    }
-
-    public void setTeachingLanguage(String teachingLanguage) {
-        this.teachingLanguage = teachingLanguage;
-    }
-
-    public String getEnglishTitle() {
-        return englishTitle;
-    }
-
-    public void setEnglishTitle(String englishTitle) {
-        this.englishTitle = englishTitle;
     }
 
     public String[][] getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String[][] schedule) {
-        this.schedule = schedule;
-    }
-
     public String[][] getMandatoryPrerequisites() {
         return mandatoryPrerequisites;
-    }
-
-    public void setMandatoryPrerequisites(String[][] mandatoryPrerequisites) {
-        this.mandatoryPrerequisites = mandatoryPrerequisites;
     }
 
     public String[] getPreviousCourses() {
         return previousCourses;
     }
 
-    public void setPreviousCourses(String[] previousCourses) {
-        this.previousCourses = previousCourses;
-    }
 
     public String[][] getQualifiedPrerequisites() {
         return qualifiedPrerequisites;
     }
 
-    public void setQualifiedPrerequisites(String[][] qualifiedPrerequisites) {
-        this.qualifiedPrerequisites = qualifiedPrerequisites;
-    }
-
     public String[] getNoCreditPointsWith() {
         return noCreditPointsWith;
-    }
-
-    public void setNoCreditPointsWith(String[] noCreditPointsWith) {
-        this.noCreditPointsWith = noCreditPointsWith;
     }
 
     @Override

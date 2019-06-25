@@ -69,6 +69,7 @@ public class SearchFragment extends Fragment {
     SharedPreferences sp;
     HashSet<String> takenCourses;
     HashSet<String> basketCourses;
+    HashSet<String> schedulePlacements;
 
 
     public SearchFragment() {
@@ -106,8 +107,7 @@ public class SearchFragment extends Fragment {
         if (onBoardingViewModel.getOnBoardingInProgress()) {
             courseArray = new ArrayList<>(Arrays.asList(coursesAsObject.getCourseArray()));
         } else {
-            String season = "";
-            String[] scheduleFilter = {};
+            String season = "E";
             String[] teachingLanguages = {};
             String[] locations = {};
             //String type = "DTU_DIPLOM";
@@ -117,9 +117,11 @@ public class SearchFragment extends Fragment {
             sp = getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
             takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
 
-            String type = sp.getString("Kursustype", "DTU_BSC");
+            schedulePlacements = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
 
+            String type = sp.getString("Kursustype", "DTU_BSC");
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
+            String[] scheduleFilter = schedulePlacements.toArray(new String[schedulePlacements.size()]);
 
             primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                     scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));

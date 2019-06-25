@@ -110,7 +110,9 @@ public class OnboardingActivity extends AppCompatActivity {
                 SharedPreferences sp = getSharedPreferences("Preferences", MODE_PRIVATE);
                 sp.edit().putBoolean("Onboarded", true).apply();
                 sp.edit().putStringSet("Courses", onBoardingViewModel.getCourseNumbersOfFinishedCourses()).apply();
+                skemaPlaceringFragment.savePreferenceData();
                 launchMainActivity();
+
             }
         };
 
