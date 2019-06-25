@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SearchFragment">
+    android:scrollbars="vertical"
+    tools:context=".fragments.DashboardFragment">
 
     <TextView
         android:id="@+id/welcomeText"
@@ -46,7 +47,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/dtu_logo_splash_v"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/ic_thinking_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

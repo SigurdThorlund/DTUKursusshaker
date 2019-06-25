@@ -1,14 +1,21 @@
 package dk.dtu.kursusshaker.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+
+import java.util.HashSet;
 
 import dk.dtu.kursusshaker.R;
 import dk.dtu.kursusshaker.data.Course;
@@ -24,6 +31,9 @@ public class ViewCourseActivity extends AppCompatActivity {
     ChipGroup chipGroup;
     ChipGroup chipGroupPrereq;
     ChipGroup chipGroupPoints;
+    MaterialButton addToBasketButton;
+
+    HashSet<String> takenCourses;
 
     public ViewCourseActivity() {
     }
@@ -35,7 +45,6 @@ public class ViewCourseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         course = (Course) intent.getSerializableExtra("selectedCourse");
         setTextViews();
-
     }
 
     private void setTextViews() {
@@ -53,6 +62,9 @@ public class ViewCourseActivity extends AppCompatActivity {
 
         infoprereq = findViewById(R.id.prereq_text);
         chipGroupPrereq = findViewById(R.id.chip_group_pereq);
+
+        addToBasketButton = findViewById(R.id.addToBasketButton);
+        addToBasketButton.setOnClickListener(addToBasketClickListener); // onAddToBasket click listener
 
         chipGroup = findViewById(R.id.chip_group);
 
@@ -84,7 +96,6 @@ public class ViewCourseActivity extends AppCompatActivity {
             chip.setText(course.getNoCreditPointsWith()[i]);
             chipGroupPoints.addView(chip);
         }
-
 
         if (course.getMandatoryPrerequisites().length != 0 || course.getQualifiedPrerequisites().length != 0) {
             infoprereq.setText("Du burde have haft følgende fag");
@@ -122,4 +133,23 @@ public class ViewCourseActivity extends AppCompatActivity {
             }
         }
     }
+
+    View.OnClickListener addToBasketClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("returnedCourse", course);
+            setResult(1,returnIntent);
+            finish();
+        }
+    };
+
+    // When user press back he will return back to primaryActivity with a resultCode 2
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+        setResult(2, returnIntent);
+        finish();
+    }
+
 }

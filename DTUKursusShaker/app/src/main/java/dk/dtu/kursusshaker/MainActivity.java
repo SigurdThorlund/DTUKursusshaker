@@ -10,12 +10,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import dk.dtu.kursusshaker.activities.PrimaryActivity;
 
@@ -34,14 +41,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startPrimaryActivityIntent);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DTU_K_shaker")
-                .setSmallIcon(R.drawable.ic_home_black_24dp) //Need new icon, current one is a placeholder
-                .setContentTitle("DTU Kursusshaker")
-                .setContentText("App has launched")
+                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        Calendar calendar = Calendar.getInstance();
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-// notificationId is a unique int for each notification that you must define
-        notificationManager.notify(0, builder.build());
+        int thisMonth = calendar.get(Calendar.MONTH);
+        if(thisMonth == 11) {
+            builder.setContentTitle("DTU Kursusshaker").setContentText("Husk tilmeldning til 3-ugers kursus i januar!");
+            notificationManager.notify(0,builder.build());
+        }
+        else if(thisMonth == 4) {
+            builder.setContentTitle("DTU Kursusshaker").setContentText("Husk tilmeldning til 3-ugers sommerkurser!");
+            notificationManager.notify(1,builder.build());
+        }
         finish();
     }
 
@@ -49,14 +61,10 @@ public class MainActivity extends AppCompatActivity {
     //Create notifications channel
     private void createNotificationChannel() {
         Log.i(TAG,"Entered createNotificationChannel()");
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("DTU_K_shaker", "Kursusshaker_Notifications", importance); //Need for better channel name+id
+            NotificationChannel channel = new NotificationChannel("DTU_K_shaker", "Kursusshaker_Notifications", importance);
             channel.setDescription("Notifications from DTU Kursusshaker");
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }

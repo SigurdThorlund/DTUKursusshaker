@@ -42,5 +42,5 @@
         android:id="@+id/recommendationsFragment"
         android:name="dk.dtu.kursusshaker.fragments.RecommendationsFragment"
         android:label="fragment_recommendations_list"
-        tools:layout="@layout/fragment_recommendations_list" />
+        tools:layout="@layout/fragment_recommendation" />
 </navigation>

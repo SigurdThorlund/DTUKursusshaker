@@ -143,5 +143,14 @@
         app:singleLine="false"
         app:singleSelection="false"></com.google.android.material.chip.ChipGroup>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addToBasketButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tilføj til kurv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group_pereq"></com.google.android.material.button.MaterialButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

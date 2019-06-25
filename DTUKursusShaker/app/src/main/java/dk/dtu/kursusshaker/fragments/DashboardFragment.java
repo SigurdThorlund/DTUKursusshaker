@@ -1,40 +1,32 @@
 package dk.dtu.kursusshaker.fragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
+import java.util.HashSet;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.zip.Inflater;
-
+import dk.dtu.kursusshaker.OnShakeListener;
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.activities.PrimaryActivity;
-import dk.dtu.kursusshaker.data.Course;
-import dk.dtu.kursusshaker.data.CoursesAsObject;
+import dk.dtu.kursusshaker.ShakeListener;
+import dk.dtu.kursusshaker.data.CourseFilterBuilder;
+import dk.dtu.kursusshaker.data.PrimaryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +38,8 @@ import dk.dtu.kursusshaker.data.CoursesAsObject;
  */
 public class DashboardFragment extends Fragment {
 
+    PrimaryViewModel primaryViewModel;
+
     View view;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -55,8 +49,14 @@ public class DashboardFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SensorManager mSensorManager;
 
     private OnFragmentInteractionListener mListener;
+
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private ShakeListener sensorListener;
+    private static final String TAG = "tag";
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -83,15 +83,29 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent;
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorListener = new ShakeListener(new OnShakeListener() {
+            @Override
+            public void onShake() {
+                CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
+                primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
+                Navigation.findNavController(getActivity(), R.id.primary_host_fragment).navigate(R.id.recommendationsFragment);
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        primaryViewModel = ViewModelProviders.of(getActivity()).get(PrimaryViewModel.class);
 
         // Inflate the layout for this fragment
         final ConstraintLayout constraintLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -100,6 +114,8 @@ public class DashboardFragment extends Fragment {
         shakeItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CourseFilterBuilder courseFilterBuilder = primaryViewModel.getCourseFilterBuilder();
+                primaryViewModel.setRecommendedCourse(courseFilterBuilder.getRandomCourse());
                 Navigation.findNavController(constraintLayout).navigate(R.id.recommendationsFragment);
             }
         });
@@ -134,6 +150,20 @@ public class DashboardFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+    public void onResume() {
+        super.onResume();
+        sensorManager.registerListener(sensorListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    public void onStop() {
+        sensorManager.unregisterListener(sensorListener);
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     /**

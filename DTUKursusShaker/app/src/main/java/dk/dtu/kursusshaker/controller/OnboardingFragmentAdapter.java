@@ -1,4 +1,4 @@
-package dk.dtu.kursusshaker.activities;
+package dk.dtu.kursusshaker.controller;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class OnboardingFragmentAdapter extends FragmentPagerAdapter {
 
-    private final int NUM_ONBOARDING_PAGES = 2;
+    private final int NUM_ONBOARDING_PAGES = 3;
 
     private List<Fragment> fragmentsList = new ArrayList<>();
 

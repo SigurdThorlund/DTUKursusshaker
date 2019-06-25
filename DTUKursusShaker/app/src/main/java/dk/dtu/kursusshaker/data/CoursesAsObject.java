@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CoursesAsObject {
@@ -33,22 +34,20 @@ public class CoursesAsObject {
         courseArray = gson.fromJson(reader, Course[].class);
 
 
-
     }
 
     public Course[] getCourseArray() {
         return courseArray;
     }
 
-    public  Course getCourseFromId(String id){
+    public Course getCourseFromId(String id) {
         Course tempCourse = new Course();
-        for (Course c:courseArray
-             ) {
-            if (c.getCourseCode().equals(id)){
-                tempCourse = c;
+        for (Course c : courseArray) {
+            if (c.getCourseCode().equals(id)) {
+                return c;
             }
         }
-        return tempCourse;
+        return null;
     }
 
 
