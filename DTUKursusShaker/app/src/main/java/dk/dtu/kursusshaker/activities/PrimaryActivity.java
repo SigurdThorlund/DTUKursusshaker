@@ -159,12 +159,12 @@ public class PrimaryActivity extends AppCompatActivity {
 
         // requestCode 1 equals the intent request made from SearchFragment if a search item is
         // clicked within the primaryActivity scope
+        basketCourses = (HashSet<String>) sp.getStringSet("BasketCourses",new HashSet<String>());
 
-
+        sp.edit().remove("BasketCourses").apply();
 
         if (resultCode == 1) {
             Course returnedcourse = (Course) data.getSerializableExtra("returnedCourse");
-            sp.edit().remove("BasketCourses").apply();
 
             if (basketCourses.contains(returnedcourse.getCourseCode())) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Du har allerede tilføjet dette kursus", Toast.LENGTH_SHORT);
@@ -176,8 +176,9 @@ public class PrimaryActivity extends AppCompatActivity {
                 toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL,0,0);
                 toast.show();
             }
-            sp.edit().putStringSet("BasketCourses", basketCourses).apply();
         }
+
+        sp.edit().putStringSet("BasketCourses", basketCourses).apply();
 
     }
 }
