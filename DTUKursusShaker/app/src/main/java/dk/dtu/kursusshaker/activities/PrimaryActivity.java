@@ -98,7 +98,6 @@ public class PrimaryActivity extends AppCompatActivity {
 
     private void initFilteredCourses() {
         CoursesAsObject coursesAsObject = new CoursesAsObject(getApplicationContext());
-        String season = "E";
         String[] teachingLanguages = {};
         String[] locations = {};
         String[] departments = {};
@@ -108,6 +107,7 @@ public class PrimaryActivity extends AppCompatActivity {
         takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
         schedulePlacements = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
 
+        String season = sp.getString("Semestertid", "E");
         String type = sp.getString("Kursustype", "DTU_BSC");
         String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
         String[] scheduleFilter = schedulePlacements.toArray(new String[schedulePlacements.size()]);

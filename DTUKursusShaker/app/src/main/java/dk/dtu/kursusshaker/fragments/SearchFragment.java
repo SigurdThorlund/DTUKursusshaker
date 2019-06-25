@@ -107,7 +107,6 @@ public class SearchFragment extends Fragment {
         if (onBoardingViewModel.getOnBoardingInProgress()) {
             courseArray = new ArrayList<>(Arrays.asList(coursesAsObject.getCourseArray()));
         } else {
-            String season = "E";
             String[] teachingLanguages = {};
             String[] locations = {};
             String[] departments = {};
@@ -119,6 +118,7 @@ public class SearchFragment extends Fragment {
             schedulePlacements = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
 
             String type = sp.getString("Kursustype", "DTU_BSC");
+            String season = sp.getString("Semestertid", "E");
 
             String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
             String[] scheduleFilter = schedulePlacements.toArray(new String[schedulePlacements.size()]);
