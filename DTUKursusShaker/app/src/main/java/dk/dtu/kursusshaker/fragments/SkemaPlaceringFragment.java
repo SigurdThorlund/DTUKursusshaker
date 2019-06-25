@@ -13,13 +13,10 @@ import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
-import dk.dtu.kursusshaker.PreferenceData;
 import dk.dtu.kursusshaker.R;
 
 public class SkemaPlaceringFragment extends OnboardingFragment {

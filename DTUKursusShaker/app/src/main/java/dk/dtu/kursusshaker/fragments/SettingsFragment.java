@@ -22,10 +22,6 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingsFragment extends Fragment {
     Button resetPrefs;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public SettingsFragment() {
         // Required empty public constructor
     }

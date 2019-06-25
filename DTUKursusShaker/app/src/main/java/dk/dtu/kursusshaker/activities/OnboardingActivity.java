@@ -1,6 +1,5 @@
 package dk.dtu.kursusshaker.activities;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -10,18 +9,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.io.File;
-
 import dk.dtu.kursusshaker.MainActivity;
 import dk.dtu.kursusshaker.R;
-import dk.dtu.kursusshaker.fragments.GetStartedFragment;
 import dk.dtu.kursusshaker.controller.OnboardingFragmentAdapter;
 import dk.dtu.kursusshaker.data.OnBoardingViewModel;
 import dk.dtu.kursusshaker.fragments.KursusTypeFragment;

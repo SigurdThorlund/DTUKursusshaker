@@ -42,7 +42,6 @@ public class PrimaryActivity extends AppCompatActivity {
     private static final String TAG = "Debug";
     private int backButtonCounter;
     private static MenuItem item;
-    private static NavController navController;
     NavController navigationController = null;
     PrimaryViewModel primaryViewModel;
 
@@ -50,8 +49,6 @@ public class PrimaryActivity extends AppCompatActivity {
     HashSet<String> takenCourses;
     HashSet<String> schedulePlacements;
     HashSet<String> basketCourses;
-
-    //Sigurd, skal slettes senere
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +87,6 @@ public class PrimaryActivity extends AppCompatActivity {
         findViewById(R.id.navigation_search).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_search));
         findViewById(R.id.navigation_basket).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_basket));
         findViewById(R.id.navigation_settings).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.navigation_settings));
-
-        //Assign listeners
-        navigationController.addOnDestinationChangedListener(onDestinationChangedListener);
-
     }
 
     private void initFilteredCourses() {
@@ -115,26 +108,6 @@ public class PrimaryActivity extends AppCompatActivity {
         primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                 scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
     }
-
-    NavController.OnDestinationChangedListener onDestinationChangedListener = new NavController.OnDestinationChangedListener() {
-        @Override
-        public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-
-            if (destination.getId() != R.id.navigation_dashboard) {
-            }
-
-            // Usefull method.. Following can be removed before final release!
-            /*
-
-            try {
-                Toast.makeText(getApplicationContext(), destination.getLabel().toString(), Toast.LENGTH_SHORT).show();
-            } catch (NullPointerException e) {
-                Toast.makeText(getApplicationContext(), "NULL DESTINATION", Toast.LENGTH_SHORT).show();
-            }
-            */
-
-        }
-    };
 
     // When user press back during mainMenuTabs he will be asked if he wish to hide the app
     @Override

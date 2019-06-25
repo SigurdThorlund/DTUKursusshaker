@@ -20,9 +20,7 @@ import java.util.List;
 
 import dk.dtu.kursusshaker.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class TagetKursusFragment extends OnboardingFragment {
 
 
@@ -40,6 +38,6 @@ public class TagetKursusFragment extends OnboardingFragment {
 
     @Override
     public void savePreferenceData() {
-        //This does not do anything for now
+        //This does not save anything to preferences
     }
 }
