@@ -110,7 +110,6 @@ public class SearchFragment extends Fragment {
             String season = "E";
             String[] teachingLanguages = {};
             String[] locations = {};
-            //String type = "DTU_DIPLOM";
             String[] departments = {};
             String[] ects = {};
 

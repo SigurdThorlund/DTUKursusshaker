@@ -48,6 +48,7 @@ public class PrimaryActivity extends AppCompatActivity {
 
     SharedPreferences sp;
     HashSet<String> takenCourses;
+    HashSet<String> schedulePlacements;
     HashSet<String> basketCourses;
 
     //Sigurd, skal slettes senere
@@ -97,19 +98,19 @@ public class PrimaryActivity extends AppCompatActivity {
 
     private void initFilteredCourses() {
         CoursesAsObject coursesAsObject = new CoursesAsObject(getApplicationContext());
-
-        String season = "";
-        String[] scheduleFilter = {};
+        String season = "E";
         String[] teachingLanguages = {};
         String[] locations = {};
-        String type = "DTU_DIPLOM";
         String[] departments = {};
         String[] ects = {};
 
         sp = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         takenCourses = (HashSet<String>) sp.getStringSet("Courses", new HashSet<String>());
+        schedulePlacements = (HashSet<String>) sp.getStringSet("Skemaplacering", new HashSet<String>());
 
+        String type = sp.getString("Kursustype", "DTU_BSC");
         String[] completed = takenCourses.toArray(new String[takenCourses.size()]);
+        String[] scheduleFilter = schedulePlacements.toArray(new String[schedulePlacements.size()]);
 
         primaryViewModel.setCourseFilterBuilder(new CourseFilterBuilder(coursesAsObject, season,
                 scheduleFilter, completed, teachingLanguages, locations, type, departments, ects));
