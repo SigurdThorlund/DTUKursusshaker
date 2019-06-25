@@ -23,24 +23,51 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
 
+        <action
+            android:id="@+id/action_navigation_search_to_viewCourseActivity"
+            app:destination="@id/viewCourseActivity" />
     </fragment>
     <fragment
         android:id="@+id/navigation_basket"
         android:name="dk.dtu.kursusshaker.fragments.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket">
-
-    </fragment>
+        tools:layout="@layout/fragment_basket"/>
     <fragment
         android:id="@+id/navigation_settings"
         android:name="dk.dtu.kursusshaker.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
-
-    </fragment>
+        tools:layout="@layout/fragment_settings"/>
     <fragment
         android:id="@+id/recommendationsFragment"
         android:name="dk.dtu.kursusshaker.fragments.RecommendationsFragment"
         android:label="fragment_recommendations_list"
         tools:layout="@layout/fragment_recommendation" />
+    <fragment
+        android:id="@+id/kursusTypeFragment"
+        android:name="dk.dtu.kursusshaker.fragments.KursusTypeFragment"
+        android:label="fragment_studieretning"
+        tools:layout="@layout/fragment_studieretning" >
+        <action
+            android:id="@+id/action_kursusTypeFragment_to_tagetKursusFragment"
+            app:destination="@id/tagetKursusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tagetKursusFragment"
+        android:name="dk.dtu.kursusshaker.fragments.TagetKursusFragment"
+        android:label="fragment_taget_kursus"
+        tools:layout="@layout/fragment_taget_kursus" >
+        <action
+            android:id="@+id/action_tagetKursusFragment_to_skemaPlaceringFragment"
+            app:destination="@id/skemaPlaceringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/skemaPlaceringFragment"
+        android:name="dk.dtu.kursusshaker.fragments.SkemaPlaceringFragment"
+        android:label="fragment_skema_placering"
+        tools:layout="@layout/fragment_skema_placering" />
+    <activity
+        android:id="@+id/viewCourseActivity"
+        android:name="dk.dtu.kursusshaker.activities.ViewCourseActivity"
+        android:label="activity_view_course"
+        tools:layout="@layout/activity_view_course" />
 </navigation>
