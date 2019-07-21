@@ -1,5 +1,6 @@
-DTU-kurser
+# DTU Kursusshaker
+Unfinished randomized course picker for students at the Danish Technical University. Part of a small school project, following a Coursera course on Programming Mobile Applications for Android Handheld Systems by Adam Porter.
 
-[Brug Material design til Appen](https://material.io/develop/android/docs/getting-started/)
-[Søg i ListView, super simpelt!](https://www.youtube.com/watch?time_continue=128&v=rdQN2U1JJvY)
-
+# What I have learned
+ - Android app development
+ - UI design
